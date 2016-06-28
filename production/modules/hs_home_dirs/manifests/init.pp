@@ -1,4 +1,4 @@
-class home_dirs {
+class hs_home_dirs {
 
   file { '/shared':
     ensure => 'directory',
