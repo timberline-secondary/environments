@@ -3,13 +3,13 @@ node default {
 	class { 'helloworld': }
 	class { 'helloworld::motd': }
 
-	class { 'ldap_client':}
+	class { 'hs_ldap_client':}
 
-	class { 'home_dirs':}
+	class { 'hs_home_dirs':}
 
 	class { 'hs_desktop':}
-	class { 'student_apps': }
+	class { 'hs_student_apps': }
 
-	class { 'printers': }
+	class { 'hs_printers': }
 
 }
