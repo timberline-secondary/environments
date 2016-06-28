@@ -1,14 +1,13 @@
-class student_apps {
+class hs_student_apps {
 
   include apt
-  include 'google_chrome'
+  #include 'google_chrome'
 
   #############
   #
   # From Official Repositories
   #
   #############
-
 
   package { 'supertuxkart':  }
   package { 'tuxguitar':  }
