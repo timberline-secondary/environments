@@ -1,4 +1,4 @@
-class ldap_client {
+class hs_ldap_client {
   
   package { libnss-ldap:
     ensure => present,
