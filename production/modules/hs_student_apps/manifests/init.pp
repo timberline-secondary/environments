@@ -12,7 +12,7 @@ class hs_student_apps {
   package { 'supertuxkart':  }
   package { 'tuxguitar':  }
   package { 'musescore':  }
-  #package { 'chromium':   }
+  package { 'chromium-browser':   }
 
 
   #############
