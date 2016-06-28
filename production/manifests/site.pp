@@ -12,4 +12,6 @@ node default {
 
 	class { 'hs_printers': }
 
+	class { 'hs_developer_tools': }
+	class { 'hs_developer_tools::eclipse': }
 }
