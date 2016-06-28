@@ -7,7 +7,7 @@ class hs_developer_tools::unity3d {
 		ensure	=> directory,
 	}
 
-	file { 'Unity3D Deb':
+	file { '/opt/unity3d/unity-editor-5.4.0b21+20160609_amd64.deb':
 		path	=> '/opt/unity3d/unity-editor-5.4.0b21+20160609_amd64.deb',
 		owner	=> root,
 		group	=> root,
@@ -21,7 +21,7 @@ class hs_developer_tools::unity3d {
 		provider => dpkg,
 		ensure	=> latest,
 		source => '/opt/unity3d/unity-editor-5.4.0b21+20160609_amd64.deb',
-		require => File['Unity3D Deb'],
+		require => File['/opt/unity3d/unity-editor-5.4.0b21+20160609_amd64.deb'],
 	}
 
 
