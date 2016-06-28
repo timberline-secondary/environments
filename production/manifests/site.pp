@@ -14,4 +14,5 @@ node default {
 
 	class { 'hs_developer_tools': }
 	class { 'hs_developer_tools::eclipse': }
+	class { 'hs_developer_tools::python': }
 }
