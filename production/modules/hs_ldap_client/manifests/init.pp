@@ -42,7 +42,7 @@ class hs_ldap_client {
     options => 'auto,noatime,bg,tcp,hard',
     fstype  => 'nfs',
     #notify  => Reboot['after_run'],
-  } ~ >
+  } ~>
   reboot { 'after_run':
     apply  => 'refreshed',
   }
