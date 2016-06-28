@@ -9,7 +9,7 @@ class hs_ldap_client {
     path    => '/etc/ldap.conf',
     ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/ldap_client/ldap.conf",
+    source  => "puppet:///modules/hs_ldap_client/ldap.conf",
     notify  => Reboot['after_run'],
   }
 
@@ -18,7 +18,7 @@ class hs_ldap_client {
     ensure  => file,
     require => Package['libnss-ldap'],
     mode    => '0400',		
-    source  => "puppet:///modules/ldap_client/ldap.secret",
+    source  => "puppet:///modules/hs_ldap_client/ldap.secret",
     notify  => Reboot['after_run'],
   }
 
@@ -26,7 +26,7 @@ class hs_ldap_client {
     path    => '/etc/nsswitch.conf',
     ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/ldap_client/nsswitch.conf",
+    source  => "puppet:///modules/hs_ldap_client/nsswitch.conf",
     notify  => Reboot['after_run'],
     # This file is in: modules/ldap_client/files
   }
@@ -35,7 +35,7 @@ class hs_ldap_client {
     path    => '/etc/pam.d/common-session',
     ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/ldap_client/pam.d/common-session",
+    source  => "puppet:///modules/hs_ldap_client/pam.d/common-session",
     notify  => Reboot['after_run'],
   }
 
@@ -61,7 +61,7 @@ class hs_ldap_client {
   file { 'lightdm.conf':
     path    => '/etc/lightdm/lightdm.conf',
     ensure  => file,
-    source  => "puppet:///modules/ldap_client/lightdm/lightdm.conf",
+    source  => "puppet:///modules/hs_ldap_client/lightdm/lightdm.conf",
     require => File['/etc/lightdm'],
   }
 
