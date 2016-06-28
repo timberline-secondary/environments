@@ -1,4 +1,4 @@
-class printers {
+class hs_printers {
 
   file { 'printers.conf':
     path    => '/etc/cups/printers.conf',
