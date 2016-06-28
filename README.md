@@ -1,4 +1,4 @@
-# environments
-Puppet Environments for Hackerspace
+# hs-puppet-environments
+Puppet Environments for Timberline's Hackerspace
 
 `/etc/puppetlabs/code/environments/`
