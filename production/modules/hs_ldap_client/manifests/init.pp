@@ -44,7 +44,7 @@ class hs_ldap_client {
     #notify  => Reboot['after_run'],
   } ~>
   reboot { 'after_run':
-    apply  => 'refreshed',
+    apply  => 'finished',
   }
   
   #this is set up directly by preseed file on install as well.
