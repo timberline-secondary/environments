@@ -17,11 +17,11 @@ class hs_developer_tools::unity3d {
 		require => File['/opt/unity3d'],
 	}
 
-	package { 'unity-editor': 
-		provider => dpkg,
-		ensure	=> latest,
-		source => '/opt/unity3d/unity-editor-5.4.0b21+20160609_amd64.deb',
-		require => File['unity-editor-deb'],
-	}
+#	package { 'unity-editor': 
+#		provider => dpkg,
+#		ensure	=> latest,
+#		source => '/opt/unity3d/unity-editor-5.4.0b21+20160609_amd64.deb',
+#		require => File['unity-editor-deb'],
+#	}
 
 }
