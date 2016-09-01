@@ -62,6 +62,10 @@ class hs_student_apps {
       ensure => present,
   }
   package { 'krita3-testing':
+      ensure  => absent,
+  }
+  
+  package { 'krita-2.9':
       ensure  => latest,
       require => [ Class['apt::update'], Apt::Ppa['ppa:dimula73/krita'] ],
   }
