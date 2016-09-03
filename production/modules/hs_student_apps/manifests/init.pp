@@ -1,7 +1,7 @@
 class hs_student_apps {
 
   include apt
-  #include 'google_chrome'
+  include 'google_chrome'
 
   #############
   #
