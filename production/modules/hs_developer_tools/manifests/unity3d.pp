@@ -2,6 +2,10 @@ class hs_developer_tools::unity3d {
 
 	# Latest Unity build for Linux
 	# http://forum.unity3d.com/threads/unity-on-linux-release-notes-and-known-issues.350256/
+	
+	package { 'monodevelop':
+		ensure  => latest,
+	}
 
 	file { '/opt/unity3d': 
 		ensure	=> directory,
