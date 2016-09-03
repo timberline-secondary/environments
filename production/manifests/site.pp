@@ -11,6 +11,9 @@ node default {
 	class { 'hs_student_apps': }
 
 	class { 'hs_printers': }
+	
+	class { 'hs_admin_tools': }
+	class { 'hs_admin_tools::ssh': }
 
 	class { 'hs_developer_tools': }
 	class { 'hs_developer_tools::eclipse': }
