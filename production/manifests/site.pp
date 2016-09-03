@@ -14,7 +14,7 @@ node default {
 	
 	class { 'hs_admin_tools': }
 	class { 'hs_admin_tools::ssh': }
-	class { 'hs_admin_tools::simplescreenrecorder': }
+	class { 'hs_admin_tools::screencasting': }
 
 	class { 'hs_developer_tools': }
 	class { 'hs_developer_tools::eclipse': }
