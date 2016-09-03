@@ -9,4 +9,7 @@ Are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference/quick_s
 
 `/opt/puppetlabs/puppet/modules`
 
+## Configureation Files
+https://docs.puppet.com/puppet/latest/reference/config_file_main.html
 
+*nix Systems: `/etc/puppetlabs/puppet/puppet.conf`
