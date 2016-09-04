@@ -21,9 +21,8 @@ https://docs.puppet.com/puppet/latest/reference/config_file_main.html
 
 ## Certificates
 
-## Adding Puppet Clients
-###For one off additions
-####Client:
+### New Puppet Clients
+###Client:
 Setup as required
 `sudo apt install puppet` (if not already installed)
 `sudo nano /etc/hosts` and add: `ip puppet` (if required)
