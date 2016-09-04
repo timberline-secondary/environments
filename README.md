@@ -1,16 +1,23 @@
 #Puppet Environments for Timberline's Hackerspace
 
-USeful
-
 ## Useful dirs
 
-Environments: `/etc/puppetlabs/code/environments/`
+Environments: 
+`/etc/puppetlabs/code/environments/`
 
-Request puppet update as client: `sudo /opt/puppetlabs/bin/puppet agent -t`
+Request puppet update as client:
+`sudo /opt/puppetlabs/bin/puppet agent -t`
 
-Modules location: `/opt/puppetlabs/puppet/modules/` (Are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference/quick_start_module_install_nix.html#a-quick-note-about-module-directories)!)
+Modules location: 
+`/opt/puppetlabs/puppet/modules/` (Are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference/quick_start_module_install_nix.html#a-quick-note-about-module-directories)!)
 
-Confdir: `/etc/puppetlabs/puppet`
+Confdir: 
+`/etc/puppetlabs/puppet`
+
+## Configuration Files
+https://docs.puppet.com/puppet/latest/reference/config_file_main.html
+
+*nix Systems: `/etc/puppetlabs/puppet/puppet.conf`
 
 ## Certificates
 List all signed certs:
@@ -46,32 +53,13 @@ class new_module {
 ```
 
 
+## Puppet Forge
 
-
-# Puppet Forge
-
-Are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference/quick_start_module_install_nix.html#a-quick-note-about-module-directories)! 
+Modules are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference/quick_start_module_install_nix.html#a-quick-note-about-module-directories)! 
 
 `/opt/puppetlabs/puppet/modules`
 
-## Configureation Files
-https://docs.puppet.com/puppet/latest/reference/config_file_main.html
 
-*nix Systems: `/etc/puppetlabs/puppet/puppet.conf`
-
-## Adding Puppet Clients
-###For one off additions
-####Client:
-Setup as required
-`sudo apt install puppet` (if not already installed)
-`sudo nano /etc/hosts` and add: `ip puppet` (if required)
-
-Request certificate from server
-`sudo /opt/puppetlabs/bin/puppet puppet agent -t`
-(if this has issues, try `sudo su` to run `puppet` without path)
-
-####Puppet server
-sudo /opt/puppetlabs/bin/puppet puppet cert list`
 `
 
 
