@@ -20,15 +20,31 @@ https://docs.puppet.com/puppet/latest/reference/config_file_main.html
 *nix Systems: `/etc/puppetlabs/puppet/puppet.conf`
 
 ## Certificates
+
+## Adding Puppet Clients
+###For one off additions
+####Client:
+Setup as required
+`sudo apt install puppet` (if not already installed)
+`sudo nano /etc/hosts` and add: `ip puppet` (if required)
+
+Request certificate from server
+`sudo /opt/puppetlabs/bin/puppet puppet agent -t`
+(if this has issues, try `sudo su` to run `puppet` without path)
+
+####Puppet server
 List all signed certs:
 `sudo /opt/puppetlabs/bin/puppet cert --list`
 
-Remove from client:
+### Broken Certificates
+On client, remove cert:
 `sudo find /etc/puppetlabs/puppet/ssl -name hostname.hackerspace.tbl.pem -delete`
 
-Revoke a cert (via puppet server):
-if problems, `sudo su` and then don't need puppet path
+On server, revoke client's cert:
+(if problems, `sudo su` and then don't need puppet path)
 `sudo /opt/puppetlabs/bin/puppet cert clean hostname.hackerspace.tbl`
+
+On client, request new cert (see above)
 
 
 ##New Module
