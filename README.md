@@ -1,21 +1,16 @@
-# hs-puppet-environments
-Puppet Environments for Timberline's Hackerspace
+#Puppet Environments for Timberline's Hackerspace
 
-`/etc/puppetlabs/code/environments/`
+USeful
 
+## Useful dirs
 
+Environments: `/etc/puppetlabs/code/environments/`
 
-Request puppet update from client:
-`sudo /opt/puppetlabs/bin/puppet agent -t`
+Request puppet update as client: `sudo /opt/puppetlabs/bin/puppet agent -t`
 
-Modules location:
-`/opt/puppetlabs/puppet/modules/`
+Modules location: `/opt/puppetlabs/puppet/modules/` (Are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference/quick_start_module_install_nix.html#a-quick-note-about-module-directories)!)
 
-Environments and Manifests:
-`/etc/puppetlabs/code/environments/`
-
-Confdir
-`/etc/puppetlabs/puppet`
+Confdir: `/etc/puppetlabs/puppet`
 
 ## Certificates
 List all signed certs:
