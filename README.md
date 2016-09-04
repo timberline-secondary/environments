@@ -22,18 +22,25 @@ https://docs.puppet.com/puppet/latest/reference/config_file_main.html
 ## Certificates
 
 ### New Puppet Clients
-###Client:
-Setup as required
+####Client
+Setup as required:
 `sudo apt install puppet` (if not already installed)
-`sudo nano /etc/hosts` and add: `ip puppet` (if required)
+`sudo nano /etc/hosts` and add: `ip puppet` (not required if DNS working)
+
+Test connection to puppet:
+`ping puppet`
 
 Request certificate from server
 `sudo /opt/puppetlabs/bin/puppet puppet agent -t`
 (if this has issues, try `sudo su` to run `puppet` without path)
 
 ####Puppet server
-List all signed certs:
-`sudo /opt/puppetlabs/bin/puppet cert --list`
+List all certs and requests:
+`sudo /opt/puppetlabs/bin/puppet cert list`
+
+Signt he certificate:
+`sudo /opt/puppetlabs/bin/puppet cert sign "hostname"`
+
 
 ### Broken Certificates
 On client, remove cert:
