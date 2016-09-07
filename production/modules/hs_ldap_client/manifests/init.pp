@@ -27,7 +27,7 @@ class hs_ldap_client {
     require => Package['libnss-ldap'],
     source  => "puppet:///modules/hs_ldap_client/nsswitch.conf",
     #notify  => Reboot['after_run'],
-    # This file is in: modules/ldap_client/files
+    # This file is in: modules/hs_ldap_client/files
   } ->
   file { 'common-session':
     path    => '/etc/pam.d/common-session',
