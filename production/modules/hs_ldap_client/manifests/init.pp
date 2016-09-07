@@ -36,6 +36,13 @@ class hs_ldap_client {
     source  => "puppet:///modules/hs_ldap_client/pam.d/common-session",
     #notify  => Reboot['after_run'],
   } ->
+  file { 'common-password':
+    path    => '/etc/pam.d/common-password',
+    ensure  => file,
+    require => Package['libnss-ldap'],
+    source  => "puppet:///modules/hs_ldap_client/pam.d/common-password",
+    #notify  => Reboot['after_run'],
+  } ->
   fstab::mount { '/home':
     ensure  => 'mounted',
     device  => '192.168.43.4:/nfshome',
