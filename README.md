@@ -81,7 +81,8 @@ Modules are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference
 
 `/opt/puppetlabs/puppet/modules`
 
-
+## Troubleshooting agents
+https://docs.puppet.com/pe/latest/trouble_comms.html
 `
 
 
