@@ -88,7 +88,8 @@ Modules are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference
 https://docs.puppet.com/pe/latest/trouble_comms.html
 
 ###Logs
-https://docs.puppet.com/pe/latest/install_what_and_where.html#puppet-agent-logs
+
+`/var/log/syslog`
 `
 
 
