@@ -1,4 +1,4 @@
-$timestamp = generate('/bin/date', '+%Y%d%m_%H:%M:%S')
+$timestamp = generate('/bin/date')
 
 class helloworld::motd {
 	file { '/etc/motd':
