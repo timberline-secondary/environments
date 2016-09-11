@@ -7,10 +7,12 @@ class hs_developer_tools::unity3d {
 		ensure  => latest,
 	}
 
+	
 	file { '/opt/unity3d': 
 		ensure	=> directory,
 	}
 
+	/*
 	file { 'unity-editor-deb':
 		path	=> '/opt/unity3d/unity-editor-5.4.0p1+20160810_amd64.deb',
 		owner	=> root,
@@ -27,5 +29,6 @@ class hs_developer_tools::unity3d {
 		source => '/opt/unity3d/unity-editor-5.4.0p1+20160810_amd64.deb',
 		require => File['unity-editor-deb'],
 	}
+	*/
 
 }
