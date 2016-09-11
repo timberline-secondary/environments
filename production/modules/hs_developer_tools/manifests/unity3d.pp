@@ -22,13 +22,13 @@ class hs_developer_tools::unity3d {
 		source	=> 'puppet:///modules/hs_developer_tools/unity-editor-5.5.0b2+20160906_amd64.deb',
 		require => File['/opt/unity3d'],
 	}
-	/*
+	
 	package { 'unity-editor': 
 		provider => dpkg,
 		ensure	=> latest,
-		source => '/opt/unity3d/unity-editor-5.4.0p1+20160810_amd64.deb',
+		source => '/opt/unity3d/unity-editor-5.5.0b2+20160906_amd64.deb',
 		require => File['unity-editor-deb'],
 	}
-	*/
+	
 
 }
