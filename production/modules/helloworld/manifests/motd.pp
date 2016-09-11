@@ -1,6 +1,6 @@
-$timestamp = generate('/bin/date')
 
 class helloworld::motd {
+	$timestamp = generate('/bin/date')
 	file { '/etc/motd':
 	owner => 'root',
 	group => 'root',
