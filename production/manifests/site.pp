@@ -12,6 +12,8 @@ node default {
 
 	class { 'hs_printers': }
 	
+	class { 'hs_utilities': }
+	
 	class { 'hs_admin_tools': }
 	class { 'hs_admin_tools::ssh': }
 	class { 'hs_admin_tools::screencasting': }
