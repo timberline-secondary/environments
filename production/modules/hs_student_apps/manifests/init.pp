@@ -93,15 +93,9 @@ class hs_student_apps {
   #
   #############
 
-  #apt::ppa { 'ppa:ubuntuhandbook1/audacity':
-  #    ensure => present,
-  #}
-  #package { 'audacity':
-  #    ensure  => latest,
-  #    require => [ Class['apt::update'], Apt::Ppa['ppa:ubuntuhandbook1/audacity'] ],
-  #}
-  #package { 'lame': }
-  #package { 'libmp3lame0': }
+  package { 'lame': }
+  package { 'libmp3lame0': }
+  package { 'audacity': }
 
 
 }
