@@ -1,1 +1,9 @@
-
+[Desktop Entry]
+Version=1.0
+Name=Kaku
+Comment=Next generation music player
+Exec=
+Icon=
+Terminal=false
+Type=Application
+Categories=Utility;Application;
