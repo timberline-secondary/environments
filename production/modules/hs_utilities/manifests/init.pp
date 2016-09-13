@@ -15,6 +15,9 @@ class hs_utilities {
       ensure  => latest,
       require => [ Class['apt::update'], Apt::Ppa['ppa:sethj/silentcast'] ],
   }  
+  package { 'byzanz': 
+    ensure  => latest,
+  }
   
   package { 'unity-tweak-tool': 
     ensure  => latest,
