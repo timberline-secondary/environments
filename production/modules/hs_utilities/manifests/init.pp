@@ -16,5 +16,9 @@ class hs_utilities {
       require => [ Class['apt::update'], Apt::Ppa['ppa:sethj/silentcast'] ],
   }  
   
+  package { 'unity-tweak-tool': 
+    ensure  => latest,
+  }
+  
   
 }
