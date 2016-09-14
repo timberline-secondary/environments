@@ -77,6 +77,8 @@ class new_module {
 
 ## Puppet Forge
 
+puppet module install camptocamp-archive --environment production
+
 Modules are here but [shouldn't be](https://docs.puppet.com/puppet/4.6/reference/quick_start_module_install_nix.html#a-quick-note-about-module-directories)! 
 
 `/opt/puppetlabs/puppet/modules`
