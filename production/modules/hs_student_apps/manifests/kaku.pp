@@ -10,7 +10,7 @@ class hs_student_apps::kaku {
 	}
 	
 	file { 'Kaku.png':
-		path	=> '/usr/share/pixmaps/Kaku.png',
+		path	=> '/usr/share/pixmaps/kaku.png',
 		#owner	=> root,
 		#group	=> root,
 		#mode	=> '644',
