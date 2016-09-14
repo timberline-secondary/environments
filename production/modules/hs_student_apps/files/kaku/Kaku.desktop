@@ -2,7 +2,7 @@
 Version=1.0
 Name=Kaku
 Comment=Next generation music player
-Exec=/usr/local/bin/Kaku-linux64/Kaku
+Exec=/opt/Kaku-linux64/Kaku
 Icon=Kaku.png
 Terminal=false
 Type=Application
