@@ -1,15 +1,15 @@
 class hs_student_apps::kaku {
 
-	file { 'Kaku-linux64.zip':
+	/*file { 'Kaku-linux64.zip':
 		path	=> '/opt/Kaku-linux64.zip',
 		ensure	=> absent,
 		source	=> 'puppet:///modules/hs_student_apps/kaku/Kaku-linux64.zip',
-	}
+	}*/
 
 	archive { 'Kaku-linux64':
 	   ensure => present,
 	   url => 'https://github.com/EragonJ/Kaku/releases/download/1.7.0/Kaku-linux64.zip',
-	   target => '/usr/opt',
+	   target => '/opt/',
 	   follow_redirects => true,
 	   extension => 'zip',
 	   checksum => false,
