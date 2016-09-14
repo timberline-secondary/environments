@@ -29,7 +29,7 @@ class hs_student_apps::kaku {
 		path	=> '/usr/share/applications/Kaku.desktop',
 		owner	=> root,
 		group	=> root,
-		mode	=> '644',
+		mode	=> '755',
 		ensure	=> present,
 		source	=> 'puppet:///modules/hs_student_apps/kaku/Kaku.desktop',
 	}
