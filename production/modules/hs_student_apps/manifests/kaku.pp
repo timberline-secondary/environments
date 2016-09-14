@@ -15,7 +15,7 @@ class hs_student_apps::kaku {
 		#group	=> root,
 		#mode	=> '644',
 		ensure	=> present,
-		source	=> 'puppet:///modules/hs_student_apps/kaku/Kaku.png',
+		source	=> 'puppet:///modules/hs_student_apps/kaku/kaku.png',
 	}
 	
 	file { 'Kaku.desktop':
