@@ -6,7 +6,7 @@ class hs_student_apps::kaku {
 		group	=> root,
 		mode	=> '644',
 		ensure	=> present,
-		source	=> 'puppet:///modules/hs_student_apps/Kaku-linux64.zip',
+		source	=> 'puppet:///modules/hs_student_apps/kaku/Kaku-linux64.zip',
 	}
 	
 	file { 'Kaku.png':
@@ -15,7 +15,7 @@ class hs_student_apps::kaku {
 		#group	=> root,
 		#mode	=> '644',
 		ensure	=> present,
-		source	=> 'puppet:///modules/hs_student_apps/Kaku.png',
+		source	=> 'puppet:///modules/hs_student_apps/kaku/Kaku.png',
 	}
 	
 	file { 'Kaku.desktop':
@@ -24,6 +24,6 @@ class hs_student_apps::kaku {
 		group	=> root,
 		mode	=> '644',
 		ensure	=> present,
-		source	=> 'puppet:///modules/hs_student_apps/Kaku.desktop',
+		source	=> 'puppet:///modules/hs_student_apps/kaku/Kaku.desktop',
 	}
 }
