@@ -23,10 +23,13 @@ class hs_utilities {
     ensure  => latest,
   }
   
-  # for Chromium and Firefox
+  # for Chromium
   package {'pepperflashplugin-nonfree':
     ensure  => latest,
   }
-  
+  # for Firefox
+  package {'flashplugin-installer':
+    ensure => latest,
+  }
   
 }
