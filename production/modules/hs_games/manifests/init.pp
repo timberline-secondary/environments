@@ -2,9 +2,9 @@ class hs_games {
 
   notify { 'Puppet Module - Games': }
 
-  package { 'steam':
+  /*package { 'steam':
       ensure  => latest,
-  }
+  }*/
   
 	/*file { 'unity-editor-deb':
 		path	=> '/opt/unity3d/unity-editor-5.5.0b2+20160906_amd64.deb',
