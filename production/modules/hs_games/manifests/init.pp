@@ -1,6 +1,11 @@
 class hs_games {
 
   notify { 'Puppet Module - Games': }
+  
+  
+	file { '/opt/openra':
+		ensure	=> directory,
+	}
 
 	file { 'openra-deb':
 		path	=> '/opt/openra/openra_release.20160508_all.deb',
