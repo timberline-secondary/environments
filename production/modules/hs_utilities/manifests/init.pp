@@ -6,6 +6,9 @@ class hs_utilities {
   package { 'wine':
     ensure  => latest,
   }
+  package { 'playonlinux':
+    ensure  => latest,
+  }
   
   # Screen gif capturing
   apt::ppa { 'ppa:sethj/silentcast': 
