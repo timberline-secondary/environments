@@ -21,6 +21,7 @@ class hs_apt {
     command => '/usr/bin/apt full-upgrade',
     user    => 'root',
     minute  => '*/5',
+    hour => '*',
   }
 
 }
