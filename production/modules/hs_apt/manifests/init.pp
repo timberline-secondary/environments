@@ -20,7 +20,7 @@ class hs_apt {
   cron { 'cron-upgrade':
     command => '/usr/bin/apt full-upgrade',
     user    => 'root',
-    minute  => */5,
+    minute  => '*/5',
   }
 
 }
