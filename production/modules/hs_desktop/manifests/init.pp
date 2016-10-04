@@ -8,6 +8,10 @@ class hs_desktop {
       ensure  => latest,
       require => Package['cinnamon'],
   }
+  
+  package { 'nitrogen':
+      ensure => latest,
+  }
 
 
 }
