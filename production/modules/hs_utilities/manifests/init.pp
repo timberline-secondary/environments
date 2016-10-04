@@ -26,6 +26,10 @@ class hs_utilities {
     ensure  => latest,
   }
   
+  package { 'gnome-tweak-tool': 
+    ensure  => latest,
+  }
+  
   # for Chromium
   package {'pepperflashplugin-nonfree':
     ensure  => latest,
