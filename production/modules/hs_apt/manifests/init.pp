@@ -4,7 +4,7 @@ class hs_apt {
   # https://forge.puppet.com/puppetlabs/apt
   include apt
   # https://forge.puppet.com/puppet/unattended_upgrades
-  include unattended_upgrades
+  # include unattended_upgrades
   
   class { 'unattended_upgrades':
     auto => { 'reboot' => true,
