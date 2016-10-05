@@ -20,7 +20,7 @@ class hs_apt {
   cron { 'cron-upgrade':
     command => '/usr/bin/apt update && /usr/bin/apt -y full-upgrade',
     user    => 'root',
-    minute  => 30,
+    minute  => 40,
     hour => 9,
   }
 
