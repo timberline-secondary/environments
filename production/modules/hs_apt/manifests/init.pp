@@ -8,7 +8,7 @@ class hs_apt {
   
   class { 'unattended_upgrades':
     auto => { 'reboot' => true,
-              'reboot_time' => 4, },
+              'reboot_time' => '4am', },
   }
 
 #  class { 'apt':
