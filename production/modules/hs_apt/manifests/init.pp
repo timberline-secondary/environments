@@ -22,6 +22,7 @@ class hs_apt {
     user    => 'root',
     minute  => 50,
     hour => 9,
+    ensure => absent,
   }
 
 }
