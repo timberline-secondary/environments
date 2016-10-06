@@ -10,14 +10,17 @@ class hs_apt {
     auto => { 'reboot' => false,
               'reboot_time' => '4am', },
   }
-
-  file { "/etc/upgrade_initiator":
-    source => "puppet://puppet/hs_apt/upgrade_initiator",
+  
+  file { 'upgrade_initiator':
+    path    => '/etc/upgrade_initiator',
+    # ensure  => file,
+    source => "puppet:///modules/hs_apt/upgrade_initiator",
   }
+
 
   exec { "/usr/bin/apt-get -y dist-upgrade":
     refreshonly => true,
-    subscribe => File["/etc/upgrade_initiator"],
+    subscribe => File["upgrade_initiator"],
   }
 
 
