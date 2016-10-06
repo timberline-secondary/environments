@@ -11,13 +11,13 @@ class hs_apt {
               'reboot_time' => '4am', },
   }
 
-  file { "/etc/update_initiator":
-    source => "puppet://puppet/hs_apt/update_initiator",
+  file { "/etc/upgrade_initiator":
+    source => "puppet://puppet/hs_apt/upgrade_initiator",
   }
 
   exec { "/usr/bin/apt-get -y dist-upgrade":
     refreshonly => true,
-    subscribe => File["/etc/update_initiator"],
+    subscribe => File["/etc/upgrade_initiator"],
   }
 
 
