@@ -2,6 +2,9 @@ class hs_student_apps {
 
   include apt
   include 'google_chrome'
+  
+  # MEDIA
+  package {'vlc': }
 
   #############
   #
