@@ -39,4 +39,6 @@ class hs_utilities {
     ensure => latest,
   }
   
+  package{'kmag':}
+  
 }
