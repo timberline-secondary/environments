@@ -29,7 +29,7 @@ class hs_student_apps {
       ensure => present,
   }
   package { 'blender':
-      ensure  => 2.78,
+      ensure  => '2.78~release~1475052116-0thomas~xenial1',
       require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
   }
 
