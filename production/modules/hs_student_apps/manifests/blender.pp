@@ -1,4 +1,5 @@
-
+class hs_student_apps::blender {
+  
   apt::ppa { 'ppa:thomas-schiex/blender': 
       ensure => present,
   }
@@ -23,3 +24,5 @@
     require => Package['blender'],
     source  =>
   } 
+
+}
