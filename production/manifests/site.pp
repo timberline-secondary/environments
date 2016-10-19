@@ -10,6 +10,7 @@ node default {
 	class { 'hs_desktop':}
 	class { 'hs_student_apps': }
 	class { 'hs_student_apps::kaku': }
+	class { 'hs_student_apps::blender': }
 
 	class { 'hs_printers': }
 	
