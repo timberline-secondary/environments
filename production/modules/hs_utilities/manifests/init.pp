@@ -41,5 +41,6 @@ class hs_utilities {
   
   package{'kmag':}
   package{'libgstreamer-plugins-bad1.0.0':}
+  package{'unzip':}
   
 }
