@@ -1,4 +1,6 @@
 class hs_student_apps::blender {
+
+  include apt
   
   apt::ppa { 'ppa:thomas-schiex/blender': 
       ensure => present,
@@ -22,7 +24,7 @@ class hs_student_apps::blender {
     mode    => '0644',
     ensure  => directory,
     require => Package['blender'],
-    source  =>
+    source  => 'puppet:///modules/hs_student_apps/blender/netrender',
   } 
 
 }
