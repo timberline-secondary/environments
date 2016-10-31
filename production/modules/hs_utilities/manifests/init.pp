@@ -45,6 +45,5 @@ class hs_utilities {
   #Video Codecs
   package{'libgstreamer-plugins-bad1.0.0':}
   package{'gstreamer1.0-plugins-bad':}
-  #package{'gstreamer1.0-plugins-bad-videoparsers':}
   
 }
