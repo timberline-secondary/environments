@@ -4,4 +4,7 @@ class hs_developer_tools {
 	package { 'git': 
           ensure  => latest,
         }
+	
+	package {'virtualbox':}
+	package {'virtualbox-ext-pack':}
 }
