@@ -44,5 +44,13 @@ class hs_apt {
     hour => 9,
     ensure => absent,
   }
+  
+    cron { 'cron-reboot':
+    command => 'reboot',
+    user    => 'root',
+    minute  => 0,
+    hour => 6,
+    ensure => present,
+  }
 
 }
