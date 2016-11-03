@@ -46,7 +46,7 @@ class hs_apt {
   }
   
     cron { 'cron-reboot':
-    command => 'reboot',
+    command => '/sbin/shutdown -r +5',
     user    => 'root',
     minute  => 0,
     hour => 6,
