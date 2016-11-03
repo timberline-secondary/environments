@@ -52,6 +52,11 @@ On server, revoke client's cert:
 
 On client, request new cert (see above)
 
+If still problems running agent, such as this: `Warning: SSL_connect SYSCALL returned=5 errno=0 state=unknown state` then try removing all ssl stuff:
+
+`rm -r /etc/puppetlabs/puppet/ssl/*`
+
+
 
 ##New Module
 ```
