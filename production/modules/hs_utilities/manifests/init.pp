@@ -41,6 +41,7 @@ class hs_utilities {
   
   package{'kmag':}
   package{'unzip':}
+  package{'photoprint':}
   
   #Video Codecs
   package{'libgstreamer-plugins-bad1.0.0':}
