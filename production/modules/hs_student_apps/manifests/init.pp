@@ -17,6 +17,8 @@ class hs_student_apps {
   package { 'tuxguitar':  }
   package { 'musescore':  }
   package { 'chromium-browser':   }
+  
+  package { 'shotwell': }
 
   #############
   #  
