@@ -19,6 +19,8 @@ class hs_student_apps {
   package { 'chromium-browser':   }
   
   package { 'shotwell': }
+  package { 'rawtherapee': }
+  package { 'darktable': }
 
   #############
   #  
