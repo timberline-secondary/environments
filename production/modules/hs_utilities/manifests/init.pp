@@ -43,6 +43,7 @@ class hs_utilities {
   package{'unzip':}
   package{'photoprint':}
   package{'typecatcher':}
+  package{'unifont':}
   
   #Video Codecs
   package{'libgstreamer-plugins-bad1.0.0':}
