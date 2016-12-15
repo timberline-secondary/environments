@@ -49,4 +49,5 @@ class hs_utilities {
   package{'libgstreamer-plugins-bad1.0.0':}
   package{'gstreamer1.0-plugins-bad':}
   
+  package{'telnet':}
 }
