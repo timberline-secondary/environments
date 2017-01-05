@@ -10,7 +10,7 @@ class hs_developer_tools {
 	  include apt
   
 	apt::ppa { 'ppa:webupd8team/atom': 
-	      ensure => present,
+	      ensure => latest,
 	}
 	package { 'atom':
 	      require => [ Class['apt::update'], Apt::Ppa['ppa:webupd8team/atom'] ],
