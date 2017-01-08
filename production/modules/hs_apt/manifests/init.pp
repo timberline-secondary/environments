@@ -37,13 +37,13 @@ class hs_apt {
 #    path => "/usr/bin/",
 #  }
 
-  cron { 'cron-upgrade':
-    command => '/usr/bin/apt -y full-upgrade',
-    user    => 'root',
-    minute  => 0,
-    hour => 4,
-    ensure => absent,
-  }
+#  cron { 'cron-upgrade':
+#    command => '/usr/bin/apt -y full-upgrade',
+#    user    => 'root',
+#    minute  => 0,
+#    hour => 4,
+#    ensure => absent,
+#  }
   
   # Used to boot off everyone who is logged in.  
   # Temp solution to prevent students with mutliple log ins at the same time causing 
