@@ -14,8 +14,12 @@ class hs_student_apps {
 
   package { 'supertuxkart':  }
   package { 'supertux': }
+  
+  
   package { 'tuxguitar':  }
+  package { 'tuxguitar-jsa':}
   package { 'musescore':  }
+  
   package { 'chromium-browser':   }
   
   package { 'shotwell': }
