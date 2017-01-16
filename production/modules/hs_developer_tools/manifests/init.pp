@@ -6,15 +6,5 @@ class hs_developer_tools {
         }
 	
 	package {'virtualbox':}
-	package {'virtualbox-ext-pack':}
-	  include apt
-  
-	apt::ppa { 'ppa:webupd8team/atom': 
-	      ensure => latest,
-	}
-	package { 'atom':
-	      require => [ Class['apt::update'], Apt::Ppa['ppa:webupd8team/atom'] ],
-	}
-	
-	
+	package {'virtualbox-ext-pack':}	
 }
