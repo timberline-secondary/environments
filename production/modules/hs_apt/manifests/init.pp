@@ -4,11 +4,13 @@ class hs_apt {
   # https://forge.puppet.com/puppetlabs/apt
   include apt
   # https://forge.puppet.com/puppet/unattended_upgrades
-  include unattended_upgrades
+  # include unattended_upgrades
   
   class { 'unattended_upgrades':
     auto => { 'reboot' => false,
-              'reboot_time' => '4am', },
+              'reboot_time' => '4am', 
+    },
+    origins => ['${distro_id}:${distro_codename}-updates', '${distro_id}:${distro_codename}-security'],
   }
   
   file { 'upgrade_initiator':
