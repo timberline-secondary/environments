@@ -13,17 +13,23 @@ class hs_apt {
     origins => ['${distro_id}:${distro_codename}-updates', '${distro_id}:${distro_codename}-security'],
   }
   
-  file { 'upgrade_initiator':
-    path    => '/etc/upgrade_initiator',
-    # ensure  => file,
-    source => "puppet:///modules/hs_apt/upgrade_initiator",
+  file { 'old50':
+    path    => '/etc/apt/apt.conf.d/50unattended-upgrades.ucf-dist',
+    ensure  => absent,
   }
+  
+  
+#  file { 'upgrade_initiator':
+#    path    => '/etc/upgrade_initiator',
+#    # ensure  => file,
+#    source => "puppet:///modules/hs_apt/upgrade_initiator",
+#  }
 
 
-  exec { "/usr/bin/apt-get -y dist-upgrade":
-    refreshonly => true,
-    subscribe => File["upgrade_initiator"],
-  }
+#  exec { "/usr/bin/apt-get -y dist-upgrade":
+#    refreshonly => true,
+#    subscribe => File["upgrade_initiator"],
+#  }
 
 
 
