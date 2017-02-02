@@ -95,3 +95,25 @@ class hs_student_apps {
 
 
 }
+
+  #############
+  #
+  # CURA (3D Printing)
+  #
+  #############
+
+  apt::ppa { 'ppa:thopiekar/cura':
+      ensure => present,
+  }
+  package { 'cura':
+      ensure  => latest,
+      require => [ Class['apt::update'], Apt::Ppa['ppa:thopiekar/cura'] ],
+  }
+  package { 'cura-plugins':
+      ensure  => latest,
+      require => [ Class['apt::update'], Apt::Ppa['ppa:thopiekar/cura'] ],
+  }
+  package { 'cura-extra-plugins':
+      ensure  => latest,
+      require => [ Class['apt::update'], Apt::Ppa['ppa:thopiekar/cura'] ],
+  }
