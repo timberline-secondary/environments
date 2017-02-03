@@ -94,8 +94,6 @@ class hs_student_apps {
   package { 'audacity': }
 
 
-}
-
   #############
   #
   # CURA (3D Printing)
@@ -117,3 +115,5 @@ class hs_student_apps {
       ensure  => latest,
       require => [ Class['apt::update'], Apt::Ppa['ppa:thopiekar/cura'] ],
   }
+
+}
