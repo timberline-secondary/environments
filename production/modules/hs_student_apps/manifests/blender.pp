@@ -3,11 +3,11 @@ class hs_student_apps::blender {
   include apt
   
   apt::ppa { 'ppa:thomas-schiex/blender': 
-      ensure => present,
+      ensure => absent,
   }
   package { 'blender':
-      ensure  => '2.78',
-      require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
+      ensure  => latest,
+      # require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
   }
   
   # Overwrite netrender addon to allow for use of GPU on slaves

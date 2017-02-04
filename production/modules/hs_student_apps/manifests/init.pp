@@ -25,6 +25,8 @@ class hs_student_apps {
   package { 'shotwell': }
   package { 'rawtherapee': }
   package { 'darktable': }
+  #
+  package { 'lmms': }
 
   #############
   #  
@@ -58,14 +60,19 @@ class hs_student_apps {
   apt::ppa { 'ppa:dimula73/krita':
       ensure => present,
   }
-  package { 'krita3-testing':
-      ensure  => absent,
-  }
-  
   package { 'krita-2.9':
       ensure  => latest,
       require => [ Class['apt::update'], Apt::Ppa['ppa:dimula73/krita'] ],
   }
+
+  # https://launchpad.net/~kritalime/+archive/ubuntu/ppa
+  # apt::ppa { 'ppa:kritalime/ppa':
+  #     ensure => present,
+  # }
+  # package { 'krita-2.9':
+  #     ensure  => latest,
+  #     require => [ Class['apt::update'], Apt::Ppa['ppa:dimula73/krita'] ],
+  # }
 
 
   #############
