@@ -118,7 +118,7 @@ class hs_student_apps {
       ensure  => latest,
       require => [ Class['apt::update'], Apt::Ppa['ppa:thopiekar/cura'] ],
   }
-  package { 'cura-extra-plugins':
+  package { 'cura-extra-plugins-all':
       ensure  => latest,
       require => [ Class['apt::update'], Apt::Ppa['ppa:thopiekar/cura'] ],
   }
