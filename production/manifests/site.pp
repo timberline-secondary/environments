@@ -11,6 +11,7 @@ node default {
 	class { 'hs_student_apps': }
 	class { 'hs_student_apps::kaku': }
 	class { 'hs_student_apps::blender': }
+	class { 'hs_student_apps::spotify': }
 
 	class { 'hs_printers': }
 	
