@@ -13,7 +13,7 @@ class hs_student_apps::spotify {
 		group	=> root,
 		mode	=> '644',
 		ensure	=> present,
-		source	=> 'https://github.com/Quacky2200/Spotify-Web-Player-for-Linux/releases/download/1.0.40/spotifywebplayer_1.0.40_beta_amd64.deb',
+		source	=> 'puppet:///modules/hs_student_apps/spotifywebplayer_1.0.40_beta_amd64.deb',
 		require => File['/opt/spotify-web-player'],
 	}
 	
