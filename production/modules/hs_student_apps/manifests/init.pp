@@ -25,7 +25,8 @@ class hs_student_apps {
   package { 'shotwell': }
   package { 'rawtherapee': }
   package { 'darktable': }
-  #
+
+  # Linux Multimedia Suite (Audio track editing/mixing)
   package { 'lmms': }
 
   #############
