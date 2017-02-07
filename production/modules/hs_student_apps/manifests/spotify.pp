@@ -1,4 +1,4 @@
-class hs_developer_tools::spotify {
+class hs_student_apps::spotify {
 
 	# https://github.com/Quacky2200/Spotify-Web-Player-for-Linux/releases
 
