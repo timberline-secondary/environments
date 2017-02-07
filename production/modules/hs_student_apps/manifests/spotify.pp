@@ -8,7 +8,7 @@ class hs_student_apps::spotify {
 
 	
 	file { 'spotify-web-player-deb':
-		path	=> '/opt/spotify/spotifywebplayer_1.0.40_beta_amd64.deb',
+		path	=> '/opt/spotify-web-player/spotifywebplayer_1.0.40_beta_amd64.deb',
 		owner	=> root,
 		group	=> root,
 		mode	=> '644',
@@ -21,7 +21,7 @@ class hs_student_apps::spotify {
 	package { 'spotify-web-player':
 		provider => gdebi,
 		ensure	=> latest,
-		source => '/opt/spotify/spotifywebplayer_1.0.40_beta_amd64.deb',
+		source => '/opt/spotify-web-player/spotifywebplayer_1.0.40_beta_amd64.deb',
 		require => File['spotify-web-player-deb'],
 	}
 	
