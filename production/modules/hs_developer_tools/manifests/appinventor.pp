@@ -19,9 +19,16 @@ class hs_developer_tools::appinventor {
 	include gdebi
 	package { 'app-inventer-2': 
 		provider => gdebi,
-		ensure	=> latest,
+		ensure	=> absent,
 		source => '/opt/appinventor/appinventor2-setup_2.3_all.deb',
 		require => File['app-inventor-2-deb'],
 	}
+
+	# package { 'app-inventer-2.3':
+	# 	provider => gdebi,
+	# 	ensure	=> absent,
+	# 	source => '/opt/appinventor/appinventor2-setup_2.3_all.deb',
+	# 	require => File['app-inventor-2-deb'],
+	# }
 
 }
