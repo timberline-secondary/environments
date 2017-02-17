@@ -84,24 +84,25 @@ class hs_student_apps {
 
   apt::ppa { 'ppa:inkscape.dev/stable':
       ensure => absent,
+      options => '--remove',
   }
   package { 'inkscape':
       ensure  => 0.48,
       # require => [ Class['apt::update'], Apt::Ppa['ppa:inkscape.dev/stable'] ],
   }
 
-  file { 'inkscape-ppa':
-    path    => '/etc/apt/sources.list.d/inkscape_dev-stable-xenial.list',
-    ensure  => absent,
-  }
-  file { 'inkscape-ppa2':
-    path    => '/etc/apt/sources.list.d/inkscape_dev-ubuntu-stable-xenial.list',
-    ensure  => absent,
-  }
-  file { 'inkscape-ppa3':
-    path    => '/etc/apt/sources.list.d/inkscape_dev-ubuntu-stable-xenial.list.save',
-    ensure  => absent,
-  }
+  # file { 'inkscape-ppa':
+  #   path    => '/etc/apt/sources.list.d/inkscape_dev-stable-xenial.list',
+  #   ensure  => absent,
+  # }
+  # file { 'inkscape-ppa2':
+  #   path    => '/etc/apt/sources.list.d/inkscape_dev-ubuntu-stable-xenial.list',
+  #   ensure  => absent,
+  # }
+  # file { 'inkscape-ppa3':
+  #   path    => '/etc/apt/sources.list.d/inkscape_dev-ubuntu-stable-xenial.list.save',
+  #   ensure  => absent,
+  # }
 
 
 
