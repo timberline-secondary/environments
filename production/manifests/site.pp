@@ -25,9 +25,9 @@ node default {
 
 	class { 'hs_developer_tools': }
 	class { 'hs_developer_tools::eclipse': }
-	class { 'hs_developer_tools::python': }
+	# class { 'hs_developer_tools::python': }
 	class { 'hs_developer_tools::unity3d': }
-	class { 'hs_developer_tools::appinventor': }
+	# class { 'hs_developer_tools::appinventor': }
 	class { 'hs_developer_tools::pycharm': }
 	class { 'hs_developer_tools::atom': }
 	
