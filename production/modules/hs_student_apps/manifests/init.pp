@@ -62,8 +62,8 @@ class hs_student_apps {
       ensure => present,
   }
   package { 'krita-2.9':
-      ensure  => latest,
-      require => [ Class['apt::update'], Apt::Ppa['ppa:dimula73/krita'] ],
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Ppa['ppa:dimula73/krita'] ],
   }
 
   # https://launchpad.net/~kritalime/+archive/ubuntu/ppa
@@ -86,9 +86,23 @@ class hs_student_apps {
       ensure => absent,
   }
   package { 'inkscape':
-      ensure  => latest,
+      ensure  => 0.48,
       # require => [ Class['apt::update'], Apt::Ppa['ppa:inkscape.dev/stable'] ],
   }
+
+  file { 'inkscape.dev/stable.list':
+    path    => '/etc/apt/sources.list.d/inkscape_dev-stable-xenial.list',
+    ensure  => absent,
+  }
+  file { 'inkscape.dev/stable.list2':
+    path    => '/etc/apt/sources.list.d/inkscape_dev-ubuntu-stable-xenial.list',
+    ensure  => absent,
+  }
+  file { 'inkscape.dev/stable.list.save':
+    path    => '/etc/apt/sources.list.d/inkscape_dev-ubuntu-stable-xenial.list.save',
+    ensure  => absent,
+  }
+
 
 
   #############
