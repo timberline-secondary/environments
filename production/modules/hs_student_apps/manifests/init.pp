@@ -83,11 +83,11 @@ class hs_student_apps {
   #############
 
   apt::ppa { 'ppa:inkscape.dev/stable':
-      ensure => present,
+      ensure => absent,
   }
   package { 'inkscape':
       ensure  => latest,
-      require => [ Class['apt::update'], Apt::Ppa['ppa:inkscape.dev/stable'] ],
+      # require => [ Class['apt::update'], Apt::Ppa['ppa:inkscape.dev/stable'] ],
   }
 
 

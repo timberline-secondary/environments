@@ -7,7 +7,7 @@ class hs_student_apps::blender {
   #   options => '--remove'
   # }
   package { 'blender':
-    # ensure  => latest,
+    ensure  => latest,
     # require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
   }
 
