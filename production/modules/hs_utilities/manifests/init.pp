@@ -21,13 +21,26 @@ class hs_utilities {
   package { 'byzanz': 
     ensure  => latest,
   }
-  
-  package { 'unity-tweak-tool': 
+
+  package { 'unity-tweak-tool':
     ensure  => latest,
   }
-  
-  package { 'gnome-tweak-tool': 
+
+  package { 'gnome-tweak-tool':
     ensure  => latest,
+  }
+
+  # Themes
+    apt::ppa { 'ppa:noobslab/themes':
+      ensure => present,
+  }
+  package { 'vertex-theme':
+      ensure  => latest,
+      require => [ Class['apt::update'], Apt::Ppa['ppa:noobslab/themes'] ],
+  }
+  package { 'ceti-theme':
+      ensure  => latest,
+      require => [ Class['apt::update'], Apt::Ppa['ppa:noobslab/themes'] ],
   }
   
   # for Chromium
