@@ -7,17 +7,17 @@ class hs_student_apps::blender {
   #   options => '--remove'
   # }
   package { 'blender':
-    ensure  => '2.76.b+dfsg0-3build1',
-    # require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
   }
 
   file { 'thomas-schiex/blender':
     path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list',
-    ensure  => absent,
+    ensure  => present,
   }
   file { 'thomas-schiex/blender2':
     path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list.save',
-    ensure  => absent,
+    ensure  => present,
   }
   
   # Overwrite netrender addon to allow for use of GPU on slaves
