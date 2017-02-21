@@ -31,7 +31,7 @@ class hs_utilities {
   }
 
   # Themes
-    apt::ppa { 'ppa:noobslab/themes':
+  apt::ppa { 'ppa:noobslab/themes':
       ensure => present,
   }
   package { 'vertex-theme':

@@ -2,23 +2,24 @@ class hs_student_apps::blender {
 
   include apt
   
-  # apt::ppa { 'ppa:thomas-schiex/blender':
-  #   ensure => 'absent',
-  #   options => '--remove'
-  # }
+  apt::ppa { 'ppa:thomas-schiex/blender':
+    ensure => present,
+    # options => '--remove'
+  }
+
   package { 'blender':
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
   }
-
-  file { 'thomas-schiex/blender':
-    path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list',
-    ensure  => present,
-  }
-  file { 'thomas-schiex/blender2':
-    path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list.save',
-    ensure  => present,
-  }
+  #
+  # file { 'thomas-schiex/blender':
+  #   path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list',
+  #   ensure  => present,
+  # }
+  # file { 'thomas-schiex/blender2':
+  #   path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list.save',
+  #   ensure  => present,
+  # }
   
   # Overwrite netrender addon to allow for use of GPU on slaves
   # https://github.com/WARP-LAB/Blender-Network-Render-Additions
