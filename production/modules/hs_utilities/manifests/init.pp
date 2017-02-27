@@ -31,17 +31,18 @@ class hs_utilities {
   }
 
   # Themes
-  apt::ppa { 'ppa:noobslab/themes':
-      ensure => present,
-  }
-  package { 'vertex-theme':
-      ensure  => latest,
-      require => [ Class['apt::update'], Apt::Ppa['ppa:noobslab/themes'] ],
-  }
-  package { 'ceti-theme':
-      ensure  => latest,
-      require => [ Class['apt::update'], Apt::Ppa['ppa:noobslab/themes'] ],
-  }
+  # apt::ppa { 'ppa:noobslab/themes':
+  #     ensure => present,
+  # }
+  # PPA doesn't provide these themes for Xenial
+  # package { 'vertex-theme':
+  #     ensure  => latest,
+  #     require => [ Class['apt::update'], Apt::Ppa['ppa:noobslab/themes'] ],
+  # }
+  # package { 'ceti-theme':
+  #     ensure  => latest,
+  #     require => [ Class['apt::update'], Apt::Ppa['ppa:noobslab/themes'] ],
+  # }
   
   # for Chromium
   package {'pepperflashplugin-nonfree':
