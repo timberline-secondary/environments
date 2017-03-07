@@ -58,6 +58,7 @@ class hs_utilities {
   package{'photoprint':}
   package{'typecatcher':}
   package{'unifont':}
+  package{'screen':}
   
   #Video Codecs
   package{'libgstreamer-plugins-bad1.0.0':}
