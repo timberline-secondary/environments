@@ -84,7 +84,6 @@ class hs_student_apps {
 
   apt::ppa { 'ppa:inkscape.dev/stable':
       ensure => present,
-      options => '--remove',
   }
   package { 'inkscape':
       ensure  => latest,
