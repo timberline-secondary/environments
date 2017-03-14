@@ -3,7 +3,7 @@ class hs_student_apps::blender {
   include apt
   
   apt::ppa { 'ppa:thomas-schiex/blender':
-    ensure => present,
+    ensure => latest,
     # options => '--remove'
   }
 
