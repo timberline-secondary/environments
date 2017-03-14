@@ -25,22 +25,22 @@ class hs_student_apps::spotify {
 		require => File['spotify-web-player-deb'],
 	}
 
-  # # Above webplayer not working for some users do to updates in the official player. So try official player too
-  # include apt
-  #
-  # apt::source { 'spotify':
-		# location => 'http://repository.spotify.com',
-		# release	 => 'stable',
-		# repos    => 'non-free',
-		# key 		 => {
-		# 	id      => 'BBEBDCB318AD50EC6865090613B00F1FD2C19886',
-		# 	server  => 'hkp://keyserver.ubuntu.com:80',
-		# },
-  # }
-  # package { 'spotify-client':
-  #   ensure  => latest,
-  #   require => [ Class['apt::update'], Apt::Source['spotify'] ],
-  # }
+  # Above webplayer not working for some users do to updates in the official player. So try official player too
+  include apt
+
+  apt::source { 'spotify-repo':
+		location => 'http://repository.spotify.com',
+		release	 => 'stable',
+		repos    => 'non-free',
+		key 		 => {
+			id      => 'BBEBDCB318AD50EC6865090613B00F1FD2C19886',
+			server  => 'hkp://keyserver.ubuntu.com:80',
+		},
+  }
+  package { 'spotify-client':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Source['spotify-repo'] ],
+  }
 
 
 }
