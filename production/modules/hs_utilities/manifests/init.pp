@@ -3,8 +3,13 @@ class hs_utilities {
 
   notify { 'Puppet Module - Utilities': }
 
+
   package {'icc-profiles':}
   package {'icc-profiles-free':}
+
+
+  package {'iptux':}
+
 
   package { 'wine':
     ensure  => latest,
