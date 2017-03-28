@@ -3,8 +3,7 @@ class hs_student_apps::blender {
   include apt
   
   apt::ppa { 'ppa:thomas-schiex/blender':
-    ensure => latest,
-    # options => '--remove'
+    ensure => present,
   }
 
   # package {'libopensubdiv':
