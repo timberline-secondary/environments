@@ -7,7 +7,9 @@ class hs_student_apps::blender {
     # options => '--remove'
   }
 
-  package {'libopensubdiv':}
+  # package {'libopensubdiv':
+  #   require => Package['blender'],
+  # }
 
   package { 'blender':
     ensure  => latest,
