@@ -11,7 +11,7 @@ class hs_printers {
   # https://forge.puppet.com/leoarnold/cups#option-defaults
   include '::cups'
 
-  cups_queue { 'Hackerspace B&W Printer (Lexmark T644 - Minimal)':
+  cups_queue { 'HackerspacePrinter':
     ensure => 'printer',
     model  => 'foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/Lexmark-T644-Postscript.ppd',
     uri    => 'ipp://192.168.43.101', # Replace with your printer's URI
