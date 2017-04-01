@@ -51,6 +51,12 @@ class hs_student_apps {
       require => [ Class['apt::update'], Package['gimp'],  Package['gmic'] ],
   }
 
+  package { 'gimp-plugin-registry':
+      ensure  => latest,
+      require => [ Class['apt::update'], Package['gimp'] ],
+  }
+
+
 
   #############
   #
