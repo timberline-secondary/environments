@@ -23,17 +23,17 @@ class hs_printers {
 
   # https://lauri.võsandi.com/cfgmgmt/puppet-cups.html
   # Install CUPS and filters
-  package { "system-config-printer-gnome": ensure => installed }
-  package { "cups": ensure => installed }
-  package { "ghostscript": ensure => installed }
-  package { "unpaper": ensure => installed }
-  package { "printer-driver-all": ensure => installed }
-
-  # PPD-s
-  package { "openprinting-ppds": ensure => installed }
-  package { "hpijs-ppds": ensure => installed }
-  package { "hp-ppd": ensure => installed }
-  package { "foomatic-db-compressed-ppds": ensure => installed }
+  # package { "system-config-printer-gnome": ensure => installed }
+  # package { "cups": ensure => installed }
+  # package { "ghostscript": ensure => installed }
+  # package { "unpaper": ensure => installed }
+  # package { "printer-driver-all": ensure => installed }
+  #
+  # # PPD-s
+  # package { "openprinting-ppds": ensure => installed }
+  # package { "hpijs-ppds": ensure => installed }
+  # package { "hp-ppd": ensure => installed }
+  # package { "foomatic-db-compressed-ppds": ensure => installed }
   
 
 }
