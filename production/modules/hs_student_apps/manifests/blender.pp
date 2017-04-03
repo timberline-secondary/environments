@@ -38,7 +38,7 @@ class hs_student_apps::blender {
     mode    => '0644',
     ensure  => directory,
     require => Package['blender'],
-    source  => 'puppet:///modules/hs_student_apps/blender/netrender',
+    source  => 'puppet:///modules/hs_student_apps/blender/Blender-Network-Render-Additions/netrender',
   } 
 
 }
