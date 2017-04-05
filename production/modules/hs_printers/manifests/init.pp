@@ -11,14 +11,14 @@ class hs_printers {
   # https://forge.puppet.com/leoarnold/cups#option-defaults
   include '::cups'
 
-  # cups_queue { 'HackerspacePrinter':
-  #   ensure => 'printer',
-  #   model  => 'foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/Lexmark-T644-Postscript.ppd',
-  #   uri    => 'ipp://192.168.43.101', # Replace with your printer's URI
-  #   accepting => true,
-  #   enabled => true,
-  #
-  # }
+  cups_queue { 'HackerspacePrinter':
+    ensure => 'absent',
+    model  => 'foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/Lexmark-T644-Postscript.ppd',
+    uri    => 'ipp://192.168.43.101', # Replace with your printer's URI
+    accepting => true,
+    enabled => true,
+
+  }
 
 
   # https://lauri.võsandi.com/cfgmgmt/puppet-cups.html

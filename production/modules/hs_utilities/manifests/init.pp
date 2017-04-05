@@ -11,6 +11,14 @@ class hs_utilities {
   package {'iptux':}
 
 
+  # apt::ppa { 'ppa:ubuntu-wine/ppa':
+  #     ensure => present,
+  # }
+  # package { 'wine1.8':
+  #     ensure  => latest,
+  #     require => [ Class['apt::update'], Apt::Ppa['ppa:ubuntu-wine/ppa'] ],
+  # }
+
   package { 'wine':
     ensure  => latest,
   }
