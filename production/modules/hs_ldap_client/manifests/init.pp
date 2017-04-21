@@ -44,7 +44,7 @@ class hs_ldap_client {
     #notify  => Reboot['after_run'],
   } ->
   fstab::mount { '/home':
-    ensure  => 'mounted',
+    ensure  => 'absent',
     device  => '192.168.43.4:/nfshome',
     options => 'auto,noatime,bg,tcp,hard',
     fstype  => 'nfs',
