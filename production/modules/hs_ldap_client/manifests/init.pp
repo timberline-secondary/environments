@@ -1,7 +1,8 @@
 class hs_ldap_client {
 
-  class { 'fstab' : }
-  
+  class { 'fstab': }
+  include autofs
+
   package { libnss-ldap:
     ensure => present,
     #notify => Reboot['after_run'],
@@ -17,7 +18,7 @@ class hs_ldap_client {
     path    => '/etc/ldap.secret',
     ensure  => file,
     require => Package['libnss-ldap'],
-    mode    => '0400',		
+    mode    => '0400',
     source  => "puppet:///modules/hs_ldap_client/ldap.secret",
     #notify  => Reboot['after_run'],
   } ->
@@ -49,10 +50,19 @@ class hs_ldap_client {
     options => 'auto,noatime,bg,tcp,hard',
     fstype  => 'nfs',
     #notify  => Reboot['after_run'],
+  } ->
+  autofs::mount { 'home':
+     mount      => '/home',
+    mapfile     => '/etc/auto.home',
+    mapcontents => ['*  tyrell:/nfshome/&'],
+    options     => '--timeout=120',
+    order       => 01
   } ~>
   reboot { 'after_run':
     apply  => 'finished',
   }
+
+  # mapcontents => ['* -user,rw,soft,intr,rsize=32768,wsize=32768,tcp,nfsvers=3,noacl tyrell:/nfshome/&'],
   
   #this is set up directly by preseed file on install as well.
   file { '/etc/lightdm':
