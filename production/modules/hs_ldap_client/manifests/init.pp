@@ -1,7 +1,6 @@
 class hs_ldap_client {
 
   class { 'fstab': }
-  include autofs
 
   package { libnss-ldap:
     ensure => present,
@@ -50,19 +49,36 @@ class hs_ldap_client {
     options => 'auto,noatime,bg,tcp,hard',
     fstype  => 'nfs',
     #notify  => Reboot['after_run'],
-  } ->
-  autofs::mount { 'home':
-     mount      => '/home',
-    mapfile     => '/etc/auto.home',
-    mapcontents => ['*  tyrell:/nfshome/&'],
-    options     => '--timeout=120',
-    order       => 01
   } ~>
   reboot { 'after_run':
     apply  => 'finished',
   }
 
   # mapcontents => ['* -user,rw,soft,intr,rsize=32768,wsize=32768,tcp,nfsvers=3,noacl tyrell:/nfshome/&'],
+
+  ############################################
+  #
+  #            AUTO FS
+  # https://help.ubuntu.com/community/Autofs
+  # file_line: https://forge.puppet.com/puppetlabs/stdlib#resources
+  #############################################
+
+  package { autofs:
+    ensure => present,
+  }
+  file { 'auto.home':
+    path    => '/etc/auto.home',
+    ensure  => file,
+    content => "*   tyrell:/home/&",
+    require => Package['autofs'],
+  }
+  file_line { 'auto.master':
+    path    => '/etc/auto.master',
+    line    => '/home   /etc/auto.home',
+    require => Package['autofs'],
+  }
+
+  ##############################################
   
   #this is set up directly by preseed file on install as well.
   file { '/etc/lightdm':
