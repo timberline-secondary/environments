@@ -19,6 +19,7 @@ class hs_student_apps {
   package { 'tuxguitar':  }
   package { 'tuxguitar-jsa':}
   package { 'musescore':  }
+  package { 'mixxx': }
   
   package { 'chromium-browser':   }
   
