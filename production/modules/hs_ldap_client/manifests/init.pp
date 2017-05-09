@@ -69,7 +69,7 @@ class hs_ldap_client {
   file { 'auto.home':
     path    => '/etc/auto.home',
     ensure  => file,
-    content => "*   tyrell:/nfshome/&",
+    content => "* -fstype=nfs,rw,async tyrell:/nfshome/&",
     require => Package['autofs'],
   }
   file_line { 'auto.master':
