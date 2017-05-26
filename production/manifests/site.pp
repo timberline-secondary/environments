@@ -16,6 +16,7 @@ node default {
 	class { 'hs_printers': }
 	
 	class { 'hs_utilities': }
+	class { 'hs_utilities::displaycal': }
 	
 	class { 'hs_games': }
 	
