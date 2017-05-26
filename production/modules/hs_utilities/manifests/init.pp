@@ -3,21 +3,20 @@ class hs_utilities {
 
   notify { 'Puppet Module - Utilities': }
 
-
-  package {'icc-profiles':}
-  package {'icc-profiles-free':}
-
-
   package {'iptux':}
 
 
   # apt::ppa { 'ppa:ubuntu-wine/ppa':
   #     ensure => present,
   # }
-  # package { 'wine1.8':
+  # package { 'wine1.8':sl
   #     ensure  => latest,
   #     require => [ Class['apt::update'], Apt::Ppa['ppa:ubuntu-wine/ppa'] ],
   # }
+
+
+  # mounting exFAT (USB/SD card) drives
+  package {'exfat-fuse':}
 
   package { 'wine':
     ensure  => latest,
