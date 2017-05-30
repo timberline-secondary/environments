@@ -12,7 +12,7 @@ class hs_student_apps::steam {
 		group	=> root,
 		mode	=> '644',
 		ensure	=> present,
-		source	=> 'puppet:///modules/hs_student_apps/steam.deb',
+		source	=> 'puppet:///modules/hs_student_apps/steam/steam.deb',
 		require => File['/opt/steam'],
 	}
 
@@ -29,7 +29,7 @@ class hs_student_apps::steam {
 		group	=> root,
 		mode	=> '755',
 		ensure	=> present,
-		source	=> 'puppet:///modules/hs_student_apps/steam',
+		source	=> 'puppet:///modules/hs_student_apps/steam/steam',
 		require => Package['steam'],
 	}
 
