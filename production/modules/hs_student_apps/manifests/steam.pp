@@ -24,12 +24,11 @@ class hs_student_apps::steam {
 		require => File['steam-deb'],
 	}
 
-  file { 'steam-launcher':
-		path	=> '/usr/bin/steam',
+  file { '/usr/bin/steam':
 		owner	=> root,
 		group	=> root,
 		mode	=> '755',
-		ensure	=> latest,
+		ensure	=> present,
 		source	=> 'puppet:///modules/hs_student_apps/steam',
 		require => Package['steam'],
 	}
