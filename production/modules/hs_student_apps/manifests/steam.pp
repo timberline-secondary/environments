@@ -30,7 +30,16 @@ class hs_student_apps::steam {
 		mode	=> '755',
 		ensure	=> present,
 		source	=> 'puppet:///modules/hs_student_apps/steam/steam',
-		require => Package['steam'],
+		subscribe => Package['steam'],
 	}
+
+  # Remove the update notifier to prevent pop-up on all users.
+  file { 'steam-update-notifier':
+    ensure => absent,
+    path => '/var/lib/update-notifier/user.d/steam-install-notify',
+    subscribe => Package['steam'],
+  }
+
+
 
 }
