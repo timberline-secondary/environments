@@ -3,7 +3,8 @@ class hs_utilities {
 
   notify { 'Puppet Module - Utilities': }
 
-  package {'iptux':}
+  package {'iptux':} # LAN chat and file transfer
+  package {'xpad':}  # Desktop stickynote app
 
 
   # apt::ppa { 'ppa:ubuntu-wine/ppa':

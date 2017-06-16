@@ -39,7 +39,5 @@ class hs_student_apps::steam {
     path => '/var/lib/update-notifier/user.d/steam-install-notify',
     subscribe => Package['steam'],
   }
-
-
-
+  
 }
