@@ -24,7 +24,7 @@ class hs_utilities::displaycal {
 	include gdebi
 	package { 'displayCAL':
 		provider => gdebi,
-		ensure	=> latest,
+		ensure	=> absent, # causing pop-up problem!!
 		source => '/opt/displayCAL/DisplayCAL.deb',
 		require => File['displayCAL-deb'],
 	}
