@@ -4,8 +4,12 @@ class hs_utilities::displaycal {
   notify { 'Puppet Module - Utilities::DisplayCAL': }
 
   # Display Calibration
-  package { 'icc-profiles': }
-  package { 'icc-profiles-free': }
+  package { 'icc-profiles':
+		ensure	=> absent,
+	}
+  package { 'icc-profiles-free':
+		ensure  => absent,
+	}
 
   # DisplayCAL deb, https://displaycal.net/#download
   file { '/opt/displayCAL':

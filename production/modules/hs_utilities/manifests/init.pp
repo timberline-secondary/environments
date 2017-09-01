@@ -83,4 +83,14 @@ class hs_utilities {
   package{'vlc-plugin-fluidsynth':}
   
   package{'telnet':}
+
+  # Recover Ctrl key for other programs.  If failing, just use this command:
+  # gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"
+  # https://forge.puppet.com/camptocamp/gnome
+  gnome::gsettings { "wmpref":
+    schema => "org.gnome.desktop.wm.preferences",
+    key    => "mouse-button-modifier",
+    value  => "<Super>",
+  }
+
 }
