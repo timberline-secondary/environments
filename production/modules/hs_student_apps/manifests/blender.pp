@@ -29,7 +29,7 @@ class hs_student_apps::blender {
   
   # fully managed directory: https://christian.hofstaedtler.name/blog/2008/11/puppet-managing-directories-recursively.html
   file { 'blender-netrender-addon':
-    path    => '/usr/share/blender/2.78/scripts/addons/netrender',
+    path    => '/usr/share/blender/2.79/scripts/addons/netrender',
     recurse => true,
     purge   => true,
     force   => true,

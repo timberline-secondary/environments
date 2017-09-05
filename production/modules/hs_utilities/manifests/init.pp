@@ -88,9 +88,9 @@ class hs_utilities {
   # gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"
   # https://forge.puppet.com/camptocamp/gnome
   gnome::gsettings { "wmpref":
-    schema => "org.compiz.integrated",
-    key    => "show-hud",
-    value  => "'<Alt><Super>'",
+    schema => "org.gnome.desktop.wm.preferences",
+    key    => "mouse-button-modifier",
+    value  => "<Super>",
   }
 
 }
