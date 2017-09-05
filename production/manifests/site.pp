@@ -20,6 +20,8 @@ node default {
 	class { 'hs_utilities::displaycal': }
 	
 	class { 'hs_games': }
+
+	class { 'hs_login_scripts': }
 	
 	class { 'hs_admin_tools': }
 	class { 'hs_admin_tools::ssh': }
