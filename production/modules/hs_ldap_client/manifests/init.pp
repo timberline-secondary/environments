@@ -84,6 +84,11 @@ class hs_ldap_client {
   file { '/etc/lightdm':
     ensure  => directory,
   }
+
+  # https://help.ubuntu.com/community/NumLock
+  package { numlockx:
+    ensure => latest,
+  }
   
   file { 'lightdm.conf':
     path    => '/etc/lightdm/lightdm.conf',
