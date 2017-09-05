@@ -90,6 +90,7 @@ class hs_utilities {
   # gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"
 
   exec {'reclaim Alt':
+    path    => ['/usr/bin', '/usr/sbin'],
     command => 'gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"'
   }
 
