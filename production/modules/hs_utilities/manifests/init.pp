@@ -94,18 +94,29 @@ class hs_utilities {
   #   command => 'gsettings set org.gnome.desktop.wm.preferences mouse-button-modifier "<Super>"'
   # }
 
+  # Recovery some <Ctrl><Alt> shortcuts so they can be used in Blender etc.
 
   # https://forge.puppet.com/camptocamp/gnome
-  gnome::gsettings { "wmpref":
+
+  # Alt + Mouse
+  gnome::gsettings { "AltMouse":
     schema => "org.gnome.desktop.wm.preferences",
     key    => "mouse-button-modifier",
     value  => "'<Super>'",
   }
 
-  # gnome::gsettings { "wmpref":
-  #   schema => "org.gnome.desktop.wm.preferences",
-  #   key    => "mouse-button-modifier",
-  #   value  => "'<Super>'",
-  # }
+  # Control + Alt + 0 (Blender camera to view)
+  gnome::gsettings { "CtrlAltNum0":
+    schema => "org.gnome.desktop.wm.keybindings",
+    key    => "minimize",
+    value  => "['disabled']",
+  }
+
+  # Control + Alt + s (Blender scaling bones)
+  gnome::gsettings { "CtrlAltS":
+    schema => "org.gnome.desktop.wm.keybindings",
+    key    => "toggle-shaded",
+    value  => "['disabled']",
+  }
 
 }
