@@ -11,7 +11,7 @@ class hs_student_apps::blender {
   # }
 
   package { 'blender':
-    ensure  => "2.76b",
+    ensure  => "2.76.b+dfsg0-3build1",
     #require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
   }
 
