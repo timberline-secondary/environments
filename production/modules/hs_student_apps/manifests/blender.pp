@@ -1,6 +1,6 @@
 class hs_student_apps::blender {
 
-  include apt
+  # include apt
   
   apt::ppa { 'ppa:thomas-schiex/blender':
     ensure => absent,
