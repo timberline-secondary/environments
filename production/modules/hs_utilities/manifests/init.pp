@@ -102,11 +102,10 @@ class hs_utilities {
     value  => "'<Super>'",
   }
 
-  # https://github.com/simp/pupmod-simp-gnome
-  # include 'gnome'
-  # gnome::dconf_hash:
-  #   org/gnome/desktop/wm/preferences:
-  #     mouse-button-modifier:
-  #       value: "<Super>"
+  # gnome::gsettings { "wmpref":
+  #   schema => "org.gnome.desktop.wm.preferences",
+  #   key    => "mouse-button-modifier",
+  #   value  => "'<Super>'",
+  # }
 
 }

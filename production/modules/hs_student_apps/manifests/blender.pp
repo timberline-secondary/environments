@@ -14,7 +14,7 @@ class hs_student_apps::blender {
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
   }
-  #
+
   # file { 'thomas-schiex/blender':
   #   path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list',
   #   ensure  => present,
