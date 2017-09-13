@@ -3,7 +3,7 @@ class hs_student_apps::blender {
   include apt
   
   apt::ppa { 'ppa:thomas-schiex/blender':
-    ensure => present,
+    ensure => absent,
   }
 
   # package {'libopensubdiv':
@@ -11,25 +11,25 @@ class hs_student_apps::blender {
   # }
 
   package { 'blender':
-    ensure  => latest,
-    require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
+    ensure  => "2.76b",
+    #require => [ Class['apt::update'], Apt::Ppa['ppa:thomas-schiex/blender'] ],
   }
 
-  # file { 'thomas-schiex/blender':
-  #   path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list',
-  #   ensure  => present,
-  # }
-  # file { 'thomas-schiex/blender2':
-  #   path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list.save',
-  #   ensure  => present,
-  # }
+  file { 'thomas-schiex/blender':
+    path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list',
+    ensure  => absent,
+  }
+  file { 'thomas-schiex/blender2':
+    path    => '/etc/apt/sources.list.d/thomas-schiex-ubuntu-blender-xenial.list.save',
+    ensure  => absent,
+  }
   
   # Overwrite netrender addon to allow for use of GPU on slaves
   # https://github.com/WARP-LAB/Blender-Network-Render-Additions
   
   # fully managed directory: https://christian.hofstaedtler.name/blog/2008/11/puppet-managing-directories-recursively.html
   file { 'blender-netrender-addon':
-    path    => '/usr/share/blender/2.79/scripts/addons/netrender',
+    path    => '/usr/share/blender/scripts/addons/netrender',
     recurse => true,
     purge   => true,
     force   => true,
