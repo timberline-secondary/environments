@@ -17,6 +17,10 @@ class hs_desktop {
       ensure  => latest,
   }
 
+  package { 'unity-greeter-badges':
+      ensure  => latest,
+  }
+
 
 }
 
