@@ -13,6 +13,10 @@ class hs_desktop {
       ensure => latest,
   }
 
+  package {'xfce4':
+      ensure  => latest,
+  }
+
 
 }
 
