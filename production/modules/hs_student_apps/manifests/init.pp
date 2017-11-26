@@ -129,6 +129,17 @@ class hs_student_apps {
   #
   #############
 
+
+  # Purge Cura and reinstall
+  # https://stackoverflow.com/questions/14088651/puppet-manifest-sudo-commands
+
+  # Purge
+  exec { 'Refresh Cura':
+    command => 'apt remove cura && apt autoremove && touch /var/tmp/cura-refreshed',
+    path    => ['/usr/bin', '/usr/sbin',],
+    creates  => '/var/tmp/cura-refreshed',
+  }
+
   apt::ppa { 'ppa:thopiekar/cura':
       ensure => present,
   }
