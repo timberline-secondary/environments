@@ -135,8 +135,8 @@ class hs_student_apps {
 
   # Purge
   exec { 'Refresh Cura':
-    command => 'apt remove cura && apt autoremove && touch /var/tmp/cura-refreshed',
-    path    => ['/usr/bin', '/usr/sbin',],
+    command => '/usr/bin/apt remove -y cura && /usr/bin/apt -y autoremove && touch /var/tmp/cura-refreshed',
+    #path    => ['/usr/bin', '/usr/sbin',],
     creates  => '/var/tmp/cura-refreshed',
   }
 
