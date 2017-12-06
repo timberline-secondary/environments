@@ -13,6 +13,7 @@ node default {
 	class { 'hs_student_apps::blender': }
 	class { 'hs_student_apps::spotify': }
 	class { 'hs_student_apps::steam': }
+	class { 'hs_student_apps::chrome': }
 
 	class { 'hs_printers': }
 	
