@@ -12,7 +12,7 @@ class hs_student_apps::chrome {
     release  => 'stable',
     repos    => 'main',
     key      => {
-      id        => '4CCA 1EAF 950C EE4A B839 76DC A040 830F 7FAC 5991',
+      id        => '4CCA1EAF950CEE4AB83976DCA040830F7FAC5991',
       source    => 'https://dl-ssl.google.com/linux/linux_signing_key.pub',
       # 'server' => 'hkp://keyserver.ubuntu.com:80', #  default anyway
     },
