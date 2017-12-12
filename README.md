@@ -1,3 +1,7 @@
+## Currently Begin REfactored to use Role/Profile Paradigm
+
+Template: https://github.com/puppetlabs/control-repo
+
 #Puppet Environments for Timberline's Hackerspace
 
 ## Useful dirs
