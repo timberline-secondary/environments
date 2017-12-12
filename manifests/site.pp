@@ -30,3 +30,8 @@ node default {
   # Example:
   #   class { 'my_class': }
 }
+
+node /^(?i:tbl-hackerspace-\d+-s)$/ {
+  # e.g.: tbl-hackerspace-01-s (case insensitive)
+  include role::student_workstation
+}
