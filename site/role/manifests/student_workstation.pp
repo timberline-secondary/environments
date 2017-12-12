@@ -5,6 +5,5 @@ class role::student_workstation {
   # All roles should include the base profile
   include profile::base
 
-  #include profile::apps::blender
-
+  include profile::apps::blender
 }
