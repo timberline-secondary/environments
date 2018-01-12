@@ -1,4 +1,4 @@
-class hs_student_apps::blender {
+class profile::blender {
 
   # include apt
   
