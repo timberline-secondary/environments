@@ -7,7 +7,14 @@ class profile::users::ldap {
 
   package { libnss-ldap:
     ensure    => latest,
+  } ->
+  ini_setting { "ldap":
+    ensure  => present,
+    path    => '/etc/ldap.conf',
+    setting => 'base dc',
+    value   => 'hackerspace,dc=TTT'
   }
+
 
 
 
