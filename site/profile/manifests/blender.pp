@@ -23,7 +23,7 @@ class profile::blender {
   }
    
   vcsrepo { 'netrender-additions':
-    path      => '/tmp/netrender'
+    path      => '/tmp/netrender',
     ensure    => latest,
     provider  => git,
     #revision => 'production'
