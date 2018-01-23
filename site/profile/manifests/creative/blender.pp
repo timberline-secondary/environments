@@ -1,4 +1,4 @@
-class profile::blender {
+class profile::creative::blender {
 
   # include apt
   

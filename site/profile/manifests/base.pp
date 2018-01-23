@@ -7,6 +7,12 @@ class profile::base {
   	owner => 'root',
         group => 'root',
         mode => '0644',
-        content => "Running dsfsdfsdf on the new role/profile pupper paradigm. Last run: ${timestamp}\n",
+        content => "Running on the new role/profile pupper paradigm. Last run: ${timestamp}\n",
   }
+
+
+
+
+
+
 }
