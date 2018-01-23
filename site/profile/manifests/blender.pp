@@ -46,7 +46,7 @@ class profile::blender {
     #group    => 'root',
     #mode     => '0644',
     ensure    => directory,
-    require   => [ Package['blender'], Vcsrepo['netrender-additions'] ]
+    require   => [ Package['blender'], Vcsrepo['netrender-additions'] ],
     source   => '/tmp/netrender/netrender',
   }
 
