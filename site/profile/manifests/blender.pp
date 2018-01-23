@@ -22,7 +22,6 @@ class profile::blender {
   # fully managed directory: https://christian.hofstaedtler.name/blog/2008/11/puppet-managing-directories-recursively.html
   file { 'remove-stock-netrender':
     path      => '/usr/share/blender/scripts/addons/netrender',
-    ensure    => absent
     recurse   => true,
     purge     => true,
     force     => true,
