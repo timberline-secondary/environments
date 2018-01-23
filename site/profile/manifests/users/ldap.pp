@@ -12,7 +12,7 @@ class profile::users::ldap {
     ensure  => present,
     path    => '/etc/ldap.conf',
     setting => 'base dc',
-    value   => 'hackerspace,dc=TTT'
+    value   => 'hackerspace,dc=tbl'
   }
 
 
