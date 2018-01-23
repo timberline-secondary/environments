@@ -21,13 +21,18 @@ class profile::blender {
   file { '/tmp/netrender':
     ensure    => directory,
   }
-   
+  
+  package { 'git': 
+    ensure => latest,
+  }   
+  
   vcsrepo { 'netrender-additions':
     path      => '/tmp/netrender',
     ensure    => latest,
     provider  => git,
     #revision => 'production'
     source    => 'https://github.com/timberline-secondary/Blender-Network-Render-Additions.git',
+    require   => Package['git'],
     #require   => Package['blender'],  
     #notify    => File['remove-stock-netrender'],
   }
