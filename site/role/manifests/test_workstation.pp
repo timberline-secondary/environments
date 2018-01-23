@@ -7,4 +7,5 @@ class role::test_workstation {
   include profile::creative::blender
 
   include profile::users::ldap
+  include profile::users::home
 }
