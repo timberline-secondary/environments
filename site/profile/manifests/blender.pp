@@ -20,7 +20,7 @@ class profile::blender {
   # Use hackerspace fork
  
   vcsrepo { 'netrender-additions':
-    path      => '/tmp/'
+    path      => '/tmp/netrender'
     ensure    => latest,
     provider  => git,
     #revision => 'production'
