@@ -11,8 +11,9 @@ class profile::users::ldap {
   ini_setting { "ldap":
     ensure  => present,
     path    => '/etc/ldap.conf',
-    setting => 'base dc',
-    value   => 'hackerspace,dc=tbl'
+    setting => 'base',
+    value   => 'dc=hackerspace,dc=tbl',
+    key_val_separator => ' ',
   }
 
 
