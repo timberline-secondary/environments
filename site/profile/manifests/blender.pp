@@ -18,14 +18,17 @@ class profile::blender {
   # Overwrite netrender addon to allow for use of GPU on slaves
   # https://github.com/WARP-LAB/Blender-Network-Render-Additions
   # Use hackerspace fork
- 
+  file { '/tmp/netrender':
+    ensure    => directory,
+  }
+   
   vcsrepo { 'netrender-additions':
     path      => '/tmp/netrender'
     ensure    => latest,
     provider  => git,
     #revision => 'production'
     source    => 'https://github.com/timberline-secondary/Blender-Network-Render-Additions.git',
-    require   => Package['blender'],  
+    #require   => Package['blender'],  
     #notify    => File['remove-stock-netrender'],
   }
   
