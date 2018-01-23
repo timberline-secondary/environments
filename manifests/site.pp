@@ -35,6 +35,6 @@ node default {
 #   # e.g.: tbl-hackerspace-01-s (case insensitive)
 #   include role::student_workstation
 # }
-node 'tbl-hackerspace-12-s' {
+node 'tbl-hackerspace-12-s.hackerspace.tbl' {
   include role::student_workstation
 }
