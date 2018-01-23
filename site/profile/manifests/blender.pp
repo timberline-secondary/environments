@@ -19,20 +19,18 @@ class profile::blender {
   # https://github.com/WARP-LAB/Blender-Network-Render-Additions
   # Use hackerspace fork
  
-
-  
   vcsrepo { 'netrender-additions':
-    path      => '/usr/share/blender/scripts/addons/netrender'
+    path      => '/tmp/'
     ensure    => latest,
     provider  => git,
     #revision => 'production'
     source    => 'https://github.com/timberline-secondary/Blender-Network-Render-Additions.git',
     require   => Package['blender'],  
-    subscribe => File['remove-stock-netrender'],
+    #notify    => File['remove-stock-netrender'],
   }
   
   # fully managed directory: https://christian.hofstaedtler.name/blog/2008/11/puppet-managing-directories-recursively.html
-  file { 'remove-stock-netrender':
+/*  file { 'remove-stock-netrender':
     path      => '/usr/share/blender/scripts/addons/netrender',
     recurse   => true,
     purge     => true,
@@ -41,9 +39,8 @@ class profile::blender {
     #group    => 'root',
     #mode     => '0644',
     ensure    => directory,
-    #subscribe => Package['blender'],  
-    #source   => 'puppet:///modules/hs_student_apps/blender/Blender-Network-Render-Additions/netrender',
-  } 
+    source   => 'puppet:///modules/hs_student_apps/blender/Blender-Network-Render-Additions/netrender',
+  } */
 
 
 }
