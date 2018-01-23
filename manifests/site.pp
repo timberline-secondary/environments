@@ -30,7 +30,7 @@ node default {
   # Example:
   #   class { 'my_class': }
   file {'/root/README':
-    esnure => file,
+    ensure => file,
   }
 }
 
