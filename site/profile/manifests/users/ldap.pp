@@ -21,7 +21,22 @@ class profile::users::ldap {
     setting           => 'uri',
     value             => 'ldap://192.168.43.3',
     key_val_separator => ' ',
+  } ->
+  ini_setting { 'ldap-rootbinddn':
+    ensure            => present,
+    path              => '/etc/ldap.conf',
+    setting           => 'rootbinddn',
+    value             => 'cn=admin,dc=hackerspace,dc=tbl',
+    key_val_separator => ' ',
+  } ->
+  file { '/etc/ldap.secret':
+    ensure  => file,
+    mode    => '0400',
+    # place the file in site/profile/files/users/ldap/ldap.secret
+    source  => "puppet:///modules/profile/users/ldap/ldap.secret",
   }
+
+
 
 
 
