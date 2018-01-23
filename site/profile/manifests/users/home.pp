@@ -33,3 +33,4 @@ class profile::users::home {
     line    => '/home   /etc/auto.home',
     require => Package['autofs'],
   }
+*/
