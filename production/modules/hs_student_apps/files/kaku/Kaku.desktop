@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.1
-Name=Kaku
-Comment=Next generation music player
-Exec=/opt/Kaku-linux64/Kaku
-Icon=Kaku.png
-Terminal=true
-Type=Application
-Categories=Utility;Application;

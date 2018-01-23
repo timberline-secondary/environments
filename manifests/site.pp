@@ -31,7 +31,10 @@ node default {
   #   class { 'my_class': }
 }
 
-node /^(?i:tbl-hackerspace-\d+-s)$/ {
-  # e.g.: tbl-hackerspace-01-s (case insensitive)
+# node /^(?i:tbl-hackerspace-\d+-s)$/ {
+#   # e.g.: tbl-hackerspace-01-s (case insensitive)
+#   include role::student_workstation
+# }
+node 'tbl-hackerspace-12-s' {
   include role::student_workstation
 }
