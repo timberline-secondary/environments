@@ -36,6 +36,16 @@ class profile::users::ldap {
     source  => "puppet:///modules/profile/users/ldap/ldap.secret",
   }
 
+  class { 'nsswitch':
+    passwd  => ['ldap', 'files'],
+    group   => ['ldap', 'files'],
+    shadow  => ['ldap', 'files'],
+    hosts   => ['files', 'dns'],
+    require => Package['libnss-ldap'],
+    subscribe => Package['libnss-ldap'],
+  }
+
+
 
 
 
@@ -43,25 +53,7 @@ class profile::users::ldap {
 /*
   class { 'fstab': }
 
-  package { libnss-ldap:
-    ensure => present,
-    #notify => Reboot['after_run'],
-  } ->
-  file { 'ldap.conf':
-    path    => '/etc/ldap.conf',
-    ensure  => file,
-    require => Package['libnss-ldap'],
-    source  => "puppet:///modules/hs_ldap_client/ldap.conf",
-    #notify  => Reboot['after_run'],
-  } ->
-  file { 'ldap.secret':
-    path    => '/etc/ldap.secret',
-    ensure  => file,
-    require => Package['libnss-ldap'],
-    mode    => '0400',
-    source  => "puppet:///modules/hs_ldap_client/ldap.secret",
-    #notify  => Reboot['after_run'],
-  } ->
+
   file { 'nsswitch.conf':
     path    => '/etc/nsswitch.conf',
     ensure  => file,
