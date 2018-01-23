@@ -28,6 +28,10 @@ File { backup => false }
 node default {
 }
 
+node puppet {
+  include role::puppetmaster
+}
+
 # node /^(?i:tbl-hackerspace-\d+-s)$/ {
 #   # e.g.: tbl-hackerspace-01-s (case insensitive)
 #   include role::student_workstation
@@ -35,3 +39,4 @@ node default {
 node 'tbl-hackerspace-12-s.hackerspace.tbl' {
   include role::student_workstation
 }
+
