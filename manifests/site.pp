@@ -28,7 +28,7 @@ File { backup => false }
 node default {
 }
 
-node puppet {
+node 'puppet' {
   include role::puppetmaster
 }
 
