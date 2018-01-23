@@ -8,14 +8,20 @@ class profile::users::ldap {
   package { libnss-ldap:
     ensure    => latest,
   } ->
-  ini_setting { "ldap":
-    ensure  => present,
-    path    => '/etc/ldap.conf',
-    setting => 'base',
-    value   => 'dc=hackerspace,dc=tbl',
+  ini_setting { "ldap-base":
+    ensure            => present,
+    path              => '/etc/ldap.conf',
+    setting           => 'base',
+    value             => 'dc=hackerspace,dc=tbl',
     key_val_separator => ' ',
+  } ->
+  ini_setting { 'ldap-uri':
+    ensure            => present,
+    path              => '/etc/ldap.conf',
+    setting           => 'uri',
+    value             => 'ldap://192.168.43.3',
+    #key_val_separator => ' ',
   }
-
 
 
 
