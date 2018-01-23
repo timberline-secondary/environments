@@ -3,10 +3,10 @@ class profile::base {
 
   # MOTD
   $timestamp = generate('/bin/date')
-    file { '/etc/motd':
-    owner => 'root',
-    group => 'root',
-    mode => '0644',
-    content => "Running on the new role/profile pupper paradigm. Last run: ${timestamp}\n",
-	}
+  file { '/etc/motd':
+  	owner => 'root',
+        group => 'root',
+        mode => '0644',
+        content => "Running dsfsdfsdf on the new role/profile pupper paradigm. Last run: ${timestamp}\n",
+  }
 }
