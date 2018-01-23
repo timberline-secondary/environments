@@ -1,13 +1,13 @@
 class profile::users::ldap {
 
-  class { 'ldap::client':
-    uri   => 'ldap://192.168.43.3',
-    base  => 'dc=hackerspace,dc=tbl' ,
-  }
+  # class { 'ldap::client':
+  #   uri   => 'ldap://192.168.43.3',
+  #   base  => 'dc=hackerspace,dc=tbl' ,
+  # }
 
-  # package { libnss-ldap:
-  #   ensure    => latest,
-  # } ->
+  package { libnss-ldap:
+    ensure    => latest,
+  }
 
 
 
