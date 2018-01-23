@@ -31,6 +31,7 @@ node default {
   #   class { 'my_class': }
   file {'/root/README':
     ensure => file,
+    content => 'stuff',
   }
 }
 
