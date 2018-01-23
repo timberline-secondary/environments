@@ -29,6 +29,9 @@ node default {
   # This is where you can declare classes for all nodes.
   # Example:
   #   class { 'my_class': }
+  file {'/root/README':
+    esnure => file,
+  }
 }
 
 # node /^(?i:tbl-hackerspace-\d+-s)$/ {
