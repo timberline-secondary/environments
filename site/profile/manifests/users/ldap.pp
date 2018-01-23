@@ -20,7 +20,7 @@ class profile::users::ldap {
     path              => '/etc/ldap.conf',
     setting           => 'uri',
     value             => 'ldap://192.168.43.3',
-    #key_val_separator => ' ',
+    key_val_separator => ' ',
   }
 
 
