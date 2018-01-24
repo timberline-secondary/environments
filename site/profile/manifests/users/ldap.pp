@@ -68,11 +68,11 @@ class profile::users::ldap {
     ensure  => directory,
   }
 
-  $lightdm = "# MANAGED BY PUPPETMASTER\n
-              [SeatDefaults]\n
-              greeter-show-manual-login=true\n
-              greeter-hide-users=true\n
-              greeter-setup-script=/usr/bin/numlockx on\n"
+  $lightdm = "# MANAGED BY PUPPETMASTER
+[SeatDefaults]
+greeter-show-manual-login=true
+greeter-hide-users=true
+greeter-setup-script=/usr/bin/numlockx on"
 
   file { 'lightdm.conf':
     path    => '/etc/lightdm/lightdm.conf',
