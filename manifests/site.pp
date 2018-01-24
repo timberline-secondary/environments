@@ -43,3 +43,7 @@ node 'tbl-hackerspace-12-s.hackerspace.tbl', 'tbl-hackerspace-10-s.hackerspace.t
   include role::student_workstation
 }
 
+node 'tbl-hackerspace-31-s.hackerspace.tbl' {
+  include role::test_workstation
+}
+
