@@ -1,4 +1,4 @@
-class ldapclient {
+class profile::ldap_client {
 
   class { 'fstab': }
 
