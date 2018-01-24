@@ -1,4 +1,4 @@
-class ldap_client {
+class ldapclient {
 
   class { 'fstab': }
 
