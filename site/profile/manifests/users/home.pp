@@ -15,6 +15,12 @@ class profile::users::home {
     options     => '--timeout=120',
     order       => 01,
   }
+
+  file { '/shared':
+    ensure => 'directory',
+    mode   => '0777',
+  }
+
 }
 
 #### OLD METHOD ####
