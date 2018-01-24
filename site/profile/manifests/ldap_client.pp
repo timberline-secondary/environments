@@ -1,4 +1,4 @@
-class ldap-client {
+class ldap_client {
 
   class { 'fstab': }
 
@@ -10,7 +10,7 @@ class ldap-client {
     path    => '/etc/ldap.conf',
     ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/profile/ldap-client/ldap.conf",
+    source  => "puppet:///modules/profile/ldap_client/ldap.conf",
     #notify  => Reboot['after_run'],
   } ->
   file { 'ldap.secret':
@@ -18,14 +18,14 @@ class ldap-client {
     ensure  => file,
     require => Package['libnss-ldap'],
     mode    => '0400',
-    source  => "puppet:///modules/profile/ldap-client/ldap.secret",
+    source  => "puppet:///modules/profile/ldap_client/ldap.secret",
     #notify  => Reboot['after_run'],
   } ->
   file { 'nsswitch.conf':
     path    => '/etc/nsswitch.conf',
     ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/profile/ldap-client/nsswitch.conf",
+    source  => "puppet:///modules/profile/ldap_client/nsswitch.conf",
     #notify  => Reboot['after_run'],
     # This file is in: modules/hs_ldap_client/files
   } ->
@@ -33,14 +33,14 @@ class ldap-client {
     path    => '/etc/pam.d/common-session',
     ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/profile/ldap-client/pam.d/common-session",
+    source  => "puppet:///modules/profile/ldap_client/pam.d/common-session",
     #notify  => Reboot['after_run'],
   } ->
   file { 'common-password':
     path    => '/etc/pam.d/common-password',
     ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/profile/ldap-client/pam.d/common-password",
+    source  => "puppet:///modules/profile/ldap_client/pam.d/common-password",
     #notify  => Reboot['after_run'],
   } ->
   fstab::mount { '/home':
@@ -93,7 +93,7 @@ class ldap-client {
   file { 'lightdm.conf':
     path    => '/etc/lightdm/lightdm.conf',
     ensure  => file,
-    source  => "puppet:///modules/profile/ldap-client/lightdm/lightdm.conf",
+    source  => "puppet:///modules/profile/ldap_client/lightdm/lightdm.conf",
     require => File['/etc/lightdm'],
   }
 
