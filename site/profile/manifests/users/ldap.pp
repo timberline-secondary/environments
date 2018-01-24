@@ -68,16 +68,22 @@ class profile::users::ldap {
     ensure  => directory,
   }
 
-  # https://help.ubuntu.com/community/NumLock
-  package { numlockx:
-    ensure => latest,
-  }
+  $lightdm = "# MANAGED BY PUPPETMASTER\n
+              [SeatDefaults]\n
+              greeter-show-manual-login=true\n
+              greeter-hide-users=true\n
+              greeter-setup-script=/usr/bin/numlockx on\n"
 
   file { 'lightdm.conf':
     path    => '/etc/lightdm/lightdm.conf',
     ensure  => file,
-    source  => "puppet:///modules/hs_ldap_client/lightdm/lightdm.conf",
+    content  => $lightdm,
     require => File['/etc/lightdm'],
+  }
+
+  # https://help.ubuntu.com/community/NumLock
+  package { numlockx:
+    ensure => latest,
   }
 
 }

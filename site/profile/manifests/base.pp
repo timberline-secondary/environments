@@ -10,9 +10,9 @@ class profile::base {
         content => "Running on the new role/profile pupper paradigm. Last run: ${timestamp}\n",
   }
 
-
-
-
+  package { 'openssh-server':
+    ensure  => latest,
+  }
 
 
 }
