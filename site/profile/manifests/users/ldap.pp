@@ -29,6 +29,9 @@ class profile::users::ldap {
     mode    => '0400',
     # place the file in site/profile/files/users/ldap/ldap.secret
     source  => "puppet:///modules/profile/users/ldap/ldap.secret",
+  } ~>
+  reboot { 'after_run':
+    apply  => 'finished',
   }
 
   class { 'nsswitch':
@@ -56,30 +59,25 @@ class profile::users::ldap {
   # current home drives created on account creation by script
 
 
-  /*reboot { 'after_run':
-    apply  => 'finished',
-  }*/
-
-
 
 
   ##############################################
 
-  # #this is set up directly by preseed file on install as well.
-  # file { '/etc/lightdm':
-  #   ensure  => directory,
-  # }
-  #
-  # # https://help.ubuntu.com/community/NumLock
-  # package { numlockx:
-  #   ensure => latest,
-  # }
-  #
-  # file { 'lightdm.conf':
-  #   path    => '/etc/lightdm/lightdm.conf',
-  #   ensure  => file,
-  #   source  => "puppet:///modules/hs_ldap_client/lightdm/lightdm.conf",
-  #   require => File['/etc/lightdm'],
-  # }
+  #this is set up directly by preseed file on install as well.
+  file { '/etc/lightdm':
+    ensure  => directory,
+  }
+
+  # https://help.ubuntu.com/community/NumLock
+  package { numlockx:
+    ensure => latest,
+  }
+
+  file { 'lightdm.conf':
+    path    => '/etc/lightdm/lightdm.conf',
+    ensure  => file,
+    source  => "puppet:///modules/hs_ldap_client/lightdm/lightdm.conf",
+    require => File['/etc/lightdm'],
+  }
 
 }

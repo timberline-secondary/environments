@@ -36,10 +36,10 @@ node 'puppet' {
 #   # e.g.: tbl-hackerspace-01-s (case insensitive)
 #   include role::student_workstation
 # }
-node 'tbl-hackerspace-12-s.hackerspace.tbl' {
+node 'tbl-hackerspace-11-s.hackerspace.tbl' {
   include role::test_workstation
 }
-node 'tbl-hackerspace-11-s.hackerspace.tbl', 'tbl-hackerspace-10-s.hackerspace.tbl' {
+node 'tbl-hackerspace-12-s.hackerspace.tbl', 'tbl-hackerspace-10-s.hackerspace.tbl' {
   include role::student_workstation
 }
 
