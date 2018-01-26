@@ -35,5 +35,3 @@ class profile::utils_browsers {
 
 
 }
-
-}
