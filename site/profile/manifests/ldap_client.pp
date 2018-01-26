@@ -1,7 +1,5 @@
 class profile::ldap_client {
 
-  # class { 'fstab': }
-
   package { libnss-ldap:
     ensure => present,
     #notify => Reboot['after_run'],
@@ -41,14 +39,6 @@ class profile::ldap_client {
     ensure  => file,
     require => Package['libnss-ldap'],
     source  => "puppet:///modules/profile/ldap_client/pam.d/common-password",
-    #notify  => Reboot['after_run'],
-  # } ->
-  # fstab::mount { '/home':
-  #   ensure  => 'absent',
-  #   device  => '192.168.43.4:/nfshome',
-  #   options => 'auto,noatime,bg,tcp,hard',
-  #   fstype  => 'nfs',
-  #   #notify  => Reboot['after_run'],
   } ~>
   reboot { 'after_run':
     apply  => 'finished',
