@@ -9,6 +9,7 @@ mod 'puppetlabs-vcsrepo',       '2.3.0'
 mod 'trlinkin-nsswitch',        '2.0.0'
 mod 'puppet-autofs',            '4.2.0'
 mod 'puppetlabs-reboot',        '1.2.1'
+mod 'puppetlabs-apt',           '4.5.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples

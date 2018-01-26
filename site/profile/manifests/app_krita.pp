@@ -1,4 +1,7 @@
 class profile::app_krita {
+
+  include apt
+
   apt::ppa { 'ppa:dimula73/krita':
       ensure => present,
   }
