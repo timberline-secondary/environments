@@ -24,7 +24,7 @@ class profile::utils_multimedia {
   include gdebi
 
   wget::fetch { 'Kaku-1.9.0-amd64.deb':
-    source  => 'https://github.com/EragonJ/Kaku/releases/download/1.9.0/Kaku-1.9.0-i386.deb',
+    source  => 'https://github.com/EragonJ/Kaku/releases/download/1.9.0/Kaku-1.9.0-amd64.deb',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
   } ~>
