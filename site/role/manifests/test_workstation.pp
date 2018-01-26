@@ -13,6 +13,8 @@ class role::test_workstation {
   include profile::app_cura
   include profile::app_audio_suite
 
+  include profile::utils_multimedia
+
 
 
 }
