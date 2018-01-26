@@ -9,6 +9,8 @@ class role::test_workstation {
   include profile::app_krita
   include profile::app_gimp
 
+  include profile::app_cura
+
   include profile::ldap_client
 
 }
