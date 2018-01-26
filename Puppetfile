@@ -12,6 +12,7 @@ mod 'puppetlabs-apt',           '4.5.0'
 
 mod 'cpick-gdebi',              '0.1.2'
 mod 'trlinkin-nsswitch',        '2.0.0'
+mod 'maestrodev-wget',          '1.7.3'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
