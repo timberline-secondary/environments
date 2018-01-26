@@ -1,7 +1,7 @@
 class profile::utils_multimedia {
 
   package {'vlc':
-      ensure => present,
+      ensure => latest,
   }
 
   #############
@@ -31,12 +31,12 @@ class profile::utils_multimedia {
   #
   #############
 
-  include ::snapd
-
-  package { 'spotify':
-    provider  => 'snap',
-    ensure  => latest,
-    require => Class['apt::update'],
-  }
+  # include ::snapd
+  #
+  # package { 'spotify':
+  #   provider  => 'snap',
+  #   ensure  => latest,
+  #   require => Class['apt::update'],
+  # }
 
 }
