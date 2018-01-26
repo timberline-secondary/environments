@@ -33,7 +33,7 @@ class profile::utils_multimedia {
 
   include ::snapd
 
-  package { 'spotify-client':
+  package { 'spotify':
     source  => 'snap',
     ensure  => latest,
     require => Class['apt::update'],
