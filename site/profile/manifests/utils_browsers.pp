@@ -46,14 +46,4 @@ class profile::utils_browsers {
   }
 
 
-  # for Chromium
-  package {'pepperflashplugin-nonfree':
-    ensure  => latest,
-  }
-  # for Firefox
-  package { 'flashplugin-installer':
-    ensure => latest,
-  }
-}
-
 }
