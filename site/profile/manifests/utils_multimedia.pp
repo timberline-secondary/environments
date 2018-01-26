@@ -11,15 +11,6 @@ class profile::utils_multimedia {
   #
   #############
 
-  # file { 'kaku-deb':
-		# path	=> '/tmp/Kaku-1.9.0-amd64.deb',
-		# owner	=> root,
-		# group	=> root,
-		# mode	=> '644',
-		# ensure	=> present,
-		# source	=> 'puppet:///modules/profile/utils_multimedia/kaku/Kaku-1.9.0-amd64.deb',
-  # }
-
   include wget
   include gdebi
 
@@ -32,6 +23,28 @@ class profile::utils_multimedia {
     provider => gdebi,
     ensure	=> latest,
     source => '/tmp/Kaku-1.9.0-amd64.deb',
+  }
+
+  ############
+  #
+  # Spotify
+  #
+  #############
+
+  include apt
+
+  apt::source { 'spotify-repo':
+		location => 'http://repository.spotify.com',
+		release	 => 'stable',
+		repos    => 'non-free',
+		key 		 => {
+			id      => 'BBEBDCB318AD50EC6865090613B00F1FD2C19886',
+			server  => 'hkp://keyserver.ubuntu.com:80',
+		},
+  }
+  package { 'spotify-client':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Source['spotify-repo'] ],
   }
 
 }
