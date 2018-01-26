@@ -34,7 +34,7 @@ class profile::utils_multimedia {
   include ::snapd
 
   package { 'spotify':
-    source  => 'snap',
+    provider  => 'snap',
     ensure  => latest,
     require => Class['apt::update'],
   }
