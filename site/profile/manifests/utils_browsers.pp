@@ -1,7 +1,19 @@
 class profile::utils_browsers {
 
+  package { 'firefox':
+      ensure => latest,
+  }
+  # for Firefox
+  package {'flashplugin-installer':
+    ensure => latest,
+  }
+
   package { 'chromium-browser':
       ensure => latest,
+  }
+  # for Chromium
+  package {'pepperflashplugin-nonfree':
+    ensure  => latest,
   }
 
   #############
@@ -33,5 +45,15 @@ class profile::utils_browsers {
     require => [ Class['apt::update'], Apt::Source['chrome-repo'] ],
   }
 
+
+  # for Chromium
+  package {'pepperflashplugin-nonfree':
+    ensure  => latest,
+  }
+  # for Firefox
+  package { 'flashplugin-installer':
+    ensure => latest,
+  }
+}
 
 }

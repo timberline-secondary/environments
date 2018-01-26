@@ -3,6 +3,18 @@ class profile::utils_multimedia {
   package {'vlc':
       ensure => latest,
   }
+  # Needed to play midi audio
+  package{'vlc-plugin-fluidsynth':
+      ensure => latest,
+  }
+  # Video Codecs
+  package{'libgstreamer-plugins-bad1.0.0':
+      ensure => latest,
+  }
+  package{'gstreamer1.0-plugins-bad':
+      ensure => latest,
+  }
+
 
   #############
   #
