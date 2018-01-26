@@ -32,7 +32,6 @@ class profile::utils_multimedia {
     provider => gdebi,
     ensure	=> latest,
     source => '/tmp/Kaku-1.9.0-amd64.deb',
-    require => File['kaku-deb']
   }
 
 }
