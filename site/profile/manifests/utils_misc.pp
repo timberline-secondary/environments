@@ -16,5 +16,7 @@ class profile::utils_misc {
   package{'unifont':}
   package{'screen':}
 
+  package{'telnet':}
+
 
 }
