@@ -10,14 +10,6 @@ class profile::utils_misc {
     ensure  => latest,
   }
 
-  package { 'unity-tweak-tool':
-    ensure  => latest,
-  }
-
-  package { 'gnome-tweak-tool':
-    ensure  => latest,
-  }
-
   package{'kmag':}
   package{'unzip':}
   package{'typecatcher':}

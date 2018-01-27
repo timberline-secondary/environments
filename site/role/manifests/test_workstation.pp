@@ -16,6 +16,7 @@ class role::test_workstation {
   include profile::utils_multimedia
   include profile::utils_browsers
   include profile::utils_misc
+  include profile::utils_gnome
 
 
 
