@@ -87,4 +87,10 @@ class profile::ldap_client {
     require => File['/etc/lightdm'],
   }
 
+
+  file { '/shared':
+    ensure => 'directory',
+    mode   => '0777',
+  }
+
 }
