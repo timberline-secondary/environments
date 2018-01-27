@@ -1,4 +1,4 @@
-class profile::utils_screecast {
+class profile::utils_screencast {
 
     include apt
 
