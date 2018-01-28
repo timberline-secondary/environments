@@ -6,6 +6,8 @@ class role::test_workstation {
   include profile::base
 
   include profile::config_ldap_client
+  include profile::config_upgrades
+  include profile::config_restart_daily
 
   include profile::app_blender
   include profile::app_krita
