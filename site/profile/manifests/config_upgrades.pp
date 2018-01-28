@@ -10,6 +10,4 @@ class profile::config_upgrades {
       origins => ['${distro_id}:${distro_codename}-updates', '${distro_id}:${distro_codename}-security'],
     }
 
-  }
-
 }
