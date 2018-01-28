@@ -25,6 +25,14 @@ File { backup => false }
 # will be included in every node's catalog, *in addition* to any classes
 # specified in the console for that node.
 
+
+# Node definitions:
+# https://puppet.com/docs/puppet/5.3/lang_node_definitions.html
+# regex testing: http://rubular.com/
+
+# EXAMPLE match 1-12 or 01-12:
+# /tbl-hackerspace-(0?[1-9]|1[0-2])-s.hackerspace.tbl/
+
 node default {
 }
 
@@ -39,7 +47,7 @@ node 'puppet' {
 node 'tbl-hackerspace-11-s.hackerspace.tbl' {
   include role::test_workstation
 }
-node 'tbl-hackerspace-12-s.hackerspace.tbl', 'tbl-hackerspace-10-s.hackerspace.tbl' {
+node /tbl-hackerspace-(0?[1-9]|1[0-2])-s.hackerspace.tbl/ {
   include role::student_workstation
 }
 
