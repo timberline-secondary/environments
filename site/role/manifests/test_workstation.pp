@@ -5,7 +5,7 @@ class role::test_workstation {
   # All roles should include the base profile
   include profile::base
 
-  include profile::ldap_client
+  include profile::config_ldap_client
 
   include profile::app_blender
   include profile::app_krita

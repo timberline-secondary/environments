@@ -1,4 +1,4 @@
-class profile::ldap_client {
+class profile::config_ldap_client {
 
   package { libnss-ldap:
     ensure => present,
