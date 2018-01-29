@@ -5,6 +5,10 @@ class profile::dev_unity3d {
   include wget
   include gdebi
 
+  package { 'monodevelop':
+      ensure  => latest,
+  }
+
   wget::fetch { 'unity-editor_amd64-5.6.3xf1Linux.deb':
     source  => 'http://beta.unity3d.com/download/d72e16ff4aba/unity-editor_amd64-5.6.3xf1Linux.deb',
     destination => '/tmp/',
