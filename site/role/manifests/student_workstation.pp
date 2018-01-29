@@ -23,4 +23,8 @@ class role::student_workstation {
 
   include profile::admin_ssh
 
+  include profile::dev_java
+  include profile::dev_python
+  include profile::dev_general_utils
+
 }

@@ -21,14 +21,12 @@ class role::test_workstation {
   include profile::utils_gnome
   include profile::utils_screencast
 
+  include profile::admin_ssh
+
   include profile::dev_java
   include profile::dev_python
   include profile::dev_general_utils
   include profile::dev_appinventor
   include profile::dev_unity3d
-
-  include profile::admin_ssh
-
-
 
 }
