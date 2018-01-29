@@ -21,6 +21,9 @@ class role::test_workstation {
   include profile::utils_gnome
   include profile::utils_screencast
 
+  include profile::dev_java
+  include profile::dev_python
+
   include profile::admin_ssh
 
 
