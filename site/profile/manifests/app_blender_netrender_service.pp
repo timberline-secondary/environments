@@ -8,7 +8,7 @@ class profile::app_blender_netrender_service {
     source  => 'https://raw.githubusercontent.com/timberline-secondary/systemd-blender-netrender/master/netrender-watchdog.py',
     destination => '/user/local/bin/',
     cache_dir   => '/var/cache/wget',
-    mode        => '0755',
+    # mode        => '0755',
   }
 
 }
