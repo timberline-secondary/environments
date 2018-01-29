@@ -8,10 +8,5 @@ class profile::dev_general_utils {
       require => [ Class['apt::update'], Apt::Ppa['ppa:webupd8team/atom'] ],
   }
 
-  package { 'git':
-      ensure  => latest,
-  }
-
-
-
+  include profile::common_git
 }

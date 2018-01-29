@@ -21,10 +21,8 @@ class profile::app_blender {
   file { '/tmp/netrender':
     ensure    => directory,
   }
-  
-  package { 'git': 
-    ensure => latest,
-  }   
+
+  include profile::common_git
   
   vcsrepo { 'netrender-additions':
     path      => '/tmp/netrender',
