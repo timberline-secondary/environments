@@ -32,9 +32,9 @@ File { backup => false }
 
 # EXAMPLE match 1-12 or 01-12:
 # /tbl-hackerspace-(0?[1-9]|1[0-2])-s.hackerspace.tbl/
-1-16
+#1-16
 # /tbl-hackerspace-(0?[1-9]|1[0-6])-s.hackerspace.tbl/
-1-24
+#1-24
 # /tbl-hackerspace-(0?[1-9]|1[0-9]|2[0-4])-s\.hackerspace\.tbl/
 node default {
 }
