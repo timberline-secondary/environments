@@ -20,7 +20,7 @@ class role::student_workstation {
   include profile::utils_misc
   include profile::utils_gnome
   include profile::utils_screencast
-  #include profile::utils_desktops
+  include profile::utils_desktops
 
   include profile::admin_ssh
 
