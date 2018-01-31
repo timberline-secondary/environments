@@ -11,10 +11,14 @@ class profile::utils_browsers {
   package { 'chromium-browser':
       ensure => latest,
   }
-  # for Chromium
+  # for Chromium  NO!  deprecated, use the flash plugin...
   package {'pepperflashplugin-nonfree':
-    ensure  => latest,
+    ensure  => absent,
   }
+
+  # Flash for Chrome/Chromium
+  include profile::common_apt_ubuntu_partner
+
 
   #############
   #
