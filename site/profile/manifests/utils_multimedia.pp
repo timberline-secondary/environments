@@ -37,14 +37,14 @@ class profile::utils_multimedia {
     source => '/tmp/Kaku-1.9.0-amd64.deb',
   }
 
-  ############
+  # ###########
   #
   # Spotify
   #
-  #############
+  # ############
 
-  # include ::snapd
-  #
+  include ::snapd
+
   # package { 'spotify':
   #   provider  => 'snap',
   #   ensure  => latest,
