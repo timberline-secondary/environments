@@ -44,20 +44,20 @@ class profile::utils_multimedia {
   #
   # ############
 
-  include apt
-
-  apt::source { 'spotify-repo':
-		location => 'http://repository.spotify.com',
-		release	 => 'stable',
-		repos    => 'non-free',
-		key 		 => {
-			id      => '0DF731E45CE24F27EEEB1450EFDC8610341D9410',
-			server  => 'hkp://keyserver.ubuntu.com:80',
-		},
-  }
-  package { 'spotify-client':
-    ensure  => latest,
-    require => [ Class['apt::update'], Apt::Source['spotify-repo'] ],
-  }
+  # include apt
+  #
+  # apt::source { 'spotify-repo':
+		# location => 'http://repository.spotify.com',
+		# release	 => 'stable',
+		# repos    => 'non-free',
+		# key 		 => {
+		# 	id      => '0DF731E45CE24F27EEEB1450EFDC8610341D9410',
+		# 	server  => 'hkp://keyserver.ubuntu.com:80',
+		# },
+  # }
+  # package { 'spotify-client':
+  #   ensure  => latest,
+  #   require => [ Class['apt::update'], Apt::Source['spotify-repo'] ],
+  # }
 
 }
