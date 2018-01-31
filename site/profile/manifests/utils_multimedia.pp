@@ -43,13 +43,20 @@ class profile::utils_multimedia {
   #
   # ############
 
-  include wget
-  include gdebi
+  include apt
 
+  apt::source { 'spotify-repo':
+		location => 'http://repository.spotify.com',
+		release	 => 'stable',
+		repos    => 'non-free',
+		key 		 => {
+			id      => '0DF731E45CE24F27EEEB1450EFDC8610341D9410',
+			server  => 'hkp://keyserver.ubuntu.com:80',
+		},
+  }
   package { 'spotify-client':
-    provider => gdebi,
-    ensure	=> absent,
-    source => '/tmp/spotify-client_1.0.70.399.g5ffabd56-27_i386.deb',
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Source['spotify-repo'] ],
   }
 
 
