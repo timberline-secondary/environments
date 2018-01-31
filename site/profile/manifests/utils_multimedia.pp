@@ -50,7 +50,7 @@ class profile::utils_multimedia {
 		release	 => 'stable',
 		repos    => 'non-free',
 		key 		 => {
-			id      => '0DF731E45CE24F27EEEB1450EFDC8610341D9410',
+			id      => 'BBEBDCB318AD50EC6865090613B00F1FD2C19886',
 			server  => 'hkp://keyserver.ubuntu.com:80',
 		},
   }
@@ -58,6 +58,5 @@ class profile::utils_multimedia {
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Source['spotify-repo'] ],
   }
-
 
 }
