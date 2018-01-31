@@ -9,4 +9,9 @@ class profile::utils_desktops {
     ensure  => latest,
   }
 
+  package {'xfce4':
+      ensure  => latest,
+  }
+
 }
+
