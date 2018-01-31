@@ -43,12 +43,19 @@ class profile::utils_multimedia {
   #
   # ############
 
-  include ::snapd
+  include wget
+  include gdebi
 
-  # package { 'spotify':
-  #   provider  => 'snap',
-  #   ensure  => latest,
-  #   require => Class['apt::update'],
-  # }
+  wget::fetch { 'spotify-client_1.0.70.399.g5ffabd56-27_i386.deb':
+    source  => 'http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.70.399.g5ffabd56-27_i386.deb',
+    destination => '/tmp/',
+    cache_dir   => '/var/cache/wget',
+  } ~>
+  package { 'spotify-client':
+    provider => gdebi,
+    ensure	=> latest,
+    source => '/tmp/spotify-client_1.0.70.399.g5ffabd56-27_i386.deb',
+  }
+
 
 }
