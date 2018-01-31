@@ -16,7 +16,7 @@ class role::student_workstation {
   include profile::app_audio_suite
 
   include profile::utils_multimedia
-  #include profile::utils_browsers
+  include profile::utils_browsers
   include profile::utils_misc
   include profile::utils_gnome
   include profile::utils_screencast
