@@ -46,14 +46,9 @@ class profile::utils_multimedia {
   include wget
   include gdebi
 
-  wget::fetch { 'spotify-client_1.0.70.399.g5ffabd56-27_i386.deb':
-    source  => 'http://repository.spotify.com/pool/non-free/s/spotify-client/spotify-client_1.0.70.399.g5ffabd56-27_i386.deb',
-    destination => '/tmp/',
-    cache_dir   => '/var/cache/wget',
-  } ~>
   package { 'spotify-client':
     provider => gdebi,
-    ensure	=> latest,
+    ensure	=> absent,
     source => '/tmp/spotify-client_1.0.70.399.g5ffabd56-27_i386.deb',
   }
 
