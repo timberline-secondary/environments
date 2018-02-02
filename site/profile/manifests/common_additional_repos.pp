@@ -19,11 +19,14 @@ class profile::common_additional_repos {
 
   #   deb http://mirrors.evowise.com/linuxmint/packages sylvia main upstream import backport
 
-  apt::source { 'mint_repo' :
-    comment   => 'Linux Mint Additional Repos',
+  apt::source { 'mint_sylvia_imports' :
     location  => 'http://mirrors.evowise.com/linuxmint/packages',
     release  => 'sylvia',
-    repos    => 'main upstream import backport',
+    repos    => 'import',
+  }
+
+  apt::source {'mint_repo' :
+    ensure  => absent,
   }
 
   package { 'linuxmint-keyring':
