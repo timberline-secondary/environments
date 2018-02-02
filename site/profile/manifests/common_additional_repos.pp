@@ -21,16 +21,17 @@ class profile::common_additional_repos {
 
   apt::source { 'mint_sylvia_imports' :
     location  => 'http://mirrors.evowise.com/linuxmint/packages',
-    release  => 'sylvia',
-    repos    => 'import',
+    release   => 'sylvia',
+    repos     => 'import',
+    ensure    => absent,
   }
 
   apt::source {'mint_repo' :
-    ensure  => absent,
+    ensure    => absent,
   }
 
   package { 'linuxmint-keyring':
-    ensure  => latest,
+    ensure    => absent,
     install_options => ['--allow-unauthenticated'],
   }
 
