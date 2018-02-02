@@ -17,7 +17,7 @@ class profile::utils_browsers {
   }
 
   # Flash for Chrome/Chromium
-  include profile::common_apt_ubuntu_partner
+  include profile::common_additional_repos
   package {'adobe-flashplugin':
     ensure  => absent,
   }

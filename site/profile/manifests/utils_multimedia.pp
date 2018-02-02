@@ -41,8 +41,11 @@ class profile::utils_multimedia {
   #
   # Spotify
   # https://www.spotify.com/ca-en/download/linux/
+  # Use mint repo for this
   #
   # ############
+
+  include common_additional_repos
 
   # include apt
   #
