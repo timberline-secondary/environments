@@ -53,8 +53,7 @@ class profile::utils_multimedia {
 
   include apt
 
-  apt::source { 'spotify-repo':
-    ensure  => absent,
+  apt::source { 'spotify-stable':
 		location => 'http://repository.spotify.com',
 		release	 => 'stable',
 		repos    => 'non-free',
@@ -63,9 +62,9 @@ class profile::utils_multimedia {
 			server  => 'hkp://keyserver.ubuntu.com:80',
 		},
   }
-  # package { 'spotify-client':
-  #   ensure  => latest,
-  #   require => [ Class['apt::update'], Apt::Source['spotify-repo'] ],
-  # }
+  package { 'spotify-client':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Source['sspotify-stable'] ],
+  }
 
 }
