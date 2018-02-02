@@ -1,4 +1,4 @@
-class profile::app_gimp {
+class profile::app_games {
 
   #########################
   #
