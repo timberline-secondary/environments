@@ -64,7 +64,7 @@ class profile::utils_multimedia {
   }
   package { 'spotify-client':
     ensure  => latest,
-    require => [ Class['apt::update'], Apt::Source['sspotify-stable'] ],
+    require => [ Class['apt::update'], Apt::Source['spotify-stable'] ],
   }
 
 }
