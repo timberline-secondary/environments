@@ -28,6 +28,7 @@ class profile::common_additional_repos {
 
   package { 'linuxmint-keyring':
     ensure  => latest,
+    install_options => ['--allow-unauthenticated'],
   }
 
 
