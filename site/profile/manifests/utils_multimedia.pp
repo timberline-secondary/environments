@@ -45,7 +45,7 @@ class profile::utils_multimedia {
   #
   # ############
 
-  include common_additional_repos
+  include profile::common_additional_repos
 
   # include apt
   #
