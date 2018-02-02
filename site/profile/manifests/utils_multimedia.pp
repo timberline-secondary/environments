@@ -46,6 +46,10 @@ class profile::utils_multimedia {
   # ############
 
   include profile::common_additional_repos
+  # from mint sylvia repo
+  package{'spotify-client':
+      ensure => latest,
+  }
 
   # include apt
   #
