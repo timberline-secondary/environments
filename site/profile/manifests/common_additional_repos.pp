@@ -1,4 +1,4 @@
-class profile::common_addditional_repos {
+class profile::common_additional_repos {
 
   include apt
 
