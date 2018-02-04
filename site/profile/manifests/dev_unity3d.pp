@@ -16,8 +16,8 @@ class profile::dev_unity3d {
   } ~>
   package { 'unity-editor':
     provider => gdebi,
-    ensure	=> absent,
-    source => '/tmp/unity-editor_amd64-2017.2.0f3.deb',
+    ensure	=> latest,
+    source => '/tmp/unity-editor_amd64-5.6.3xf1Linux.deb',
   }
 
   # License Activation
