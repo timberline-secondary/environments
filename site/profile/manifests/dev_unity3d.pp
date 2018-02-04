@@ -9,15 +9,15 @@ class profile::dev_unity3d {
       ensure  => latest,
   }
 
-  wget::fetch { 'unity-editor_amd64-2017.2.0f3.deb':
-    source  => 'http://beta.unity3d.com/download/ee86734cf592/unity-editor_amd64-2017.2.0f3.deb',
+  wget::fetch { 'unity-editor':
+    source  => 'http://beta.unity3d.com/download/d72e16ff4aba/unity-editor_amd64-5.6.3xf1Linux.deb',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
   } ~>
   package { 'unity-editor':
     provider => gdebi,
     ensure	=> latest,
-    source => '/tmp/unity-editor_amd64-2017.2.0f3.deb',
+    source => '/tmp/unity-editor',
   }
 
   # License Activation
