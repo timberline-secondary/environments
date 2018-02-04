@@ -16,7 +16,7 @@ class profile::dev_unity3d {
   } ~>
   package { 'unity-editor':
     provider => gdebi,
-    ensure	=> latest,
+    ensure	=> present,
     source => '/tmp/unity-editor_amd64-5.6.3xf1Linux.deb',
   }
 
