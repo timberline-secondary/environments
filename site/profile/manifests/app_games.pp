@@ -15,4 +15,18 @@ class profile::app_games {
       require => [ Class['apt::update'], Apt::Ppa['ppa:flexiondotorg/minecraft'] ],
   }
 
+  include wget
+  include gdebi
+
+  wget::fetch { 'openra_playtest.20180102_all.deb':
+    source  => 'https://github.com/OpenRA/OpenRA/releases/download/playtest-20180102/openra_playtest.20180102_all.deb',
+    destination => '/tmp/',
+    cache_dir   => '/var/cache/wget',
+  } ~>
+  package { 'openra':
+    provider => gdebi,
+    ensure	=> latest,
+    source => '/tmp/openra_playtest.20180102_all.deb',
+  }
+
 }
