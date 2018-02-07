@@ -1,5 +1,7 @@
 class profile::utils_misc {
 
+  include profile::common_wine
+
   package {'iptux': # LAN chat and file transfer
     ensure  => latest,
   }

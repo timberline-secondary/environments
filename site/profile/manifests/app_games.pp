@@ -1,5 +1,9 @@
 class profile::app_games {
 
+  package { 'playonlinux':
+    ensure => latest,
+  }
+
   #########################
   #
   #  MINECRAFT
@@ -14,6 +18,12 @@ class profile::app_games {
       ensure  => latest,
       require => [ Class['apt::update'], Apt::Ppa['ppa:flexiondotorg/minecraft'] ],
   }
+
+  ##########################
+  #
+  #   OPENRA
+  #
+  ###########################
 
   include wget
   include gdebi
