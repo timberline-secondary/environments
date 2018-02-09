@@ -14,8 +14,6 @@ class profile::utils_misc {
 
   package{'kmag':}
   package{'unzip':}
-  package{'typecatcher':}
-  package{'unifont':}
   package{'screen':}
 
   package{'telnet':}
