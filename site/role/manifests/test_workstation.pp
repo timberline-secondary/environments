@@ -24,6 +24,7 @@ class role::test_workstation {
   include profile::utils_gnome
   include profile::utils_screencast
   include profile::utils_desktops
+  include profile::utils_discord
 
   include profile::admin_ssh
 
