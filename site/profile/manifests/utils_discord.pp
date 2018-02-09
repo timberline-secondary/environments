@@ -3,7 +3,7 @@ class profile::utils_discord {
   include gdebi
 
   wget::fetch { 'discord.deb':
-    source      => 'https://discordapp.com/api/download?platform=linux&format=deb',
+    source      => 'https://dl.discordapp.net/apps/linux/0.0.4/discord-0.0.4.deb',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
   } ~>
