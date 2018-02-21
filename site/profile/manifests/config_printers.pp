@@ -1,6 +1,9 @@
 class profile::config_printers {
 
-  include '::cups'
+  class { '::cups':
+    # remove all queues from the node which do not match a cups_queue resource in the current catalog
+    purge_unmanaged_queues => true,
+  }
 
   # Using a suitable model from the output of the command lpinfo -m on the node
   cups_queue { 'Hackerspace_BW_Printer_LexmarkT644':
@@ -25,8 +28,8 @@ class profile::config_printers {
       'Duplex'   => 'DuplexNoTumble',
     },
     access => {
-    'policy' => 'allow',
-    'users'  => ['@teacher', '@colorprinter'],
+      'policy' => 'allow',
+      'users'  => ['@teacher', '@colorprinter'],
     }
   }
 
