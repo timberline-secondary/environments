@@ -47,7 +47,9 @@ node 'puppet' {
 #   # e.g.: tbl-hackerspace-01-s (case insensitive)
 #   include role::student_workstation
 # }
-node /tbl-hackerspace-(0?[1-9]|1[0-9]|2[0-4])-s\.hackerspace\.tbl/ {
+
+#1-26
+node /tbl-hackerspace-(0?[1-9]|1[0-9]|2[0-6])-s\.hackerspace\.tbl/ {
   include role::student_workstation
 }
 
