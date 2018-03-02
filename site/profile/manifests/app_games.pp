@@ -1,5 +1,8 @@
 class profile::app_games {
 
+  package { 'supertuxkart':  }
+  package { 'supertux': }
+
   package { 'playonlinux':
     ensure => latest,
   }
