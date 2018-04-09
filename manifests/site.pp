@@ -48,8 +48,8 @@ node 'puppet' {
 #   include role::student_workstation
 # }
 
-#1-30
-node /tbl-hackerspace-(0?[1-9]|1[0-9]|2[0-9]|30)-s\.hackerspace\.tbl/ {
+#1-8, 10-30
+node /tbl-hackerspace-(0?[1-8]|1[0-9]|2[0-9]|30)-s\.hackerspace\.tbl/ {
   include role::student_workstation
 }
 
