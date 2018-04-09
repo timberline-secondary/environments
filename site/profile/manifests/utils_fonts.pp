@@ -20,7 +20,7 @@ class profile::utils_fonts {
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
   } ~>
-  package { 'ttf-mscorefonts-installer':
+  package { 'ttf-mscorefonts-installer_3.6':
     provider => gdebi,
     ensure	=> latest,
     source => '/tmp/ttf-mscorefonts-installer_3.6_all.deb',
