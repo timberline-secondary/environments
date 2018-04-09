@@ -7,10 +7,13 @@ class profile::utils_fonts {
     ensure => latest,
   }
 
-  package{'ttf-mscorefonts-installer':
+  # package{'ttf-mscorefonts-installer':
+  #   ensure => latest,
+  # }
+
+  package{'msttcorefonts':
     ensure => latest,
   }
-
 
 
 }
