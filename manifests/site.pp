@@ -57,3 +57,7 @@ node 'tbl-hackerspace-31-s.hackerspace.tbl' {
   include role::test_workstation
 }
 
+node 'tbl-hackerspace-9-s.hackerspace.tbl' {
+  include role::attendance_workstation
+}
+
