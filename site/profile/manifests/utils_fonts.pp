@@ -28,6 +28,7 @@ class profile::utils_fonts {
   }
 
   # MS Vista/ClearType Fonts
+  # https://www.pcworld.com/article/2863497/how-to-install-microsoft-fonts-in-linux-office-suites.html
   package {'fontforge':
     ensure => latest,
   }
