@@ -1,5 +1,7 @@
 class profile::utils_netstat {
 
-    #include netdata
+  package {'net-tools':
+      ensure => latest,
+  }
 
 }

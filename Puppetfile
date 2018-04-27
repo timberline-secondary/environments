@@ -29,5 +29,5 @@ mod 'leoarnold-cups',           '2.0.3'
 #  :git    => 'https://github.com/puppetlabs/puppetlabs-apache',
 #  :branch => 'docs_experiment'
 
-mod 'adamancini-netdata',
-  :git => 'https://bitbucket.org/adamancini/adamancini-netdata.git'
+#mod 'adamancini-netdata',
+#  :git => 'https://bitbucket.org/adamancini/adamancini-netdata.git'
