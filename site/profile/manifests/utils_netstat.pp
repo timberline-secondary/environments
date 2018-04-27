@@ -1,5 +1,5 @@
 class profile::utils_netstat {
 
-    include netdata
+    #include netdata
 
 }
