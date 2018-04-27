@@ -6,7 +6,7 @@ class profile::utils_netdata {
 
   exec {'netdata-kickstart':
     command => "bash <(curl -Ss https://my-netdata.io/kickstart.sh) all --dont-wait",
-    path    => "/bin/",
+    path    => ["/bin/", "/usr/bin/"],
     creates => "/etc/netdata"
   }
 
