@@ -35,4 +35,6 @@ class role::test_workstation {
   include profile::dev_unity3d
   include profile::dev_git_desktop
 
+  include profile::utils_netstat
+
 }
