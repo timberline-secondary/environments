@@ -26,6 +26,7 @@ class role::test_workstation {
   include profile::utils_desktops
   include profile::utils_discord
   include profile::utils_fonts
+  include profile::utils_play_on_linux
 
   include profile::admin_ssh
 
