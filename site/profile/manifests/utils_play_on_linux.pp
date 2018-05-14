@@ -10,10 +10,10 @@ class profile::utils_play_on_linux {
     #release   => 'sylvia',
 
     # pin      => '-10',
-    # key      => {
-    #   'id'     => 'A1BD8E9D78F7FE5C3E65D8AF8B48AD6246925553',
-    #   'server' => 'subkeys.pgp.net',
-    # },
+    key      => {
+      'id'     => 'http://deb.playonlinux.com/public.gpg',
+      'server' => 'subkeys.pgp.net',
+    },
     # include  => {
     #   'src' => true,
     #   'deb' => true,

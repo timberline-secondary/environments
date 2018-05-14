@@ -36,5 +36,5 @@ class role::test_workstation {
   include profile::dev_unity3d
   include profile::dev_git_desktop
 
-  include profile::utils_netdata
+  #3include profile::utils_netdata
 }
