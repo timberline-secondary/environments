@@ -1,6 +1,6 @@
 class profile::utils_play_on_linux {
 
-  inlcude profile::common_wine
+  include profile::common_wine
   include apt
 
   apt::source { 'play_on_linux':
