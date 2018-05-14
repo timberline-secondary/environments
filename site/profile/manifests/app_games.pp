@@ -35,7 +35,7 @@ class profile::app_games {
 
 
   # http://www.openra.net/download/
-  wget::fetch { 'openra_playtest.20180307_all.deb':
+  wget::fetch { 'openra_release.20180307_all.deb':
     source  => 'https://github.com/OpenRA/OpenRA/releases/download/release-20180307/openra_release.20180307_all.deb',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
@@ -43,7 +43,7 @@ class profile::app_games {
   package { 'openra':
     provider => gdebi,
     ensure	=> latest,
-    source => '/tmp/openra_playtest.20180307_all.deb',
+    source => '/tmp/openra_release.20180307_all.deb',
   }
 
 }
