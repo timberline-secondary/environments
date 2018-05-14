@@ -4,4 +4,8 @@ class profile::common_wine {
     ensure  => latest,
   }
 
+  package { 'playonlinux':
+    ensure => latest,
+  }
+
 }

@@ -1,11 +1,13 @@
 class profile::app_games {
 
-  package { 'supertuxkart':  }
-  package { 'supertux': }
-
-  package { 'playonlinux':
-    ensure => latest,
+  package { 'supertuxkart':
+      ensure => latest,
   }
+
+  package { 'supertux':
+      ensure => latest,
+  }
+
 
   #########################
   #
@@ -15,7 +17,7 @@ class profile::app_games {
   #########################
 
   apt::ppa { 'ppa:flexiondotorg/minecraft':
-      ensure => present,
+      ensure => latest,
   }
   package { 'minecraft-installer':
       ensure  => latest,
@@ -31,15 +33,17 @@ class profile::app_games {
   include wget
   include gdebi
 
-  wget::fetch { 'openra_playtest.20180102_all.deb':
-    source  => 'https://github.com/OpenRA/OpenRA/releases/download/playtest-20180102/openra_playtest.20180102_all.deb',
+
+  # http://www.openra.net/download/
+  wget::fetch { 'openra_playtest.20180307_all.deb':
+    source  => 'https://github.com/OpenRA/OpenRA/releases/download/release-20180307/openra_release.20180307_all.deb',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
   } ~>
   package { 'openra':
     provider => gdebi,
     ensure	=> latest,
-    source => '/tmp/openra_playtest.20180102_all.deb',
+    source => '/tmp/openra_playtest.20180307_all.deb',
   }
 
 }
