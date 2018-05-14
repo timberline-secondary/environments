@@ -11,7 +11,7 @@ class profile::utils_play_on_linux {
 
     # pin      => '-10',
     key      => {
-      'id'     => 'http://deb.playonlinux.com/public.gpg',
+      'id'     => 'D8538615FEAC389FDF848C2273F0D6E88E3D6C3A',
       'server' => 'subkeys.pgp.net',
     },
     # include  => {
