@@ -8,7 +8,7 @@ class profile::utils_play_on_linux {
     repos    => 'main',
     key      => {
       'id'     => 'D8538615FEAC389FDF848C2273F0D6E88E3D6C3A',
-      'server' => 'keyserver.ubuntu.com/',
+      'server' => 'https://keyserver.ubuntu.com/',
     },
   }
 
