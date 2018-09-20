@@ -11,7 +11,7 @@ class role::test_workstation {
   include profile::config_printers
 
   include profile::app_blender
-  include profile::app_blender_netrender_service
+  #include profile::app_blender_netrender_service
   include profile::app_krita
   include profile::app_gimp
   include profile::app_cura
