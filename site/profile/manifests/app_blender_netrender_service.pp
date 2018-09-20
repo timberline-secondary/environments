@@ -1,4 +1,7 @@
 class profile::app_blender_netrender_service {
+
+  # https://github.com/timberline-secondary/systemd-blender-netrender
+
   include profile::app_blender
 
   include wget
