@@ -58,7 +58,7 @@ class profile::utils_multimedia {
 		release	 => 'stable',
 		repos    => 'non-free',
 		key 		 => {
-			id      => '0DF731E45CE24F27EEEB1450EFDC8610341D9410',
+			id      => '931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90',
 			server  => 'hkp://keyserver.ubuntu.com:80',
 		},
   }
