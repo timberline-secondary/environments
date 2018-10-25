@@ -1,4 +1,4 @@
-class profile::steam {
+class profile::app_steam {
 
   # https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 
