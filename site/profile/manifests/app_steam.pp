@@ -21,7 +21,6 @@ class profile::app_steam {
  		owner	=> root,
 		group	=> root,
 		mode	=> '755',
-		ensure	=> present,
     source  => "puppet:///modules/profile/steam/steam",
     subscribe => Package['steam']
   }
