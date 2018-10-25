@@ -13,7 +13,7 @@ class profile::app_steam {
   package { 'steam':
 		provider => gdebi,
 		ensure	=> latest,
-		source => 'steam.deb',
+		source => '/tmp/steam.deb',
 	}
 
   # file { '/usr/bin/steam':
