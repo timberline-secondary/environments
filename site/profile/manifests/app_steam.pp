@@ -16,6 +16,16 @@ class profile::app_steam {
 		source => '/tmp/steam.deb',
 	}
 
+  file { '/usr/bin/steam':
+    ensure  => file,
+ 		owner	=> root,
+		group	=> root,
+		mode	=> '755',
+		ensure	=> present,
+    source  => "puppet:///modules/profile/steam/steam",
+    subscribe => Package['steam']
+  }
+
   # file { '/usr/bin/steam':
 	# 	owner	=> root,
 	# 	group	=> root,
