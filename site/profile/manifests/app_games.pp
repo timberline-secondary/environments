@@ -64,7 +64,7 @@ class profile::app_games {
     key      => {
       'id'     => 'FD5B64B9',
       #'server' => 'https://keyserver.ubuntu.com',
-      'source'  => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/Release.gpg',
+      'source'  => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/Release.key',
     },
   }
 
