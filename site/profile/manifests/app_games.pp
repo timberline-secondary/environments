@@ -56,15 +56,15 @@ class profile::app_games {
   ###########################
 
   include profile::common_wine
-  include apt
+  #include apt
 
   apt::source { 'lutris':
     location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/ ./',
     #repos    => 'main',
     key      => {
-      #'id'     => 'D8538615FEAC389FDF848C2273F0D6E88E3D6C3A',
+      'id'     => 'FD5B64B9',
       #'server' => 'https://keyserver.ubuntu.com',
-      'source'  => 'https://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/Release.key',
+      'source'  => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/Release.gpg',
     },
   }
 
