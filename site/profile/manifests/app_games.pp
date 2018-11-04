@@ -56,9 +56,9 @@ class profile::app_games {
   ###########################
 
   include profile::common_wine
-  #include apt
+  include apt
 
-  apt::source { 'lutris':
+  apt::source { 'lutris-repo':
     location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/',
     repos    => 'non-free',
     key      => {
@@ -66,6 +66,10 @@ class profile::app_games {
       #'server' => 'https://keyserver.ubuntu.com',
       'source'  => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/Release.key',
     },
+  } ~>
+  package { 'lutris':
+    ensure	=> latest,
   }
+
 
 }
