@@ -59,8 +59,8 @@ class profile::app_games {
   include apt
 
   apt::source { 'lutris-repo':
-    location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/',
-    repos    => 'non-free',
+    location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/ ./',
+    repos    => ' ',
     key      => {
       'id'     => 'FD5B64B9',
       #'server' => 'https://keyserver.ubuntu.com',
