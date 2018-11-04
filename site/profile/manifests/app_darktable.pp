@@ -5,6 +5,4 @@ class profile::app_darktable {
   package { 'darktable':
       ensure  => latest,
   }
-
-
 }
