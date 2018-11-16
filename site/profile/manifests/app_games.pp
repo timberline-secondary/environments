@@ -59,7 +59,7 @@ class profile::app_games {
   include apt
 
   apt::source { 'lutris-repo':
-    location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/ ./',
+    location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/',
     repos    => '',
     release  => './',
     key      => {
