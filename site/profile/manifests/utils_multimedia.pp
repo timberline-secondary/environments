@@ -15,6 +15,9 @@ class profile::utils_multimedia {
       ensure => latest,
   }
 
+  package{'openshot':
+      ensure => latest,
+  }
 
   #############
   #
