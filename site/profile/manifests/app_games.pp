@@ -15,6 +15,7 @@ class profile::app_games {
   #  https://launchpad.net/~flexiondotorg/+archive/ubuntu/minecraft
   #
   #########################
+  include apt
 
   apt::ppa { 'ppa:flexiondotorg/minecraft':
       ensure => latest,
