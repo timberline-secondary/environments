@@ -51,5 +51,13 @@ class profile::utils_browsers {
     require => [ Class['apt::update'], Apt::Source['chrome-repo'] ],
   }
 
+  # resources { 'apt-resource':
+  #   name               => 'apt',
+  #   purge              => true
+  #   # unless_system_user => # This keeps system users from being purged.  By...
+  #   # unless_uid         => # This keeps specific uids or ranges of uids from...
+  #   # ...plus any applicable metaparameters.
+  # }
+
 
 }
