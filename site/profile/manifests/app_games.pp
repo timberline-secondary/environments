@@ -1,5 +1,7 @@
 class profile::app_games {
 
+  include apt
+
   package { 'supertuxkart':
       ensure => latest,
   }
@@ -15,15 +17,17 @@ class profile::app_games {
   #  https://launchpad.net/~flexiondotorg/+archive/ubuntu/minecraft
   #
   #########################
-  include apt
 
   apt::ppa { 'ppa:flexiondotorg/minecraft':
-      ensure => latest,
+      ensure => present,
   }
   package { 'minecraft-installer':
       ensure  => latest,
       require => [ Class['apt::update'], Apt::Ppa['ppa:flexiondotorg/minecraft'] ],
   }
+
+
+}
 
   ##########################
   #
@@ -33,7 +37,6 @@ class profile::app_games {
 
   include wget
   include gdebi
-
 
   # http://www.openra.net/download/
   wget::fetch { 'openra_release.20180307_all.deb':
@@ -57,7 +60,6 @@ class profile::app_games {
   ###########################
 
   include profile::common_wine
-  include apt
 
   apt::source { 'lutris-repo':
     location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/',
