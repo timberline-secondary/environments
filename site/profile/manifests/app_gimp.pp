@@ -10,16 +10,16 @@ class profile::app_gimp {
       require => [ Class['apt::update'], Apt::Ppa['ppa:otto-kesselgulasch/gimp'] ],
   }
   package { 'gmic':
-      ensure  => latest,
+      ensure  => absent,
       require => [ Class['apt::update'], Package['gimp'] ],
   }
   package { 'gimp-gmic':
-      ensure  => latest,
+      ensure  => absent,
       require => [ Class['apt::update'], Package['gimp'],  Package['gmic'] ],
   }
 
   package { 'gimp-plugin-registry':
-      ensure  => latest,
+      ensure  => absent,
       require => [ Class['apt::update'], Package['gimp'] ],
 }
 
