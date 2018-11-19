@@ -69,9 +69,10 @@ class profile::app_games {
       #'server' => 'https://keyserver.ubuntu.com',
       'source'  => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/Release.key',
     },
-  } ~>
+  }
   package { 'lutris':
     ensure	=> latest,
+    require => [ Class['apt::update'], Apt::Source['lutris-repo'] ],
   }
 
 
