@@ -12,7 +12,7 @@ class profile::dev_godot {
   }
 
 
-  file { 'godot.desktop':
+  file { '/usr/share/applications/godot.desktop':
     ensure  => file,
     owner   => root,
     group   => root,
