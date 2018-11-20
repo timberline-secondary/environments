@@ -6,6 +6,8 @@ class profile::dev_godot {
     dest_folder       => '/opt',
     creates           => '/opt/Godot',
     uncompress        => 'zip',
+    user              => root,
+    group             => root,
   }
 #
 #   file { 'godot.desktop':
