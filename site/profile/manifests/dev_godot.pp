@@ -12,7 +12,7 @@ class profile::dev_godot {
   }
 
   include wget
-  wget::fetch { 'godot icon':
+  wget::fetch { 'godot.svg':
     source      =>
       'https://raw.githubusercontent.com/godotengine/godot/4f5a7ebaecfcf00cf1e5c4af4b20034f0dcecd29/icon.svg',
     destination => '/usr/share/icons/godot.svg',
