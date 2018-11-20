@@ -11,25 +11,32 @@ class profile::dev_godot {
     group             => root,
   }
 
+  include wget
+  wget::fetch { 'godot icon':
+    source      =>
+      'https://raw.githubusercontent.com/godotengine/godot/4f5a7ebaecfcf00cf1e5c4af4b20034f0dcecd29/icon.svg',
+    destination => '/usr/share/icons/godot.svg',
+    cache_dir   => '/var/cache/wget',
+  }
 
   file { '/usr/share/applications/godot.desktop':
     ensure  => file,
     owner   => root,
     group   => root,
     mode    => '755',
-    content => "[Desktop Entry]\n
-Encoding=UTF-8\n
-Version=3.0.6\n
-Name=Godot\n
-Comment=Create different games\n
-Exec=/opt/Godot_v3.0.6-stable_x11.64\n
-Icon=godot\n
-Terminal=false\n
-Type=Application\n
-Categories=Development; Games;\n
-Name[en_US]=godot.desktop\n
-GenericName[en_US]=Game development platform\n
-Comment[en_US]=Create different games!\n",
+    content => "[Desktop Entry]
+Encoding=UTF-8
+Version=3.0.6
+Name=Godot
+Comment=Create different games
+Exec=/opt/Godot_v3.0.6-stable_x11.64
+Icon=/usr/share/icons/godot.svg
+Terminal=false
+Type=Application
+Categories=Development; Games;
+Name[en_US]=godot.desktop
+GenericName[en_US]=Game development platform
+Comment[en_US]=Create different games!",
   }
 
 
