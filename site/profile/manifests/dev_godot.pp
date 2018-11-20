@@ -7,26 +7,26 @@ class profile::dev_godot {
     creates           => '/opt/Godot',
     uncompress        => 'zip',
   }
-
-  file { 'godot.desktop':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '755',
-    content => "[Desktop Entry]\n
-Encoding=UTF-8\n
-Version=3.0.6\n
-Name=Godot\n
-Comment=Create different games\n
-Exec=/opt/Godot/Godot\n
-Icon=godot\n
-Terminal=false\n
-Type=Application\n
-Categories=Development; Games;\n
-Name[en_US]=godot.desktop\n
-GenericName[en_US]=Game development platform\n
-Comment[en_US]=Create different games!\n",
-  }
-
+#
+#   file { 'godot.desktop':
+#     ensure  => file,
+#     owner   => root,
+#     group   => root,
+#     mode    => '755',
+#     content => "[Desktop Entry]\n
+# Encoding=UTF-8\n
+# Version=3.0.6\n
+# Name=Godot\n
+# Comment=Create different games\n
+# Exec=/opt/Godot/Godot\n
+# Icon=godot\n
+# Terminal=false\n
+# Type=Application\n
+# Categories=Development; Games;\n
+# Name[en_US]=godot.desktop\n
+# GenericName[en_US]=Game development platform\n
+# Comment[en_US]=Create different games!\n",
+#   }
+#
 
 }
