@@ -11,12 +11,18 @@ class profile::dev_godot {
     group             => root,
   }
 
-  include wget
-  wget::fetch { 'godot.svg':
-    source      =>
-      'https://raw.githubusercontent.com/godotengine/godot/4f5a7ebaecfcf00cf1e5c4af4b20034f0dcecd29/icon.svg',
-    destination => '/usr/share/icons/godot.svg',
-    cache_dir   => '/var/cache/wget',
+  download_uncompress { 'godot.svg':
+    download_base_url => 'https://raw.githubusercontent.com/godotengine/godot',
+    distribution_name => "4f5a7ebaecfcf00cf1e5c4af4b20034f0dcecd29/icon.svg",
+    dest_folder       => '/usr/share/icons/',
+    creates           => '/usr/share/icons/godot.svg',
+    uncompress        => 'none',
+    user              => root,
+    group             => root,
+    # source      =>
+    #   'https://raw.githubusercontent.com/godotengine/godot/4f5a7ebaecfcf00cf1e5c4af4b20034f0dcecd29/icon.svg',
+    # destination => '/usr/share/icons/godot.svg',
+    # cache_dir   => '/var/cache/wget',
   }
 
   file { '/usr/share/applications/godot.desktop':
