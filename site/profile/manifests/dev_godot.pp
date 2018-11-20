@@ -1,14 +1,16 @@
 class profile::dev_godot {
 	# https://cialu.net/install-godot-game-engine-on-fedora-or-ubuntu/
 
-  download_uncompress { 'godot-binary':
-    distribution_name => 'https://downloads.tuxfamily.org/godotengine/3.0.6/Godot_v3.0.6-stable_x11.64.zip',
-    dest_folder       => '/opt',
-    creates           => '/opt/Godot',
-    uncompress        => 'zip',
-    user              => root,
-    group             => root,
-  }
+
+
+  # download_uncompress { 'godot-binary':
+  #   distribution_name => 'https://downloads.tuxfamily.org/godotengine/3.0.6/Godot_v3.0.6-stable_x11.64.zip',
+  #   dest_folder       => '/opt',
+  #   creates           => '/opt/Godot',
+  #   uncompress        => 'zip',
+  #   user              => root,
+  #   group             => root,
+  # }
 #
 #   file { 'godot.desktop':
 #     ensure  => file,
