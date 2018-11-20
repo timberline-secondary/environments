@@ -1,6 +1,14 @@
 class profile::dev_godot {
 	# https://cialu.net/install-godot-game-engine-on-fedora-or-ubuntu/
 
+    download_uncompress { 'install_jboss-4.2.3.GA':
+    distribution_name => 'http://sourceforge.nt/projects/jboss/files/JBoss/JBoss-4.2.3.GA/jboss-4.2.3-jdk6.zip/download',
+    dest_folder       => '/opt',
+    creates           => '/opt/jboss-4.2.3.GA',
+    uncompress        => 'zip',
+    user              => root,
+    group             => root,
+  }
 
 
   # download_uncompress { 'godot-binary':
