@@ -11,7 +11,7 @@ mod 'puppetlabs-reboot',        '1.2.1'
 mod 'puppetlabs-apt',           '4.5.0'
 mod 'puppet-unattended_upgrades', '3.1.0'
 
-
+mod 'dsestero-download_uncompress', '1.5.0'
 mod 'cpick-gdebi',              '0.1.2'
 mod 'trlinkin-nsswitch',        '2.0.0'
 mod 'maestrodev-wget',          '1.7.3'
