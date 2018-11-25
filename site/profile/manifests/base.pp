@@ -14,5 +14,9 @@ class profile::base {
     ensure  => latest,
   }
 
+  package { 'ntp':
+    ensure  => latest,
+  }
+
 
 }
