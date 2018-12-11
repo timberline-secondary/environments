@@ -19,6 +19,7 @@ class role::test_workstation {
   include profile::app_games
   include profile::app_darktable
   include profile::app_steam
+  include profile::app_CAD
 
   include profile::utils_multimedia
   include profile::utils_browsers
