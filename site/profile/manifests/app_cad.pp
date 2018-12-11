@@ -1,4 +1,4 @@
-class profile::app_CAD {
+class profile::app_cad {
 
   apt::ppa { 'ppa:neomilium/cam':
       ensure => present,
