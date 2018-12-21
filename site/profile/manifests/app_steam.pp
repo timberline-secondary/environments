@@ -2,19 +2,23 @@ class profile::app_steam {
 
   # https://steamcdn-a.akamaihd.net/client/installer/steam.deb
 
-  include wget
-  include gdebi
+  # include wget
+  # include gdebi
+  #
+  # wget::fetch { 'steam.deb':
+   #  source      => 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb',
+   #  destination => '/tmp/',
+   #  cache_dir   => '/var/cache/wget',
+  # } ~>
+  # package { 'steam':
+	# 	provider => gdebi,
+	# 	ensure	=> latest,
+	# 	source => '/tmp/steam.deb',
+	# }
 
-  wget::fetch { 'steam.deb':
-    source      => 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb',
-    destination => '/tmp/',
-    cache_dir   => '/var/cache/wget',
-  } ~>
   package { 'steam':
-		provider => gdebi,
-		ensure	=> latest,
-		source => '/tmp/steam.deb',
-	}
+      ensure => latest,
+  }
 
   file { '/usr/bin/steam':
     ensure  => file,
