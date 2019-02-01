@@ -19,6 +19,7 @@ mod 'maestrodev-wget',          '1.7.3'
 mod 'kemra102-snapd',           '1.0.0'
 mod 'camptocamp-gnome',         '0.2.0'
 mod 'leoarnold-cups',           '2.0.3'
+mod 'kemra102-snapd',           '1.1.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
