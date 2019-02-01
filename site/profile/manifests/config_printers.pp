@@ -21,7 +21,7 @@ class profile::config_printers {
   cups_queue { 'Hackerspace_Color_Printer_HPColorLaserJet5550':
     ensure => 'printer',
     model  => 'foomatic-db-compressed-ppds:0/ppd/foomatic-ppd/Lexmark-T644-Postscript.ppd',
-    uri    => 'socket://192.168.43.15', # Replace with your printer's URI
+    uri    => 'socket://10.12.3.10', # Replace with your printer's URI
     accepting => true,
     enabled   => true,
     options => {
