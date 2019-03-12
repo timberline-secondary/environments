@@ -49,7 +49,7 @@ node 'puppet' {
 # }
 
 #1-9, 10-30
-node /tbl-hackerspace-(0?[1-9]|1[0-9]|2[0-9]|30)-s\.hackerspace\.tbl/ {
+node /tbl-hackerspace-(0?[1-9]|1[0-9]|2[0-8]|3[0-9])-s\.hackerspace\.tbl/ {
   include role::student_workstation
 }
 
@@ -57,7 +57,7 @@ node 'tbl-hackerspace-01-e.hackerspace.tbl' {
   include role::teacher_workstation
 }
 
-node 'tbl-hackerspace-31-s.hackerspace.tbl' {
+node 'tbl-hackerspace-29-s.hackerspace.tbl' {
   include role::test_workstation
 }
 
