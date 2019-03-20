@@ -37,6 +37,6 @@ class role::student_workstation {
   include profile::dev_general_utils
   include profile::dev_unity3d
   include profile::dev_git_desktop
-  include profile::dev_godot
+  #include profile::dev_godot
 
 }

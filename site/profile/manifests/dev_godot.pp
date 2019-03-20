@@ -3,9 +3,9 @@ class profile::dev_godot {
 
   download_uncompress { 'install-godot':
     download_base_url => 'https://downloads.tuxfamily.org/godotengine',
-    distribution_name => "3.0.6/Godot_v3.0.6-stable_x11.64.zip",
+    distribution_name => "3.1/Godot_v3.1-stable_x11.64.zip",
     dest_folder       => '/opt',
-    creates           => '/opt/Godot_v3.0.6-stable_x11.64',
+    creates           => '/opt/Godot_v3.1-stable_x11.64.zip',
     uncompress        => 'zip',
     user              => root,
     group             => root,
@@ -26,10 +26,10 @@ class profile::dev_godot {
     mode    => '755',
     content => "[Desktop Entry]
 Encoding=UTF-8
-Version=3.0.6
+Version=3.1
 Name=Godot
 Comment=Create different games
-Exec=/opt/Godot_v3.0.6-stable_x11.64
+Exec=/opt/Godot_v3.1-stable_x11.64
 Icon=/usr/share/icons/godot.svg
 Terminal=false
 Type=Application
