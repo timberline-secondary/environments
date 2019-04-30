@@ -29,7 +29,7 @@ class profile::utils_multimedia {
   include wget
   include gdebi
 
-  wget::fetch { 'Kaku-2.0.2-amd64.deb':
+  wget::fetch { 'Kaku_2.0.2_amd64.deb':
     source  => 'https://github.com/EragonJ/Kaku/releases/download/2.0.2/Kaku_2.0.2_amd64.deb',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
@@ -37,7 +37,7 @@ class profile::utils_multimedia {
   package { 'kaku':
     provider => gdebi,
     ensure	=> latest,
-    source => '/tmp/Kaku-2.0.2-amd64.deb',
+    source => '/tmp/Kaku_2.0.2_amd64.deb',
   }
 
   # ###########
