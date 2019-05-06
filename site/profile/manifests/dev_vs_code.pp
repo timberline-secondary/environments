@@ -48,7 +48,7 @@ class profile::dev_vs_code {
 
   package { 'code':
     ensure  => latest,
-    require => [ Class['apt::update'], Apt::Source['packages-microsoft-prod.deb'] ],
+    require => [ Class['apt::update'], Package['packages-microsoft-prod.deb'] ],
   }
 
   # apt::source { 'vs-code-repo':
