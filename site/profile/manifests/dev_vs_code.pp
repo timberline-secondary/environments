@@ -43,7 +43,7 @@ class profile::dev_vs_code {
   package { 'Microsoft-product-packages':
     provider => gdebi,
     ensure	=> latest,
-    source => 'packages-microsoft-prod.deb',
+    source => '/tmp/packages-microsoft-prod.deb',
   }
 
   package { 'code':
