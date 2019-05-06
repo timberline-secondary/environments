@@ -1,4 +1,4 @@
-class profile::vs_code {
+class profile::dev_vs_code {
 
   package { 'code':
     ensure   => latest,
