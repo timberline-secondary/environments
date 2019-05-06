@@ -1,5 +1,23 @@
 class profile::dev_vs_code {
 
+
+  include wget
+  include gdebi
+
+  # deb direct install
+  wget::fetch { 'code_1.33.1_amd64.deb':
+    source      => 'https://packages.microsoft.com/repos/vscode/pool/main/c/code/code_1.33.1-1554971066_amd64.deb',
+    destination => '/tmp/',
+    cache_dir   => '/var/cache/wget',
+  } ~>
+    package { 'code':
+      provider => gdebi,
+      ensure   => latest,
+      source   => '/tmp/code_1.33.1_amd64.deb',
+    }
+
+  # SNAP install
+
   # package { 'code':
   #   ensure   => purged,
   #   provider => snap,
@@ -21,51 +39,34 @@ class profile::dev_vs_code {
   #   }
 
 
-  include wget
-  include gdebi
+  # apt install
 
-  #   apt::source { 'vs-code-repo':
+  # use this to install microsoft keys
+  # wget::fetch { 'packages-microsoft-prod.deb':
+  #   source  => 'https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb',
+  #   destination => '/tmp/',
+  #   cache_dir   => '/var/cache/wget',
+  # } ~>
+  # package { 'Microsoft-product-packages':
+  #   provider => gdebi,
+  #   ensure	=> latest,
+  #   source => '/tmp/packages-microsoft-prod.deb',
+  # }
+
+  # apt::source { 'microsoft-vscode':
   #   comment  => 'https://code.visualstudio.com/docs/setup/linux',
   #   location => 'https://packages.microsoft.com/repos/vscode',
   #   release  => 'stable',
   #   repos    => 'main',
-  #   key      => {
-  #     id        => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
-  #     source    => 'https://packages.microsoft.com/keys/microsoft.asc',
-  #   },
+  #   # key      => {
+  #   #   id        => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
+  #   #   source    => 'https://packages.microsoft.com/keys/microsoft.asc',
+  #   # },
   # }
-
-  # use this to install microsoft keys
-  wget::fetch { 'packages-microsoft-prod.deb':
-    source  => 'https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb',
-    destination => '/tmp/',
-    cache_dir   => '/var/cache/wget',
-  } ~>
-  package { 'Microsoft-product-packages':
-    provider => gdebi,
-    ensure	=> latest,
-    source => '/tmp/packages-microsoft-prod.deb',
-  }
-
+  #
   # package { 'code':
   #   ensure  => latest,
-  #   require => [ Class['apt::update'], Package['Microsoft-product-packages'] ],
+  #   require => [ Class['apt::update'], Apt::Source['microsoft-vscode'] ],
   # }
-
-  apt::source { 'microsoft-vscode':
-    comment  => 'https://code.visualstudio.com/docs/setup/linux',
-    location => 'https://packages.microsoft.com/repos/vscode',
-    release  => 'stable',
-    repos    => 'main',
-    # key      => {
-    #   id        => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
-    #   source    => 'https://packages.microsoft.com/keys/microsoft.asc',
-    # },
-  }
-
-  package { 'code':
-    ensure  => latest,
-    require => [ Class['apt::update'], Apt::Source['microsoft-vscode'] ],
-  }
 
 }
