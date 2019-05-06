@@ -1,4 +1,4 @@
-class profile::vs_code {
+class profile::dev::vs_code {
 
 
   include wget
