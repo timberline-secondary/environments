@@ -35,6 +35,7 @@ class profile::dev_vs_code {
   #   },
   # }
 
+  # use this to install microsoft keys
   wget::fetch { 'packages-microsoft-prod.deb':
     source  => 'https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb',
     destination => '/tmp/',
@@ -46,25 +47,25 @@ class profile::dev_vs_code {
     source => '/tmp/packages-microsoft-prod.deb',
   }
 
-  package { 'code':
-    ensure  => latest,
-    require => [ Class['apt::update'], Package['Microsoft-product-packages'] ],
+  # package { 'code':
+  #   ensure  => latest,
+  #   require => [ Class['apt::update'], Package['Microsoft-product-packages'] ],
+  # }
+
+  apt::source { 'microsoft-vscode':
+    comment  => 'https://code.visualstudio.com/docs/setup/linux',
+    location => 'https://packages.microsoft.com/repos/vscode',
+    release  => 'stable',
+    repos    => 'main',
+    # key      => {
+    #   id        => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
+    #   source    => 'https://packages.microsoft.com/keys/microsoft.asc',
+    # },
   }
 
-  # apt::source { 'vs-code-repo':
-  #   comment  => 'https://code.visualstudio.com/docs/setup/linux',
-  #   location => 'https://packages.microsoft.com/repos/vscode',
-  #   release  => 'stable',
-  #   repos    => 'main',
-  #   key      => {
-  #     id        => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
-  #     source    => 'https://packages.microsoft.com/keys/microsoft.asc',
-  #   },
-  # }
-  #
-  # package { 'vs-code-repo':
-  #   ensure  => latest,
-  #   require => [ Class['apt::update'], Apt::Source['vs-code-repo'] ],
-  # }
+  package { 'code':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Source['microsoft-vscode'] ],
+  }
 
 }
