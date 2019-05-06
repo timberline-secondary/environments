@@ -1,10 +1,10 @@
 class profile::dev_vs_code {
 
-  # package { 'code':
-  #   ensure   => latest,
-  #   provider => snap,
-  #   install_options => '--classic'  # this doesn't work I think.
-  # }
+  package { 'code':
+    ensure   => purged,
+    provider => snap,
+    # install_options => '--classic'  # this doesn't work I think.
+  }
 
   include wget
   include gdebi
