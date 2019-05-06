@@ -24,23 +24,23 @@ class profile::dev_vs_code {
   include wget
   include gdebi
 
-    apt::source { 'vs-code-repo':
-    comment  => 'https://code.visualstudio.com/docs/setup/linux',
-    location => 'https://packages.microsoft.com/repos/vscode',
-    release  => 'stable',
-    repos    => 'main',
-    key      => {
-      id        => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
-      source    => 'https://packages.microsoft.com/keys/microsoft.asc',
-    },
-  }
+  #   apt::source { 'vs-code-repo':
+  #   comment  => 'https://code.visualstudio.com/docs/setup/linux',
+  #   location => 'https://packages.microsoft.com/repos/vscode',
+  #   release  => 'stable',
+  #   repos    => 'main',
+  #   key      => {
+  #     id        => 'BC528686B50D79E339D3721CEB3E94ADBE1229CF',
+  #     source    => 'https://packages.microsoft.com/keys/microsoft.asc',
+  #   },
+  # }
 
   wget::fetch { 'packages-microsoft-prod.deb':
     source  => 'https://packages.microsoft.com/config/ubuntu/14.04/packages-microsoft-prod.deb',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
   } ~>
-  package { 'packages-microsoft-prod.deb':
+  package { 'Microsoft-product-packages':
     provider => gdebi,
     ensure	=> latest,
     source => 'packages-microsoft-prod.deb',
@@ -48,7 +48,7 @@ class profile::dev_vs_code {
 
   package { 'code':
     ensure  => latest,
-    require => [ Class['apt::update'], Package['packages-microsoft-prod.deb'] ],
+    require => [ Class['apt::update'], Package['Microsoft-product-packages'] ],
   }
 
   # apt::source { 'vs-code-repo':
