@@ -10,7 +10,7 @@ class profile::dev_vs_code {
   include gdebi
 
   wget::fetch { 'vs_code':
-    source      => 'https://go.microsoft.com/fwlink/?LinkID=760868',
+    source      => 'https://vscode-update.azurewebsites.net/latest/linux-deb-x64/stable',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
   } ~>
