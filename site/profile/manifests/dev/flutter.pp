@@ -4,7 +4,6 @@ class profile::dev::flutter {
   $flutter_required_tools = [ 'xz-utils', 'libglu1-mesa' ]
   package { $flutter_required_tools:  ensure => latest }
 
-
   package { 'android-sdk':
     ensure => latest,
   }
