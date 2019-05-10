@@ -1,4 +1,9 @@
 class profile::dev::flutter {
+  # https://flutter.dev/docs/get-started/install/linux
+
+  $flutter_required_tools = [ 'xz-utils', 'libglu1-mesa' ]
+  package { $flutter_required_tools:  ensure => latest }
+
 
   package { 'android-sdk':
     ensure => latest,
