@@ -36,7 +36,7 @@ class role::test_workstation {
   include profile::dev_java
   include profile::dev_python
   include profile::dev_general_utils
-  include profile::dev_unity3d
+  # include profile::dev_unity3d
   include profile::dev_git_desktop
   include profile::dev_godot
   include profile::dev::vs_code
