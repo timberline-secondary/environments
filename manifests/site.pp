@@ -61,6 +61,11 @@ node 'tbl-hackerspace-13-s.hackerspace.tbl' {
   include role::test_workstation
 }
 
+# currently includes all #'s from 1 to 39, this way to make it easier to take one out later
+node /tbl-h10-(0?[1-9]|1[0-9]|2[0-9]|3[0-9])-s\.hackerspace.tbl/ {
+  include role::student_workstation_1804
+}
+
 # node 'tbl-hackerspace-9-s.hackerspace.tbl' {
 #   include role::attendance_workstation
 # }
