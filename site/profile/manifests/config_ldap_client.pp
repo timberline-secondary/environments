@@ -1,6 +1,6 @@
 class profile::config_ldap_client {
 
-  package { libnss-ldap:
+  package { 'libnss-ldap':
     ensure => present,
     #notify => Reboot['after_run'],
   } ->
