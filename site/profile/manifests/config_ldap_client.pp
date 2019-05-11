@@ -1,46 +1,47 @@
+#
 class profile::config_ldap_client {
 
   package { 'libnss-ldap':
     ensure => present,
     #notify => Reboot['after_run'],
-  } ->
-  file { 'ldap.conf':
+  }
+  -> file { 'ldap.conf':
+    ensure  => file,
     path    => '/etc/ldap.conf',
-    ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/profile/ldap_client/ldap.conf",
+    source  => 'puppet:///modules/profile/ldap_client/ldap.conf',
     #notify  => Reboot['after_run'],
-  } ->
-  file { 'ldap.secret':
-    path    => '/etc/ldap.secret',
+  }
+  -> file { 'ldap.secret':
     ensure  => file,
+    path    => '/etc/ldap.secret',
     require => Package['libnss-ldap'],
     mode    => '0400',
-    source  => "puppet:///modules/profile/ldap_client/ldap.secret",
+    source  => 'puppet:///modules/profile/ldap_client/ldap.secret',
     #notify  => Reboot['after_run'],
-  } ->
-  file { 'nsswitch.conf':
-    path    => '/etc/nsswitch.conf',
+  }
+  -> file { 'nsswitch.conf':
     ensure  => file,
+    path    => '/etc/nsswitch.conf',
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/profile/ldap_client/nsswitch.conf",
+    source  => 'puppet:///modules/profile/ldap_client/nsswitch.conf',
     #notify  => Reboot['after_run'],
     # This file is in: modules/hs_ldap_client/files
-  } ->
-  file { 'common-session':
+  }
+  -> file { 'common-session':
+    ensure  => file,
     path    => '/etc/pam.d/common-session',
-    ensure  => file,
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/profile/ldap_client/pam.d/common-session",
+    source  => 'puppet:///modules/profile/ldap_client/pam.d/common-session',
     #notify  => Reboot['after_run'],
-  } ->
-  file { 'common-password':
-    path    => '/etc/pam.d/common-password',
+  }
+  -> file { 'common-password':
     ensure  => file,
+    path    => '/etc/pam.d/common-password',
     require => Package['libnss-ldap'],
-    source  => "puppet:///modules/profile/ldap_client/pam.d/common-password",
-  } ~>
-  reboot { 'after_run':
+    source  => 'puppet:///modules/profile/ldap_client/pam.d/common-password',
+  }
+  ~> reboot { 'after_run':
     apply  => 'finished',
   }
 
@@ -53,13 +54,13 @@ class profile::config_ldap_client {
   # file_line: https://forge.puppet.com/puppetlabs/stdlib#resources
   #############################################
 
-  package { autofs:
+  package { 'autofs':
     ensure => present,
   }
   file { 'auto.home':
-    path    => '/etc/auto.home',
     ensure  => file,
-    content => "* -fstype=nfs,rw,async tyrell:/nfshome/&",
+    path    => '/etc/auto.home',
+    content => '* -fstype=nfs,rw,async tyrell:/nfshome/&',
     require => Package['autofs'],
   }
   file_line { 'auto.master':
@@ -76,14 +77,14 @@ class profile::config_ldap_client {
   }
 
   # https://help.ubuntu.com/community/NumLock
-  package { numlockx:
+  package { 'numlockx':
     ensure => latest,
   }
 
   file { 'lightdm.conf':
-    path    => '/etc/lightdm/lightdm.conf',
     ensure  => file,
-    source  => "puppet:///modules/profile/ldap_client/lightdm/lightdm.conf",
+    path    => '/etc/lightdm/lightdm.conf',
+    source  => 'puppet:///modules/profile/ldap_client/lightdm/lightdm.conf',
     require => File['/etc/lightdm'],
   }
 

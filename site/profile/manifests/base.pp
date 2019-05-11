@@ -1,3 +1,4 @@
+#
 class profile::base {
 
   # class { 'snapd': }
@@ -6,10 +7,10 @@ class profile::base {
   # MOTD
   $timestamp = generate('/bin/date')
   file { '/etc/motd':
-  	owner => 'root',
-        group => 'root',
-        mode => '0644',
-        content => "Running on the new puppet role/profile paradigm. Last run: ${timestamp}\n",
+    owner   => 'root',
+    group   => 'root',
+    mode    => '0644',
+    content => "Running on the new puppet role/profile paradigm. Last run: ${timestamp}\n",
   }
 
   package { 'openssh-server':
