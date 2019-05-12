@@ -6,6 +6,9 @@ class role::student_workstation_1804 {
   # All roles should include the base profile
   include profile::base
 
-  include profile::config_ldap_client
+  include profile::config::ldap_client
+  include profile::config::auto_fs
+  include profile::config::upgrades
+
 
 }
