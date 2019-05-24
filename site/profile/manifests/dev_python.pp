@@ -1,7 +1,7 @@
 class profile::dev_python {
 
   class { 'python' :
-    version    => 'system',
+    version    => '3.6',
     pip        => 'latest',
     dev        => 'absent',
     virtualenv => 'latest',
@@ -9,11 +9,11 @@ class profile::dev_python {
   }
 
   package { 'idle3':
-		ensure  => latest,
-	}
+    ensure  => latest,
+  }
 
   # package { 'python3-pip':
-		# ensure => latest,
+    # ensure => latest,
   # }
 
   apt::ppa { 'ppa:mystic-mirage/pycharm':
