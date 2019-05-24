@@ -1,7 +1,7 @@
 class profile::dev_python {
 
   class { 'python' :
-    version    => '3.6',
+    version    => 'python3.6',
     pip        => 'latest',
     dev        => 'absent',
     virtualenv => 'latest',
