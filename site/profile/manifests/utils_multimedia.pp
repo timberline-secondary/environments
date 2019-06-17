@@ -1,7 +1,12 @@
 class profile::utils_multimedia {
 
-  package {'ffmpeg':
-    ensure => latest,
+  ## FFMPEG
+  apt::ppa { 'ppa:jonathonf/ffmpeg-4':
+      ensure => present,
+  }
+  package { 'ffmpeg':
+      ensure  => latest,
+      require => [ Class['apt::update'], Apt::Ppa['ppa:jonathonf/ffmpeg-4'] ],
   }
 
   package {'vlc':
