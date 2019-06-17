@@ -1,5 +1,9 @@
 class profile::utils_multimedia {
 
+  package {'ffmpeg':
+    ensure => latest,
+  }
+
   package {'vlc':
       ensure => latest,
   }
@@ -36,8 +40,8 @@ class profile::utils_multimedia {
   } ~>
   package { 'kaku':
     provider => gdebi,
-    ensure	=> latest,
-    source => '/tmp/Kaku_2.0.2_amd64.deb',
+    ensure   => latest,
+    source   => '/tmp/Kaku_2.0.2_amd64.deb',
   }
 
   # ###########
@@ -57,13 +61,13 @@ class profile::utils_multimedia {
   include apt
 
   apt::source { 'spotify-stable-repo':
-		location => 'http://repository.spotify.com',
-		release	 => 'stable',
-		repos    => 'non-free',
-		key 		 => {
-			id      => '931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90',
-			server  => 'hkp://keyserver.ubuntu.com:80',
-		},
+    location => 'http://repository.spotify.com',
+    release  => 'stable',
+    repos    => 'non-free',
+    key      => {
+      id     => '931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90',
+      server => 'hkp://keyserver.ubuntu.com:80',
+      },
   }
   package { 'spotify-client':
     ensure  => latest,
