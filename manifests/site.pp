@@ -48,12 +48,16 @@ node 'puppet' {
 #   include role::student_workstation
 # }
 
-#1-9, 10-30
+#1-9, 10-39
 node /tbl-hackerspace-(0?[1-9]|1[0-9]|2[0-9]|3[0-9])-s\.hackerspace\.tbl/ {
   include role::student_workstation
 }
 
 node 'tbl-hackerspace-01-e.hackerspace.tbl' {
+  include role::teacher_workstation
+}
+
+node 'tbl-hackerspace-3-s.hackerspace.tbl' {
   include role::teacher_workstation
 }
 
@@ -64,6 +68,8 @@ node 'tbl-hackerspace-13-s.hackerspace.tbl' {
 node 'tbl-h10-12-s.hackerspace.tbl' {
   include role::student_workstation_1804
 }
+
+
 
 # node 'tbl-hackerspace-9-s.hackerspace.tbl' {
 #   include role::attendance_workstation
