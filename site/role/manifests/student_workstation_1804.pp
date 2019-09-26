@@ -38,3 +38,5 @@ class role::student_workstation_1804 {
   # include profile::dev_git_desktop
   # include profile::dev_godot
   # include profile::dev::vs_code
+
+}
