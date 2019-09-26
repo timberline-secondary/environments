@@ -65,7 +65,7 @@ node 'tbl-hackerspace-13-s.hackerspace.tbl' {
   include role::test_workstation
 }
 
-node 'tbl-h10-12-s.hackerspace.tbl' {
+node 'tbl-h10-test.hackerspace.tbl' {
   include role::student_workstation_1804
 }
 
