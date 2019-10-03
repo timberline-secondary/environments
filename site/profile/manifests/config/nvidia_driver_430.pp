@@ -1,8 +1,8 @@
 # requires rgb-nvidia module
 class profile::config::nvidia_driver_430 {
 
-  class { 'nvidia':
-    version => 430
+  package { 'nvidia-driver-430':
+    ensure  => latest
   }
 
 }
