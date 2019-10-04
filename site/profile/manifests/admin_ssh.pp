@@ -1,6 +1,8 @@
+#
 class profile::admin_ssh {
 
-	package { 'ssh':
-		ensure  => latest,
-	}
+  package { 'ssh':
+    ensure  => latest,
+  }
+
 }
