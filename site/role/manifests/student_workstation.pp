@@ -21,7 +21,7 @@ class role::student_workstation {
   include profile::app_darktable
   include profile::app_steam
 
-  include profile::app::drawpile
+  include profile::apps::drawpile
 
   include profile::utils_multimedia
   include profile::utils_browsers
