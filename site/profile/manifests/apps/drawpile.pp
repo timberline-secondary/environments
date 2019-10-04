@@ -1,5 +1,5 @@
 # https://launchpad.net/~shnatsel/+archive/ubuntu/drawpile
-class profile::app::drawpile {
+class profile::apps::drawpile {
 
   include apt
 
