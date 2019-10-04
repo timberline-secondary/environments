@@ -5,4 +5,8 @@ class profile::config::nvidia_driver_384 {
     ensure  => latest
   }
 
+  package { 'nvidia-modprobe':
+    ensure => latest
+    }
+
 }
