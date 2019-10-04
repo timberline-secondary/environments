@@ -1,8 +1,14 @@
 # requires rgb-nvidia module
 class profile::config::nvidia_driver_430 {
 
-  package { 'nvidia-driver-430':
-    ensure  => latest
+  include apt
+
+  apt::ppa { 'ppa:graphics-drivers/ppa':
+    ensure => present,
+  }
+
+  package {'nvidia-430 ':
+    require => Package['blender'],
   }
 
 }
