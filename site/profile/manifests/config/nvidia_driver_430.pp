@@ -8,7 +8,7 @@ class profile::config::nvidia_driver_430 {
   }
 
   package {'nvidia-430 ':
-    require => Package['blender'],
+    ensure => latest,
   }
 
 }
