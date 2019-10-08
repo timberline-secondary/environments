@@ -10,11 +10,11 @@ class profile::config::nvidia_driver_430 {
   package {'nvidia-430 ':
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Ppa['ppa:graphics-drivers/ppa'] ],
-    notify  => Reboot['after_run'],
+    notify  => Reboot['after_nvidia'],
   }
 
   # https://forge.puppet.com/puppetlabs/reboot
-  reboot { 'after_run':
+  reboot { 'after_nvidia':
     apply  => finished,
   }
 
