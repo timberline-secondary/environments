@@ -44,3 +44,5 @@ class profile::config::ldap_client {
   ~> reboot { 'after_run':
     apply  => 'finished',
   }
+
+}
