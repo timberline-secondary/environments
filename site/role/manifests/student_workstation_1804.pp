@@ -14,7 +14,7 @@ class role::student_workstation_1804 {
   include profile::config::display_manager
   include profile::config::nvidia_driver_435
 
-  include profile::app_blender
+  include profile::app_blender_2_79
   #include profile::app_blender_netrender_service
   include profile::app_krita
   include profile::app_gimp
