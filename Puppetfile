@@ -20,6 +20,7 @@ mod 'camptocamp-gnome',         '0.2.0'
 mod 'leoarnold-cups',           '2.0.3'
 mod 'kemra102-snapd',           '1.1.0'
 # mod 'rgb-nvidia',               '1.0.1'
+mod 'gizmoguy-lightdm',         '0.1.1'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
