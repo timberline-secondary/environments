@@ -7,7 +7,7 @@ class profile::config::nvidia_driver_435 {
     ensure => present,
   }
 
-  package {'nvidia-driver-435 ':
+  package {'nvidia-driver-435':
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Ppa['ppa:graphics-drivers/ppa'] ],
     notify  => Reboot['after_nvidia'],
