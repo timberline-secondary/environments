@@ -11,7 +11,7 @@ class role::student_workstation_1804 {
   # include profile::config_printers
 
   include profile::config::display_manager
-  include profile::config::nvidia_driver_430
+  include profile::config::nvidia_driver_435
 
   # include profile::app_blender
   # #include profile::app_blender_netrender_service
