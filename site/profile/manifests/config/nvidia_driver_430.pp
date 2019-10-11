@@ -7,7 +7,7 @@ class profile::config::nvidia_driver_430 {
     ensure => present,
   }
 
-  package {'nvidia-430 ':
+  package {'nvidia-driver-430 ':
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Ppa['ppa:graphics-drivers/ppa'] ],
     notify  => Reboot['after_nvidia'],
