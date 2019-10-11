@@ -24,3 +24,5 @@ class profile::config::auto_fs {
     line    => '/home   /etc/auto.home',
     require => Package['autofs'],
   }
+
+}
