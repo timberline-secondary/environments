@@ -6,10 +6,10 @@ class role::student_workstation_1604_gtx2070 {
   # All roles should include the base profile
   include profile::base
 
-  include profile::config_ldap_client
-  include profile::config_upgrades
-  include profile::config_restart_daily
-  include profile::config_printers
+  # include profile::config_ldap_client
+  # include profile::config_upgrades
+  # include profile::config_restart_daily
+  # include profile::config_printers
 
   include profile::config::nvidia_driver_430
 
