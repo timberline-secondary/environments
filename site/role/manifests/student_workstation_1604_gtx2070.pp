@@ -17,7 +17,7 @@ class role::student_workstation_1604_gtx2070 {
   #include profile::app_blender_netrender_service
   include profile::app_krita
   include profile::app_gimp
-  include profile::app_cura
+  include profile::app::cura
   include profile::app_audio_suite
   include profile::app_games
   include profile::app_darktable
