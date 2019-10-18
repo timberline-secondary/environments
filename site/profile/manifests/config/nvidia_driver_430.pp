@@ -3,6 +3,14 @@ class profile::config::nvidia_driver_430 {
 
   # include apt
 
+  # make executable with mode 755
+  # wget::fetch { 'netrender-watchdog.py':
+  #   source      => 'https://raw.githubusercontent.com/timberline-secondary/systemd-blender-netrender/master/netrender-watchdog.py',
+  #   destination => '/tmp/',
+  #   cache_dir   => '/var/cache/wget',
+  #   mode        => '0755',
+  # }
+
   # apt::ppa { 'ppa:graphics-drivers/ppa':
   #   ensure => present,
   # }
