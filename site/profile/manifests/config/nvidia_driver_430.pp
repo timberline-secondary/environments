@@ -1,25 +1,24 @@
 # requires rgb-nvidia module
 class profile::config::nvidia_driver_430 {
 
-  # include apt
+  $driver_name        = 'NVIDIA-Linux-x86_64-430.50.run'
+  $nvidia_driver_src  = "http://us.download.nvidia.com/XFree86/Linux-x86_64/430.50/${driver_name}"
+  $driver_location    = "/opt/${driver_name}"
 
-  # make executable with mode 755
-  # wget::fetch { 'netrender-watchdog.py':
-  #   source      => 'https://raw.githubusercontent.com/timberline-secondary/systemd-blender-netrender/master/netrender-watchdog.py',
-  #   destination => '/tmp/',
-  #   cache_dir   => '/var/cache/wget',
-  #   mode        => '0755',
-  # }
+  archive { $driver_name:
+    ensure => present,
+    path   => $driver_location,
+    source => $nvidia_driver_src,
+  }
 
-  # apt::ppa { 'ppa:graphics-drivers/ppa':
-  #   ensure => present,
-  # }
-
-  # package {'nvidia-430 ':
-  #   ensure  => latest,
-  #   require => [ Class['apt::update'], Apt::Ppa['ppa:graphics-drivers/ppa'] ],
-  #   notify  => Reboot['after_nvidia'],
-  # }
+  exec { 'Install Nvidia drivers':
+    # https://unix.stackexchange.com/questions/545807/how-to-automate-selections-when-installing-via-cli/545809?noredirect=1#comment1013710_545809
+    command     => "bash ${driver_location} --disable-nouveau --run-nvidia-xconfig --no-x-check --silent",
+    path        => $::path, # from Factor
+    subscribe   => Archive[$driver_name],
+    refreshonly => true,
+    notify      => Reboot['after_nvidia'],
+  }
 
   # https://forge.puppet.com/puppetlabs/reboot
   reboot { 'after_nvidia':
