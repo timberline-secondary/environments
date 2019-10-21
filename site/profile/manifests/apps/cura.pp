@@ -1,5 +1,5 @@
 # Cura Slicer and 3D print software
-class profile::app::cura {
+class profile::apps::cura {
 
   $cura_version = '4.3.0'
   $cura_executable = "/opt/Cura-${cura_version}"
