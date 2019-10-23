@@ -11,6 +11,7 @@ class profile::dev::koala {
   archive { $filename:
     ensure => present,
     source => "https://github.com/oklai/koala/releases/download/v${version}/${filename}",
+    path   => "${install_dir}/${filename}"
   }
 
   package { 'Koala':
