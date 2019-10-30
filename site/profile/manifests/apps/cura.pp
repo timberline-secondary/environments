@@ -4,13 +4,17 @@ class profile::apps::cura {
   $cura_version = '4.3.0'
   $cura_executable = "/opt/Cura-${cura_version}.AppImage"
   $cura_url = "https://github.com/Ultimaker/Cura/releases/download/4.3.0/Ultimaker_Cura-${cura_version}.AppImage"
-  $cura_icon = "/usr/share/icons/cura.png"
+  $cura_icon = '/usr/share/icons/cura.png'
   $cura_desktop_file = '/usr/share/applications/cura.desktop'
 
   archive { $cura_executable:
     ensure => present,
     source => $cura_url,
-    mode   => '0755'
+  }
+
+  file { $cura_executable:
+    mode      => '0755',
+    subscribe => Archive[$cura_executable],
   }
 
   archive { $cura_icon:
