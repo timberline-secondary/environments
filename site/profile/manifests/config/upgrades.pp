@@ -6,10 +6,23 @@ class profile::config::upgrades {
     include apt
 
     class { 'unattended_upgrades':
-      auto => { 'reboot' => false,
-                'reboot_time' => '4am',
+      auto    => {'reboot'      => false,
+                  'reboot_time' => '4am',
       },
-      origins => ['${distro_id}:${distro_codename}-updates', '${distro_id}:${distro_codename}-security'],
+      origins => ["${distro_id}:${distro_codename}-updates", "${distro_id}:${distro_codename}-security"],
+    }
+
+    # prevent from asking to upgrade OS
+    # https://askubuntu.com/questions/115913/disable-ubuntu-update-managers-new-version-warning
+
+    $upgrades_file = '/etc/update-manager/release-upgrades'
+
+    file_line { 'release-upgrades':
+      ensure  => present,
+      path    => $upgrades_file,
+      replace => true,
+      line    => 'Prompt=never',
+      match   => '^Prompt'
     }
 
 }
