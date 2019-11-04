@@ -1,3 +1,4 @@
+# unattended upgrades and release upgrades
 class profile::config::upgrades {
 
     # https://forge.puppet.com/puppet/unattended_upgrades
@@ -9,7 +10,7 @@ class profile::config::upgrades {
       auto    => {'reboot'      => false,
                   'reboot_time' => '4am',
       },
-      origins => ["${distro_id}:${distro_codename}-updates", "${distro_id}:${distro_codename}-security"],
+      origins => ['${distro_id}:${distro_codename}-updates', '${distro_id}:${distro_codename}-security'],
     }
 
     # prevent from asking to upgrade OS
