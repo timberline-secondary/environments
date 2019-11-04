@@ -6,7 +6,7 @@ class role::teacher_workstation {
   include profile::base
 
   include profile::config_ldap_client
-  include profile::config_upgrades
+  include profile::config::upgrades
   include profile::config_restart_daily
   include profile::config_printers
 
