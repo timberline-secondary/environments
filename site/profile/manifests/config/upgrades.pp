@@ -9,7 +9,7 @@ class profile::config::upgrades {
       auto    => {'reboot'      => false,
                   'reboot_time' => '4am',
       },
-      origins => ["${::distro_id}:${::distro_codename}-updates", "${::distro_id}:${::distro_codename}-security"],
+      origins => ["${distro_id}:${distro_codename}-updates", "${distro_id}:${distro_codename}-security"],
     }
 
     # prevent from asking to upgrade OS
