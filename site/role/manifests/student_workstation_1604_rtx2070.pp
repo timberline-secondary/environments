@@ -11,7 +11,7 @@ class role::student_workstation_1604_gtx2070 {
   include profile::config_restart_daily
   include profile::config_printers
 
-  include profile::config::nvidia_driver_430
+  #include profile::config::nvidia_driver_430
 
   include profile::app_blender
   #include profile::app_blender_netrender_service

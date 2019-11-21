@@ -1,4 +1,4 @@
-# class test_workstation
+# 
 class role::test_workstation {
   # Each node should have only one role.
   # The role should include all profiles required to make it work.
@@ -7,20 +7,21 @@ class role::test_workstation {
   include profile::base
 
   include profile::config_ldap_client
-  include profile::config_upgrades
+  include profile::config::upgrades
   include profile::config_restart_daily
   include profile::config_printers
+
+  include profile::config::nvidia_RTX2070
 
   include profile::app_blender
   #include profile::app_blender_netrender_service
   include profile::app_krita
   include profile::app_gimp
-  include profile::app_cura
+  include profile::apps::cura
   include profile::app_audio_suite
   include profile::app_games
   include profile::app_darktable
   include profile::app_steam
-  include profile::app_cad
 
   include profile::utils_multimedia
   include profile::utils_browsers
@@ -37,12 +38,8 @@ class role::test_workstation {
   include profile::dev_java
   include profile::dev_python
   include profile::dev_general_utils
-  # include profile::dev_unity3d
   include profile::dev_git_desktop
   include profile::dev_godot
   include profile::dev::vs_code
-  include profile::dev::flutter
-  include profile::dev_vm
 
-  #include profile::utils_netdata
 }

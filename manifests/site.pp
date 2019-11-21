@@ -61,13 +61,17 @@ node 'tbl-hackerspace-3-s.hackerspace.tbl' {
   include role::teacher_workstation
 }
 
-node 'tbl-h10-test1804.hackerspace.tbl' {
-  include role::student_workstation_1804
-}
+# node 'tbl-h10-test1804.hackerspace.tbl' {
+#   include role::student_workstation_1804
+# }
 
 # tbl-h10-#-s
 node /tbl-h10-(0?[1-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9])-s\.hackerspace\.tbl/ {
-  include role::student_workstation_1604_gtx2070
+  include role::student_workstation_1604_rtx2070
+}
+
+node 'tbl-h10-1-s.hackerspace.tbl' {
+  include role::test_workstation
 }
 
 # node 'tbl-hackerspace-9-s.hackerspace.tbl' {
