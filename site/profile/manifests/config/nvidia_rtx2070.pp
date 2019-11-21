@@ -1,5 +1,5 @@
 # requires rgb-nvidia module
-class profile::config::nvidia_driver_430 {
+class profile::config::nvidia_rtx2070 {
 
   package { 'dkms':
     ensure => latest,

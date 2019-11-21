@@ -11,7 +11,7 @@ class role::test_workstation {
   include profile::config_restart_daily
   include profile::config_printers
 
-  include profile::config::nvidia_RTX2070
+  include profile::config::nvidia_rtx2070
 
   include profile::app_blender
   #include profile::app_blender_netrender_service
