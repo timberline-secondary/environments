@@ -41,7 +41,7 @@ class role::student_workstation_1604_rtx2070 {
   include profile::dev_git_desktop
   include profile::dev_godot
   include profile::dev::vs_code
-  # include profile::dev::processsing
+  include profile::dev::processsing
 
 }
 
