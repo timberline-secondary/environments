@@ -21,7 +21,7 @@ class role::test_workstation {
   include profile::app_audio_suite
   include profile::app_games
   include profile::app_darktable
-  include profile::app_steam
+  include profile::app::steam
 
   include profile::utils_multimedia
   include profile::utils_browsers
@@ -41,5 +41,6 @@ class role::test_workstation {
   include profile::dev_git_desktop
   include profile::dev_godot
   include profile::dev::vs_code
+  include profile::dev::processsing
 
 }
