@@ -21,7 +21,7 @@ class role::test_workstation {
   include profile::app_audio_suite
   include profile::app_games
   include profile::app_darktable
-  include profile::app::steam
+  # include profile::apps::steam
 
   include profile::utils_multimedia
   include profile::utils_browsers
