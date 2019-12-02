@@ -41,6 +41,6 @@ class role::test_workstation {
   include profile::dev_git_desktop
   include profile::dev_godot
   include profile::dev::vs_code
-  include profile::dev::processsing
+  include profile::dev::processing
 
 }
