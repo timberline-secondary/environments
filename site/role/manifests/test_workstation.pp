@@ -14,6 +14,7 @@ class role::test_workstation {
   include profile::config::nvidia_rtx2070
 
   include profile::app_blender
+  # include profile::apps::blender_2_79
   #include profile::app_blender_netrender_service
   include profile::app_krita
   include profile::app_gimp
