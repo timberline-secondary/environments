@@ -42,6 +42,7 @@ class role::student_workstation_1604_rtx2070 {
   include profile::dev_godot
   include profile::dev::vs_code
   include profile::dev::processing
+  include profile::dev::virtual_machines
 
 }
 

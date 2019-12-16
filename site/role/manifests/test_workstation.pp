@@ -43,5 +43,6 @@ class role::test_workstation {
   include profile::dev_godot
   include profile::dev::vs_code
   include profile::dev::processing
+  include profile::dev::virtual_machines
 
 }
