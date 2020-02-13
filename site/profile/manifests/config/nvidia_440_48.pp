@@ -5,7 +5,7 @@ class profile::config::nvidia_440_48 {
     ensure => latest,
   }
 
-  $driver_number      = '440.48.02'  #440.31
+  $driver_number      = '440.59'  #440.31
   $driver_name        = "NVIDIA-Linux-x86_64-${driver_number}.run"
   $nvidia_driver_src  = "http://us.download.nvidia.com/XFree86/Linux-x86_64/${driver_number}/${driver_name}"
   $driver_location    = "/opt/${driver_name}"
