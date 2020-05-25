@@ -33,8 +33,6 @@ class role::student_workstation_2004_rtx2070 {
   # include profile::utils_fonts
   # include profile::utils_play_on_linux
 
-  include profile::admin_ssh
-
   # include profile::dev_java
   # include profile::dev_python
   # include profile::dev_general_utils
@@ -42,7 +40,7 @@ class role::student_workstation_2004_rtx2070 {
   # include profile::dev_godot
   # include profile::dev::vs_code
   # include profile::dev::processing
-  include profile::dev::virtual_machines
+  # include profile::dev::virtual_machines
 
 }
 

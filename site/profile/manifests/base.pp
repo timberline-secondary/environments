@@ -13,7 +13,8 @@ class profile::base {
     content => "Running on the new puppet role/profile paradigm. Last run: ${timestamp}\n",
   }
 
-  package { 'openssh-server':
+  package { 'ssh':
+    # ssh package includes both openssh-server and client
     ensure  => latest,
   }
 
