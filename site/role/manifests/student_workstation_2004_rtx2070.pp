@@ -13,7 +13,7 @@ class role::student_workstation_2004_rtx2070 {
 
   # include profile::config::nvidia_rtx2070
 
-  # include profile::app_blender
+  include profile::app::blender
   # #include profile::app_blender_netrender_service
   # include profile::app_krita
   # include profile::app_gimp
