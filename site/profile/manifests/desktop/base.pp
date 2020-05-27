@@ -5,4 +5,8 @@ class profile::desktop::base {
     ensure  => latest,
   }
 
+  package { 'ubuntu-drivers':
+    ensure  => latest,
+  }
+
 }
