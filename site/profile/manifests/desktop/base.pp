@@ -5,7 +5,7 @@ class profile::desktop::base {
     ensure  => latest,
   }
 
-  package { 'nvidia-drivers-440':
+  package { 'nvidia-driver-440':
     ensure  => latest,
     require => Package['ubuntu-desktop'],
     notify  => Reboot['after_run'],
