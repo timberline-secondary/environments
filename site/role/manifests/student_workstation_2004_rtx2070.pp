@@ -6,6 +6,7 @@ class role::student_workstation_2004_rtx2070 {
   # All roles should include the base profile
   include profile::base
 
+  include profile::desktop::base
   # include profile::config_ldap_client
   # include profile::config::upgrades
   # include profile::config_restart_daily
