@@ -7,7 +7,8 @@ class role::student_workstation_2004_rtx2070 {
   include profile::base
 
   include profile::desktop::base
-  # include profile::config_ldap_client
+  include profile::config::ldap_client
+  include profile::config::auto_fs
   # include profile::config::upgrades
   # include profile::config_restart_daily
   # include profile::config_printers
