@@ -1,6 +1,8 @@
 #
 class profile::desktop::base {
 
+  include profile::utils::reboot_after_run
+
   package { 'ubuntu-desktop':
     ensure  => latest,
   }
@@ -9,10 +11,6 @@ class profile::desktop::base {
     ensure  => latest,
     require => Package['ubuntu-desktop'],
     notify  => Reboot['after_run'],
-  }
-
-  reboot { 'after_run':
-    apply   => finished,
   }
 
 }

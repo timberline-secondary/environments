@@ -1,6 +1,8 @@
 #
 class profile::config::ldap_client {
 
+  include profile::utils::reboot_after_run
+
   package { 'libnss-ldap':
     ensure => present,
     #notify => Reboot['after_run'],
@@ -40,9 +42,6 @@ class profile::config::ldap_client {
     path    => '/etc/pam.d/common-password',
     require => Package['libnss-ldap'],
     source  => 'puppet:///modules/profile/ldap_client/pam.d/common-password',
+    notify  => Reboot['after_run'],
   }
-  ~> reboot { 'after_run':
-    apply  => 'finished',
-  }
-
 }
