@@ -24,7 +24,7 @@ class profile::config::ldap_client {
   #   source  => 'puppet:///modules/profile/ldap_client/ldap.secret',
   #   notify  => Reboot['after_run'],
   # }
-  # -> file { 'nsswitch.conf':
+  # file { 'nsswitch.conf':
   #   ensure  => file,
   #   path    => '/etc/nsswitch.conf',
   #   require => Package['libnss-ldap'],
@@ -32,6 +32,28 @@ class profile::config::ldap_client {
   #   notify  => Reboot['after_run'],
   #   # This file is in: modules/hs_ldap_client/files
   # }
+
+  file_line { 'nsswitch.conf/passwd':
+    path    => '/etc/nsswitch.conf',
+    match   => '^passwd:',
+    line    => 'passwd:         files systemd ldap',
+    require => Package['libnss-ldapd'],
+    notify  => Reboot['after_run'],
+  }
+  file_line { 'nsswitch.conf/group':
+    path    => '/etc/nsswitch.conf',
+    match   => '^group:',
+    line    => 'group:         files systemd ldap',
+    require => Package['libnss-ldapd'],
+    notify  => Reboot['after_run'],
+  }
+  file_line { 'nsswitch.conf/shadow':
+    path    => '/etc/nsswitch.conf',
+    match   => '^shadow:',
+    line    => 'shadow:         files ldap',
+    require => Package['libnss-ldapd'],
+    notify  => Reboot['after_run'],
+  }
   # -> file { 'common-session':
   #   ensure  => file,
   #   path    => '/etc/pam.d/common-session',
