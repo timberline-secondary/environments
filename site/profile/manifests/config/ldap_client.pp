@@ -16,23 +16,16 @@ class profile::config::ldap_client {
     notify  => Reboot['after_run'],
   }
 
-  # -> file { 'ldap.secret':
-  #   ensure  => file,
-  #   path    => '/etc/ldap.secret',
-  #   require => Package['libnss-ldap'],
-  #   mode    => '0400',
-  #   source  => 'puppet:///modules/profile/ldap_client/ldap.secret',
-  #   notify  => Reboot['after_run'],
-  # }
-  # file { 'nsswitch.conf':
-  #   ensure  => file,
-  #   path    => '/etc/nsswitch.conf',
-  #   require => Package['libnss-ldap'],
-  #   source  => 'puppet:///modules/profile/ldap_client/nsswitch.conf',
-  #   notify  => Reboot['after_run'],
-  #   # This file is in: modules/hs_ldap_client/files
-  # }
+  file { 'ldap.secret':
+    ensure  => file,
+    path    => '/etc/ldap.secret',
+    require => Package['libnss-ldap'],
+    mode    => '0400',
+    source  => 'puppet:///modules/profile/ldap_client/ldap.secret',
+    notify  => Reboot['after_run'],
+  }
 
+  # Add ldap to passwd, group, and shadow servives
   file_line { 'nsswitch.conf/passwd':
     path    => '/etc/nsswitch.conf',
     match   => '^passwd:',
@@ -43,7 +36,7 @@ class profile::config::ldap_client {
   file_line { 'nsswitch.conf/group':
     path    => '/etc/nsswitch.conf',
     match   => '^group:',
-    line    => 'group:         files systemd ldap',
+    line    => 'group:          files systemd ldap',
     require => Package['libnss-ldapd'],
     notify  => Reboot['after_run'],
   }
