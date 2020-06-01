@@ -29,14 +29,14 @@ class profile::config::ldap_client {
   file_line { 'nsswitch.conf/passwd':
     path    => '/etc/nsswitch.conf',
     match   => '^passwd:',
-    line    => 'passwd:         files systemd ldap',
+    line    => 'passwd:         files ldap',
     require => Package['libnss-ldapd'],
     notify  => Reboot['after_run'],
   }
   file_line { 'nsswitch.conf/group':
     path    => '/etc/nsswitch.conf',
     match   => '^group:',
-    line    => 'group:          files systemd ldap',
+    line    => 'group:          files ldap',
     require => Package['libnss-ldapd'],
     notify  => Reboot['after_run'],
   }
