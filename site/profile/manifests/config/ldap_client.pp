@@ -47,18 +47,20 @@ class profile::config::ldap_client {
     require => Package['libnss-ldapd'],
     notify  => Reboot['after_run'],
   }
-  # -> file { 'common-session':
-  #   ensure  => file,
-  #   path    => '/etc/pam.d/common-session',
-  #   require => Package['libnss-ldap'],
-  #   source  => 'puppet:///modules/profile/ldap_client/pam.d/common-session',
-  #   notify  => Reboot['after_run'],
-  # }
-  # -> file { 'common-password':
-  #   ensure  => file,
-  #   path    => '/etc/pam.d/common-password',
-  #   require => Package['libnss-ldap'],
-  #   source  => 'puppet:///modules/profile/ldap_client/pam.d/common-password',
-  #   notify  => Reboot['after_run'],
-  # }
+
+  file { 'common-session':
+    ensure  => file,
+    path    => '/etc/pam.d/common-session',
+    require => Package['libnss-ldapd'],
+    source  => 'puppet:///modules/profile/ldap_client/pam.d/common-session',
+    notify  => Reboot['after_run'],
+  }
+
+  file { 'common-password':
+    ensure  => file,
+    path    => '/etc/pam.d/common-password',
+    require => Package['libnss-ldapd'],
+    source  => 'puppet:///modules/profile/ldap_client/pam.d/common-password',
+    notify  => Reboot['after_run'],
+  }
 }
