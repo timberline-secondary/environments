@@ -16,7 +16,7 @@ class profile::config::ldap_client {
     require => Package['libnss-ldapd'],
     notify  => Reboot['after_run'],
   }
-  file_line { 'nslcd.conf/uri':
+  file_line { 'nslcd.conf/base':
     path    => '/etc/nslcd.conf',
     match   => '^base\ dc\=',
     line    => 'base dc=hackerspace,dc=tbl',
