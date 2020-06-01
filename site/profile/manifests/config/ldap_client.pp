@@ -19,7 +19,7 @@ class profile::config::ldap_client {
   file { 'ldap.secret':
     ensure  => file,
     path    => '/etc/ldap.secret',
-    require => Package['libnss-ldap'],
+    require => Package['libnss-ldapd'],
     mode    => '0400',
     source  => 'puppet:///modules/profile/ldap_client/ldap.secret',
     notify  => Reboot['after_run'],
