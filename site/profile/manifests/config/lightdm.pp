@@ -7,13 +7,16 @@
 class profile::config::lightdm {
 
   class { '::lightdm':
-    config => {
-      'Seat:*' => {
-        'greeter-show-manual-login' => true,
-        'greeter-hide-users=true'   => true,
-        'greeter-setup-script'      => '/usr/bin/numlockx on'
-      }
-    }
+    config         => {
+                        'Seat:*' => {
+                          'greeter-show-manual-login' => true,
+                          'greeter-hide-users=true'   => true,
+                          'greeter-setup-script'      => '/usr/bin/numlockx on'
+                      }
+    },
+    service_manage => true,
+    make_default   => true
+
   }
 
 }
