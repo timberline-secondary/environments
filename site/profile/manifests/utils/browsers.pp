@@ -1,4 +1,5 @@
-class profile::utils_browsers {
+#
+class profile::utils::browsers {
 
   package { 'firefox':
       ensure => latest,
@@ -12,12 +13,6 @@ class profile::utils_browsers {
   package { 'chromium-browser':
       ensure => latest,
   }
-
-  # Flash for Chrome/Chromium
-  # include profile::common_additional_repos
-  # package {'adobe-flashplugin':
-  #   ensure  => absent,
-  # }
 
   #############
   #
@@ -37,9 +32,9 @@ class profile::utils_browsers {
     release  => 'stable',
     repos    => 'main',
     key      => {
-      id        => '4CCA1EAF950CEE4AB83976DCA040830F7FAC5991',
-      source    => 'https://dl-ssl.google.com/linux/linux_signing_key.pub',
-      # 'server' => 'hkp://keyserver.ubuntu.com:80', #  default anyway
+        id     => '4CCA1EAF950CEE4AB83976DCA040830F7FAC5991',
+        source => 'https://dl-ssl.google.com/linux/linux_signing_key.pub',
+        # 'server' => 'hkp://keyserver.ubuntu.com:80', #  default anyway
     },
   }
 
@@ -47,14 +42,5 @@ class profile::utils_browsers {
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Source['chrome-repo'] ],
   }
-
-  # resources { 'apt-resource':
-  #   name               => 'apt',
-  #   purge              => true
-  #   # unless_system_user => # This keeps system users from being purged.  By...
-  #   # unless_uid         => # This keeps specific uids or ranges of uids from...
-  #   # ...plus any applicable metaparameters.
-  # }
-
 
 }
