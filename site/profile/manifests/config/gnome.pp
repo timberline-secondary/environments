@@ -7,7 +7,8 @@ class profile::config::gnome {
     ensure  => file,
     content => "user-db:user
 system-db:gdm
-file-db:/usr/share/gdm/greeter-dconf-defaults",
+file-db:/usr/share/gdm/greeter-dconf-defaults
+"
   }
 
   file { '/etc/dconf/db/gdm.d':
@@ -17,8 +18,15 @@ file-db:/usr/share/gdm/greeter-dconf-defaults",
   file { '/etc/dconf/db/gdm.d/00-login-screen':
     ensure  => file,
     content => "[org/gnome/login-screen]
-disable-user-list=true",
-    require => [File['/etc/dconf/db/gdm.d']]
+disable-user-list=true
+",
+    require => [File['/etc/dconf/db/gdm.d']],
+    notify  => [Exec['dconf update']]
+  }
+
+  exec {'dconf update':
+    path        => '/usr/bin/',
+    refreshonly => true,
   }
 
   # gnome::gsettings { 'DisableUserList':
