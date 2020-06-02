@@ -1,11 +1,25 @@
 #
 class profile::config::gnome {
 
-  gnome::gsettings { 'DisableUserList':
-    schema => 'org.gnome.login-screen.disable-user-list',
-    key    => 'disable-user-list',
-    value  => 'true',
+# https://help.gnome.org/admin/system-admin-guide/stable/login-userlist-disable.html.en
+
+  file { '/etc/profile/gdm':
+    ensure => directory,
   }
+
+  file { '/etc/profile/gdm':
+    ensure  => file,
+    content => "user-db:user
+      system-db:gdm
+      file-db:/usr/share/gdm/greeter-dconf-defaults"
+  }
+
+
+  # gnome::gsettings { 'DisableUserList':
+  #   schema => 'org.gnome.login-screen.disable-user-list',
+  #   key    => 'disable-user-list',
+  #   value  => 'true',
+  # }
 
 
   # # Recovery some <Ctrl><Alt> shortcuts so they can be used in Blender etc.
