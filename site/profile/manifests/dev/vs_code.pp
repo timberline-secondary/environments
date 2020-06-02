@@ -2,16 +2,17 @@ class profile::dev::vs_code {
   # https://code.visualstudio.com/docs/setup/linux
 
   include wget
+  include gdebi
 
   # use this to install microsoft keys
   wget::fetch { 'packages-microsoft-prod.deb':
     source      => 'https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb',
     destination => '/tmp/',
     cache_dir   => '/var/cache/wget',
-  } ~>
-  package { 'Microsoft-product-packages':
+  }
+  ~> package { 'Microsoft-product-packages':
+    ensure   => latest,
     provider => gdebi,
-    ensure	 => latest,
     source   => '/tmp/packages-microsoft-prod.deb',
   }
 
