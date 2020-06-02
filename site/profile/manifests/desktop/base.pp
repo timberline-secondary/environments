@@ -13,4 +13,9 @@ class profile::desktop::base {
     notify  => Reboot['after_run'],
   }
 
+  # https://help.ubuntu.com/community/NumLock
+  package { 'numlockx':
+    ensure => latest,
+  }
+
 }
