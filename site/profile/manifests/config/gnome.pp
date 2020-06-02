@@ -4,7 +4,7 @@ class profile::config::gnome {
   gnome::gsettings { 'DisableUserList':
     schema => 'org.gnome.login-screen.disable-user-list',
     key    => 'disable-user-list',
-    value  => true,
+    value  => 'true',
   }
 
 
