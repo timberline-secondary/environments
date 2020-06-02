@@ -38,6 +38,7 @@ class role::student_workstation_2004_rtx2070 {
   # include profile::dev_python
   # include profile::dev_general_utils
   # include profile::dev_git_desktop
+  include profile::dev::python
   include profile::dev::vs_code
   # include profile::dev::processing
   # include profile::dev::virtual_machines
