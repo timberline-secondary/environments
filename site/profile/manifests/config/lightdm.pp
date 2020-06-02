@@ -2,9 +2,9 @@
 # - Sets it to the deafult display manager
 # - Enables the Guest session
 # - Turn on numlock
-class profile::config::lightdm {
+# https://forge.puppet.com/gizmoguy/lightdm
 
-  include ::lightdm
+class profile::config::lightdm {
 
   class { '::lightdm':
     config => {
