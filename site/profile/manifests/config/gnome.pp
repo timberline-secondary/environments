@@ -4,16 +4,23 @@ class profile::config::gnome {
 # https://help.gnome.org/admin/system-admin-guide/stable/login-userlist-disable.html.en
 
   file { '/etc/profile/gdm':
+    ensure  => file,
+    content => "user-db:user
+system-db:gdm
+file-db:/usr/share/gdm/greeter-dconf-defaults",
+  }
+
+  file { '/etc/dconf/db/gdm.d':
     ensure => directory,
   }
 
-  file { '/etc/profile/gdm':
+  file { ' /etc/dconf/db/gdm.d':
     ensure  => file,
-    content => "user-db:user
-      system-db:gdm
-      file-db:/usr/share/gdm/greeter-dconf-defaults"
+    content => "[org/gnome/login-screen]
+# Do not show the user list
+disable-user-list=true",
+    require => [File['/etc/dconf/db/gdm.d']]
   }
-
 
   # gnome::gsettings { 'DisableUserList':
   #   schema => 'org.gnome.login-screen.disable-user-list',
