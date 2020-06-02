@@ -36,11 +36,6 @@ class profile::config::lightdm {
     notify      => Reboot['after_run']
   }
 
-  # https://help.ubuntu.com/community/NumLock
-  package { 'numlockx':
-    ensure => latest,
-  }
-
   # lightdm conf
 
   file { 'lightdm.conf':
