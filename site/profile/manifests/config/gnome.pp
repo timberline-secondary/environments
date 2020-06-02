@@ -3,7 +3,7 @@ class profile::config::gnome {
 
 # https://help.gnome.org/admin/system-admin-guide/stable/login-userlist-disable.html.en
 
-  file { '/etc/profile/gdm':
+  file { '/etc/dconf/profile/gdm':
     ensure  => file,
     content => "user-db:user
 system-db:gdm
