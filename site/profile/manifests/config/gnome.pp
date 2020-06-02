@@ -28,9 +28,10 @@ disable-user-list=true
 
   # Add Hackerspace logo
   # https://help.gnome.org/admin/system-admin-guide/stable/login-logo.html.en
-  file { '/usr/share/pixmaps/h10-logo.png':
+  file { 'h10-logo.png':
     ensure => file,
-    source => 'puppet:///modules/profile/config/10-logo.png',
+    path   => '/usr/share/pixmaps/h10-logo.png',
+    source => 'puppet:///modules/profile/config/h10-logo.png',
   }
 
   file { '/etc/dconf/db/gdm.d/01-logo':
@@ -38,7 +39,7 @@ disable-user-list=true
     content => "[org/gnome/login-screen]
 logo='/usr/share/pixmaps/h10-logo.png'
 ",
-    require => [File['/etc/dconf/db/gdm.d', '/usr/share/pixmaps/h10-logo.png']],
+    require => [File['/etc/dconf/db/gdm.d', 'h10-logo.png']],
     notify  => [Exec['dconf update']]
   }
 
