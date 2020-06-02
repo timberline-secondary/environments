@@ -15,7 +15,7 @@ class profile::config::lightdm {
     item    => 'shared/default-x-display-manager',
     type    => 'select',
     value   => 'lightdm',
-    # seen    => true,
+    seen    => true,
     require => Package['lightdm']
   }
 
@@ -26,10 +26,15 @@ class profile::config::lightdm {
 [SeatDefaults]
 greeter-show-manual-login=true
 greeter-hide-users=true
-greeter-setup-script=/usr/bin/numlockx on
-    ',
+greeter-setup-script=/usr/bin/numlockx on\n',
     require => Package['lightdm'],
-    notify  => Reboot['after_run'],
+    notify  => Package['dpkg-reconfigure lightdm']
+  }
+
+  exec {'dpkg-reconfigure lightdm':
+    path        => ['/usr/bin/', '/usr/sbin'],
+    refreshonly => true,
+    notify      => Reboot['after_run']
   }
 
 }

@@ -1,3 +1,4 @@
+#
 class profile::apps::blender {
 
   package { 'blender':
