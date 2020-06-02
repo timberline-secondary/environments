@@ -20,7 +20,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::apps::blender
   include profile::apps::krita
   include profile::apps::cura
-  include profile::app::gimp
+  include profile::apps::gimp
 
   # include profile::app_audio_suite
   # include profile::app_games

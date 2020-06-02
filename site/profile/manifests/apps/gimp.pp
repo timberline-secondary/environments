@@ -1,5 +1,5 @@
 #
-class profile::app::gimp {
+class profile::apps::gimp {
 
   package { 'gimp':
       ensure  => latest,
