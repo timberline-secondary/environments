@@ -18,6 +18,8 @@ class profile::config::lightdm {
     require => Package['lightdm'],
     notify  => Reboot['after_run']
   }
+
+  # try making default via debconf preseed and dpkg-reconfigure
   debconf { 'default-x-display-manager':
     package => 'lightdm',
     item    => 'shared/default-x-display-manager',
@@ -27,6 +29,16 @@ class profile::config::lightdm {
     require => Package['lightdm'],
     notify  => Exec['dpkg-reconfigure lightdm']
   }
+
+  exec {'dpkg-reconfigure lightdm':
+    path        => ['/usr/bin/', '/usr/sbin'],
+    refreshonly => true,
+    notify      => Reboot['after_run']
+  }
+
+
+
+  # lightdm conf
 
   file { 'lightdm.conf':
     ensure  => file,
@@ -40,10 +52,6 @@ greeter-setup-script=/usr/bin/numlockx on\n",
     require => Package['lightdm'],
   }
 
-  exec {'dpkg-reconfigure lightdm':
-    path        => ['/usr/bin/', '/usr/sbin'],
-    refreshonly => true,
-    notify      => Reboot['after_run']
-  }
+
 
 }

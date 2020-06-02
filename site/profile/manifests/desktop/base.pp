@@ -7,6 +7,18 @@ class profile::desktop::base {
     ensure  => latest,
   }
 
+  # remove unwanted packages installed with ubuntu-dresktop
+  package {'rhythmbox':
+    ensure  => purged,
+    require => Package['ubuntu-desktop'],
+    # subscribe => Package['ubuntu-desktop'],
+  }
+  package {'thunderbird':
+    ensure  => purged,
+    require => Package['ubuntu-desktop'],
+    # subscribe => Package['ubuntu-desktop'],
+  }
+
   package { 'nvidia-driver-440':
     ensure  => latest,
     require => Package['ubuntu-desktop'],
