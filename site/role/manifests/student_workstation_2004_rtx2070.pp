@@ -30,8 +30,6 @@ class role::student_workstation_2004_rtx2070 {
 
   # include profile::utils_multimedia
   # include profile::utils_browsers
-  # include profile::utils_misc
-  # include profile::utils_gnome
   # include profile::utils_screencast
   # include profile::utils_desktops
   # include profile::utils_discord
@@ -42,8 +40,7 @@ class role::student_workstation_2004_rtx2070 {
   # include profile::dev_python
   # include profile::dev_general_utils
   # include profile::dev_git_desktop
-  # include profile::dev_godot
-  # include profile::dev::vs_code
+  include profile::dev::vs_code
   # include profile::dev::processing
   # include profile::dev::virtual_machines
 
