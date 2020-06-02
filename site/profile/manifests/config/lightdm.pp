@@ -3,9 +3,11 @@
 # - Enables the Guest session
 class profile::config::lightdm {
 
-  include profile::utils::reboot_after_run
+  # include profile::utils::reboot_after_run
 
   package { 'lightdm':
     ensure => latest,
-    notify => Reboot['after_run'],
+    # notify => Reboot['after_run'],
   }
+
+}
