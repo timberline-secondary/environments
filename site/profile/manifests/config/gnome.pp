@@ -1,8 +1,6 @@
 #
 class profile::config::gnome {
 
-# https://help.gnome.org/admin/system-admin-guide/stable/login-userlist-disable.html.en
-
   file { '/etc/dconf/profile/gdm':
     ensure  => file,
     content => "user-db:user
@@ -15,6 +13,10 @@ file-db:/usr/share/gdm/greeter-dconf-defaults
     ensure => directory,
   }
 
+
+  # Disable user list at login screen
+  # https://help.gnome.org/admin/system-admin-guide/stable/login-userlist-disable.html.en
+
   file { '/etc/dconf/db/gdm.d/00-login-screen':
     ensure  => file,
     content => "[org/gnome/login-screen]
@@ -23,6 +25,24 @@ disable-user-list=true
     require => [File['/etc/dconf/db/gdm.d']],
     notify  => [Exec['dconf update']]
   }
+
+  # Add Hackerspace logo
+  # https://help.gnome.org/admin/system-admin-guide/stable/login-logo.html.en
+  file { '/usr/share/pixmaps/h10-logo.png':
+    ensure => file,
+    source => 'puppet:///modules/profile/config/10-logo.png',
+  }
+
+  file { '/etc/dconf/db/gdm.d/01-logo':
+    ensure  => file,
+    content => "[org/gnome/login-screen]
+logo='/usr/share/pixmaps/h10-logo.png'
+",
+    require => [File['/etc/dconf/db/gdm.d', '/usr/share/pixmaps/h10-logo.png']],
+    notify  => [Exec['dconf update']]
+  }
+
+
 
   exec {'dconf update':
     path        => '/usr/bin/',
