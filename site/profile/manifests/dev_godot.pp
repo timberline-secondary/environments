@@ -34,7 +34,7 @@ Icon=/usr/share/icons/godot.svg
 Terminal=false
 Type=Application
 Categories=Development; Games;
-Name[en_US]=godot.desktop
+Name[en_US]=Godot
 GenericName[en_US]=Game development platform
 Comment[en_US]=Create different games!",
   }
