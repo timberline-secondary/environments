@@ -45,16 +45,13 @@ logo='/usr/share/pixmaps/h10-logo.png'
 
 
 
+
+  # Update dconf after any changes
+
   exec {'dconf update':
     path        => '/usr/bin/',
     refreshonly => true,
   }
-
-  # gnome::gsettings { 'DisableUserList':
-  #   schema => 'org.gnome.login-screen.disable-user-list',
-  #   key    => 'disable-user-list',
-  #   value  => 'true',
-  # }
 
 
   # # Recovery some <Ctrl><Alt> shortcuts so they can be used in Blender etc.
