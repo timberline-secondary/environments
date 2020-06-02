@@ -22,6 +22,7 @@ mod 'leoarnold-cups',           '2.0.3'
 mod 'kemra102-snapd',           '1.1.0'
 # mod 'rgb-nvidia',               '1.0.1'
 mod 'gizmoguy-lightdm',         '0.1.1'
+mod 'stm-debconf',              '3.0.0'
 
 
 # Modules from Git
