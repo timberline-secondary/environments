@@ -1,5 +1,5 @@
 #
-class profile::apps::blender {
+class profile::apps::krita {
 
   package { 'krita':
     ensure  => latest,
