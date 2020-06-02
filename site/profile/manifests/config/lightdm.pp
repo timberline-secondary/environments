@@ -13,6 +13,7 @@ class profile::config::lightdm {
         'greeter-hide-users=true'   => true,
         'greeter-setup-script'      => '/usr/bin/numlockx on'
       }
+    }
   }
 
 }
