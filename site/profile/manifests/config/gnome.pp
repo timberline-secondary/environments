@@ -14,10 +14,9 @@ file-db:/usr/share/gdm/greeter-dconf-defaults",
     ensure => directory,
   }
 
-  file { ' /etc/dconf/db/gdm.d/00-login-screen':
+  file { '/etc/dconf/db/gdm.d/00-login-screen':
     ensure  => file,
     content => "[org/gnome/login-screen]
-# Do not show the user list
 disable-user-list=true",
     require => [File['/etc/dconf/db/gdm.d']]
   }
