@@ -11,8 +11,8 @@ class role::student_workstation_2004_rtx2070 {
   include profile::config::auto_fs
   include profile::config::gnome
   include profile::config::lightdm
-  # include profile::config::upgrades
-  # include profile::config_restart_daily
+  include profile::config::upgrades
+  include profile::config::restart_daily
   include profile::config::printers
 
   include profile::apps::blender

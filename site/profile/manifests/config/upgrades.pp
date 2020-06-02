@@ -21,7 +21,7 @@ class profile::config::upgrades {
     file_line { 'release-upgrades':
       ensure  => present,
       path    => $upgrades_file,
-      replace => true,
+      replace => true, # default is true
       line    => 'Prompt=never',
       match   => '^Prompt'
     }
