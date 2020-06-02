@@ -28,7 +28,7 @@ greeter-show-manual-login=true
 greeter-hide-users=true
 greeter-setup-script=/usr/bin/numlockx on\n',
     require => Package['lightdm'],
-    notify  => Package['dpkg-reconfigure lightdm']
+    notify  => Exec['dpkg-reconfigure lightdm']
   }
 
   exec {'dpkg-reconfigure lightdm':
