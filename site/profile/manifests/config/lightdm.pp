@@ -1,13 +1,18 @@
 # Installs lightDM and configures it: 
 # - Sets it to the deafult display manager
 # - Enables the Guest session
+# - Turn on numlock
 class profile::config::lightdm {
 
-  # include profile::utils::reboot_after_run
+  include ::lightdm
 
-  package { 'lightdm':
-    ensure => latest,
-    # notify => Reboot['after_run'],
+  class { '::lightdm':
+    config => {
+      'Seat:*' => {
+        'greeter-show-manual-login' => true,
+        'greeter-hide-users=true'   => true,
+        'greeter-setup-script'      => '/usr/bin/numlockx on'
+      }
   }
 
 }

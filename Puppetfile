@@ -23,6 +23,7 @@ mod 'kemra102-snapd',           '1.1.0'
 # mod 'rgb-nvidia',               '1.0.1'
 mod 'gizmoguy-lightdm',         '0.1.1'
 
+
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples
 #mod 'apache',
