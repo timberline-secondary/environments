@@ -36,7 +36,10 @@ class profile::config::lightdm {
     notify      => Reboot['after_run']
   }
 
-
+  # https://help.ubuntu.com/community/NumLock
+  package { 'numlockx':
+    ensure => latest,
+  }
 
   # lightdm conf
 
@@ -49,7 +52,7 @@ allow-guest=true
 greeter-show-manual-login=true
 greeter-hide-users=true
 greeter-setup-script=/usr/bin/numlockx on\n",
-    require => Package['lightdm'],
+    require => Package['lightdm', 'numlockx' ],
   }
 
 

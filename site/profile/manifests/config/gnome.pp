@@ -44,8 +44,6 @@ logo='/usr/share/pixmaps/h10-logo.png'
   }
 
 
-
-
   # Update dconf after any changes
 
   exec {'dconf update':
@@ -53,6 +51,13 @@ logo='/usr/share/pixmaps/h10-logo.png'
     refreshonly => true,
   }
 
+
+# Dark theme by default
+  gnome::gsettings { 'DarkTheme':
+    schema => 'org.gnome.desktop.interface',
+    key    => 'gtk-theme',
+    value  => 'Yaru-dark',
+  }
 
   # # Recovery some <Ctrl><Alt> shortcuts so they can be used in Blender etc.
   # # Alt + Mouse

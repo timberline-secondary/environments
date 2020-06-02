@@ -11,14 +11,21 @@ class profile::desktop::base {
   package {'rhythmbox':
     ensure  => purged,
     require => Package['ubuntu-desktop'],
-    # subscribe => Package['ubuntu-desktop'],
+    # subscribe => Package['ubuntu-desktop'],  # si this needed for when ubuntu-desktop updates?
   }
   package {'thunderbird':
     ensure  => purged,
     require => Package['ubuntu-desktop'],
     # subscribe => Package['ubuntu-desktop'],
   }
+  package {'gnome-initial-setup':
+    ensure  => absent,
+    require => Package['ubuntu-desktop'],
+    # subscribe => Package['ubuntu-desktop'],
+  }
 
+
+  # Graphics drivers (installed in preseed, this keeps them up to date)
   package { 'nvidia-driver-440':
     ensure  => latest,
     require => Package['ubuntu-desktop'],
