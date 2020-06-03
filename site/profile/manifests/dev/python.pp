@@ -12,6 +12,6 @@ class profile::dev::python {
   package { 'build-essential': ensure  => latest }
   package { 'libssl-dev': ensure  => latest }
   package { 'libffi-dev': ensure  => latest }
-  package { 'python3-dev': nsure  => latest }
+  package { 'python3-dev': ensure  => latest }
 
 }
