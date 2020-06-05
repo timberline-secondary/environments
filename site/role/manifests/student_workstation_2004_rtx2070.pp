@@ -14,6 +14,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::config::upgrades
   include profile::config::restart_daily
   include profile::config::printers
+  include profile::config::timezone
 
   include profile::apps::blender
   include profile::apps::krita

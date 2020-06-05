@@ -37,4 +37,5 @@ class profile::desktop::base {
     ensure => latest,
   }
 
+
 }
