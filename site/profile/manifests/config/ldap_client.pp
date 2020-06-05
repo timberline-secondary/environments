@@ -23,7 +23,7 @@ class profile::config::ldap_client {
     require => Package['libnss-ldapd'],
     notify  => Reboot['after_run'],
   }
-  file_line { 'nslcd.conf/base':
+  file_line { 'nslcd.conf/rootpwmoddn':
     path    => '/etc/nslcd.conf',
     match   => '^#?rootpwmoddn',  # could start with a # on first install
     line    => 'rootpwmoddn cn=admin,dc=hackerspace,dc=tbl',
