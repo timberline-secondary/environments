@@ -29,7 +29,7 @@ class role::student_workstation_2004_rtx2070 {
   # include profile::app_steam
 
   # include profile::utils_multimedia
-  include profile::utils::browsers
+  # include profile::utils::browsers
   # include profile::utils_screencast
   # include profile::utils_desktops
   # include profile::utils_discord
