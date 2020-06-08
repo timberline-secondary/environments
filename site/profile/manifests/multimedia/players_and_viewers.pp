@@ -26,9 +26,10 @@ class profile::multimedia::players_and_viewers {
   $kaku_version = '2.0.2'
 
   archive{ '/tmp/Kaku.deb':
-    ensure  => latest
+    ensure  => latest,
     source  => "https://github.com/EragonJ/Kaku/releases/download/${kaku_version}/Kaku_${kaku_version}_amd64.deb",
   }
+
   package { 'kaku':
     provider => gdebi,
     ensure   => latest,
