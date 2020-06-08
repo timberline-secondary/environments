@@ -42,10 +42,10 @@ class profile::apps::audio_suite {
     ensure => present,
     require => Package['apt-transport-https']
   }
-  # package { 'musescore':
-  #   ensure  => latest,
-  #   require => [ Class['apt::update'], Apt::Ppa['ppa:mscore-ubuntu/mscore3-stable'] ],
-  # }
+  package { 'musescore3':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Ppa['ppa:mscore-ubuntu/mscore3-stable'] ],
+  }
 
 
   #############
