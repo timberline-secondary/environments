@@ -1,5 +1,4 @@
 class profile::apps::discord {
-  include wget
   include gdebi
 
   # $version = '0.0.9'
@@ -7,8 +6,6 @@ class profile::apps::discord {
   archive { '/tmp/discord.deb':
     ensure => present,
     source      => 'https://discordapp.com/api/download?platform=linux&format=deb',
-    # destination => '/tmp/',
-    # cache_dir   => '/var/cache/wget',
   }
 
   package { 'discord':

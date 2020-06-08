@@ -7,6 +7,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::base
 
   include profile::desktop::base
+
   include profile::config::ldap_client
   include profile::config::auto_fs
   include profile::config::gnome
@@ -25,6 +26,8 @@ class role::student_workstation_2004_rtx2070 {
   include profile::apps::audio_suite
   include profile::apps::darktable
   include profile::apps::discord
+
+  include profiles::games::minecraft
 
   # include profile::app_games
   # include profile::app_steam
