@@ -4,7 +4,4 @@ class profile::multimedia::utils_and_codecs {
     ensure => latest,
   }
 
-  package {'ffmpeg':
-    ensure => latest,
-  }
 }
