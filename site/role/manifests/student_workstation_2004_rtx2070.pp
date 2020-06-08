@@ -24,9 +24,9 @@ class role::student_workstation_2004_rtx2070 {
   include profile::apps::inkscape
   include profile::apps::audio_suite
   include profile::apps::darktable
+  include profile::apps::discord
 
   # include profile::app_games
-  # include profile::app_darktable
   # include profile::app_steam
 
   # include profile::utils_multimedia
