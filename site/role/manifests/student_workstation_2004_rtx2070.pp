@@ -24,7 +24,6 @@ class role::student_workstation_2004_rtx2070 {
   include profile::apps::inkscape
   include profile::apps::audio_suite
 
-  # include profile::app_audio_suite
   # include profile::app_games
   # include profile::app_darktable
   # include profile::app_steam
@@ -38,7 +37,6 @@ class role::student_workstation_2004_rtx2070 {
   # include profile::utils_play_on_linux
 
   # include profile::dev_java
-  # include profile::dev_python
   # include profile::dev_general_utils
   # include profile::dev_git_desktop
   include profile::dev::python
