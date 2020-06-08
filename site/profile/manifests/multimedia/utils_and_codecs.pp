@@ -14,4 +14,8 @@ class profile::multimedia::utils_and_codecs {
     ensure => latest,
   }
 
+  package {'unifont':
+    ensure => latest,
+  }
+
 }
