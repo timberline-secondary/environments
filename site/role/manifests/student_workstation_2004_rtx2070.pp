@@ -27,7 +27,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::apps::darktable
   include profile::apps::discord
 
-  include profiles::games::minecraft
+  include profile::games::minecraft
 
   # include profile::app_games
   # include profile::app_steam
