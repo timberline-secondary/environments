@@ -8,5 +8,9 @@ class profile::multimedia::screencaptures {
   package {'flameshot':
     ensure => latest,
   }
+  
+  package {'kmag':
+    ensure => latest,
+  }
 
 }
