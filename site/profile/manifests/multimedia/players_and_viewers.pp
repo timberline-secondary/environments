@@ -9,4 +9,8 @@ class profile::multimedia::players_and_viewers {
     ensure => latest,
   }
 
+  package {'openshot':
+    ensure => latest,
+  }
+
 }

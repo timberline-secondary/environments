@@ -30,6 +30,7 @@ class role::student_workstation_2004_rtx2070 {
 
   include profile::multimedia::players_and_viewers
   include profile::multimedia::utils_and_codecs
+  include profile::multimedia::screencaptures
 
   # include profile::app_games
   # include profile::app_steam
