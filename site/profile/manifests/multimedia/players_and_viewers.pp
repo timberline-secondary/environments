@@ -14,7 +14,7 @@ class profile::multimedia::players_and_viewers {
   }
 
 
-    #############
+  #############
   #
   # Kaku
   # http://kaku.rocks/
@@ -35,6 +35,32 @@ class profile::multimedia::players_and_viewers {
     ensure   => latest,
     source   => '/tmp/Kaku.deb',
     subscribe=> Archive['/tmp/Kaku.deb']
+  }
+
+  # ###########
+  #
+  # Spotify
+  # https://www.spotify.com/ca-en/download/linux/
+  #
+  # ############
+
+
+  include apt
+
+  apt::source { 'spotify-stable-repo':
+    location => 'http://repository.spotify.com',
+    release  => 'stable',
+    repos    => 'non-free',
+    key      => {
+      id     => '2EBF997C15BDA244B6EBF5D84773BD5E130D1D45',
+      # id     => '931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90',
+      # id     => 'EFDC8610341D9410',
+      server => 'hkp://keyserver.ubuntu.com:80',
+      },
+  }
+  package { 'spotify-client':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Source['spotify-stable-repo'] ],
   }
 
 }
