@@ -37,12 +37,12 @@ class profile::apps::audio_suite {
   #
   #############
 
-  apt::ppa { 'mscore-ubuntu/mscore3-stable':
+  apt::ppa { 'ppa:mscore-ubuntu/mscore3-stable':
       ensure => present,
   }
   package { 'musescore':
     ensure  => latest,
-    require => [ Class['apt::update'], Apt::Ppa['mscore-ubuntu/mscore3-stable'] ],
+    require => [ Class['apt::update'], Apt::Ppa['ppa:mscore-ubuntu/mscore3-stable'] ],
   }
 
 

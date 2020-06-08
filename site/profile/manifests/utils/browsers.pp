@@ -10,9 +10,9 @@ class profile::utils::browsers {
     ensure => latest,
   }
 
-  package { 'chromium-browser':
-      ensure => latest,
-  }
+  # package { 'chromium-browser':
+  #     ensure => latest,
+  # }
 
   #############
   #
