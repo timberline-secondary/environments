@@ -10,6 +10,7 @@ class role::student_workstation_2004_rtx2070 {
 
   include profile::config::ldap_client
   include profile::config::auto_fs
+  include profile::config::guest_user
   include profile::config::gnome
   include profile::config::upgrades
   include profile::config::restart_daily
