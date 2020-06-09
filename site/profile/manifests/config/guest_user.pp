@@ -23,7 +23,7 @@ class profile::config::guest_user {
   file { 'post_session_default':
     ensure => file,
     path   => '/etc/gdm3/PostSession/Default',
-    source => 'puppet:///modules/profile/guest_account/post_sessiondefault.sh',
+    source => 'puppet:///modules/profile/guest_account/post_session_default.sh',
     mode   => '0755'
   }
 
