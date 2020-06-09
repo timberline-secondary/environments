@@ -15,14 +15,14 @@ class profile::config::guest_user {
 
   file { 'post_login_default':
     ensure => file,
-    path   => '/etc/gdm/PostLogin/Default',
+    path   => '/etc/gdm3/PostLogin/Default',
     source => 'puppet:///modules/profile/guest_account/post_login_default.sh',
     mode   => '0755'
   }
 
   file { 'post_session_default':
     ensure => file,
-    path   => '/etc/gdm/PostSession/Default',
+    path   => '/etc/gdm3/PostSession/Default',
     source => 'puppet:///modules/profile/guest_account/post_sessiondefault.sh',
     mode   => '0755'
   }
