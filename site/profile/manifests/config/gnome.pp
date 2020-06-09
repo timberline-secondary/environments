@@ -28,17 +28,18 @@ disable-user-list=true
 
   # Add Hackerspace logo
   # https://help.gnome.org/admin/system-admin-guide/stable/login-logo.html.en
-  file { 'Tubuntu-logo.png':
+  $logo = 'Tubuntu-logo.png'
+  file { $logo:
     ensure => file,
-    path   => '/usr/share/pixmaps/Tubuntu-logo.png',
-    source => 'puppet:///modules/profile/config/Tubuntu-logo.png',
+    path   => "/usr/share/pixmaps/${logo}",
+    source => "puppet:///modules/profile/config/${logo}",
   }
 
   file { '/etc/dconf/db/gdm.d/01-logo':
     ensure  => file,
     content => "[org/gnome/login-screen]
-logo='/usr/share/pixmaps/h10-logo.png'\n",
-    require => [File['/etc/dconf/db/gdm.d', 'Tubuntu-logo.png']],
+logo='/usr/share/pixmaps/${logo}'\n",
+    require => [File['/etc/dconf/db/gdm.d', $logo]],
     notify  => [Exec['dconf update']]
   }
 
