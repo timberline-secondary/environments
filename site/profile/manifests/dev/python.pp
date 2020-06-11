@@ -14,4 +14,7 @@ class profile::dev::python {
   package { 'libffi-dev': ensure  => latest }
   package { 'python3-dev': ensure  => latest }
 
+  # pygame
+  package { 'python3-pygame': ensure  => latest }
+
 }
