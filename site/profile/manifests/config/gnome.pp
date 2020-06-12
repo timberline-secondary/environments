@@ -51,7 +51,7 @@ logo='/usr/share/pixmaps/${logo}'\n",
 banner-message-enable=true
 banner-message-text='Welcome to the Hackerspace!\nGuests can log in with user 'guest' and password: 'guest'.'\n",
     require => File['/etc/dconf/db/gdm.d',
-    notify  => Exec['dconf update']]
+    notify  => Exec['dconf update']
   }
 
 
