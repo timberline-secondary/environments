@@ -43,6 +43,16 @@ logo='/usr/share/pixmaps/${logo}'\n",
     notify  => [Exec['dconf update']]
   }
 
+  # Add banner text
+  # https://help.gnome.org/admin/system-admin-guide/stable/login-banner.html.en
+  file { '/etc/dconf/db/gdm.d/01-banner-message':
+    ensure  => file,
+    content => "[org/gnome/login-screen]
+banner-message-enable=true
+banner-message-text='Welcome to the Hackerspace!\nGuests can log in with user 'guest' and password: 'guest'.'\n",
+    notify  => [Exec['dconf update']]
+  }
+
 
   # Update dconf after any changes
 
