@@ -31,6 +31,12 @@ class profile::desktop::base {
     require => Package['ubuntu-desktop'],
     notify  => Reboot['after_run'],
   }
+  package { 'nvidia-cuda-toolkit':
+    ensure  => latest,
+    require => Package['nvidia-driver-440'],
+    notify  => Reboot['after_run'],
+  }
+
 
   # https://help.ubuntu.com/community/NumLock
   package { 'numlockx':
