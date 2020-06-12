@@ -13,8 +13,8 @@ if [ "$USER" = "$guestuser" ]; then
     cp /etc/skel/.* /tmp/"$guestuser"
     chown -R "$guestuser":"$guestuser" /tmp/"$guestuser"
 
-    # show temp message
-    notify-send 'Temporary Guest Session' 'All data created during this guest session will be deleted when you log out, and settings will be reset to defaults.  Please save files on an external device like a USB stick, or in the cloud like Google Drive or Teams, or email the files to yourself, if you want to access them later.'
+    # show temp message -- DOESN'T WORK HERE
+    # notify-send 'Temporary Guest Session' 'All data created during this guest session will be deleted when you log out, and settings will be reset to defaults.  Please save files on an external device like a USB stick, or in the cloud like Google Drive or Teams, or email the files to yourself, if you want to access them later.'
 fi
 
 exit 0
