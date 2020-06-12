@@ -49,7 +49,7 @@ logo='/usr/share/pixmaps/${logo}'\n",
     ensure  => file,
     content => '[org/gnome/login-screen]
 banner-message-enable=true
-banner-message-text="Welcome to the Hackerspace! \n\nGuests can log in with \n\nuser: guest\npassword: guest"
+banner-message-text="Welcome to the Hackerspace! Guests can log in with \nuser: guest, password: guest"
 ',
     require => File['/etc/dconf/db/gdm.d'],
     notify  => Exec['dconf update']
