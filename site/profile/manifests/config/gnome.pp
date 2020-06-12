@@ -22,8 +22,8 @@ file-db:/usr/share/gdm/greeter-dconf-defaults
     content => "[org/gnome/login-screen]
 disable-user-list=true
 ",
-    require => [File['/etc/dconf/db/gdm.d']],
-    notify  => [Exec['dconf update']]
+    require => File['/etc/dconf/db/gdm.d'],
+    notify  => Exec['dconf update']
   }
 
   # Add Hackerspace logo
@@ -39,8 +39,8 @@ disable-user-list=true
     ensure  => file,
     content => "[org/gnome/login-screen]
 logo='/usr/share/pixmaps/${logo}'\n",
-    require => [File['/etc/dconf/db/gdm.d', $logo]],
-    notify  => [Exec['dconf update']]
+    require => File['/etc/dconf/db/gdm.d', $logo],
+    notify  => Exec['dconf update']
   }
 
   # Add banner text
@@ -50,7 +50,8 @@ logo='/usr/share/pixmaps/${logo}'\n",
     content => "[org/gnome/login-screen]
 banner-message-enable=true
 banner-message-text='Welcome to the Hackerspace!\nGuests can log in with user 'guest' and password: 'guest'.'\n",
-    notify  => [Exec['dconf update']]
+    require => File['/etc/dconf/db/gdm.d',
+    notify  => Exec['dconf update']]
   }
 
 
