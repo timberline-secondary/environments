@@ -7,9 +7,8 @@
 guestuser="guest"
 
 ## Clear up the guest user session
-#if [[ "$USER" = "$guestuser" ]]; then
-rm -rf /tmp/"$guestuser"
-touch /etc/tmp_deleted_guest_user
-#fi
+if [ "$USER" = "$guestuser" ]; then
+    rm -rf /tmp/"$guestuser"
+fi
 
 exit 0

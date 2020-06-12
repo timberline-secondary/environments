@@ -7,7 +7,7 @@
 guestuser="guest"
 
 ## Set up guest user session
-if [[ "$USER" = "$guestuser" ]]; then
+if [ "$USER" = "$guestuser" ]; then
     mkdir /tmp/"$guestuser"
     cp /etc/skel/.* /tmp/"$guestuser"
     chown -R "$guestuser":"$guestuser" /tmp/"$guestuser"
