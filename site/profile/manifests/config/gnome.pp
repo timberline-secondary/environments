@@ -50,7 +50,7 @@ logo='/usr/share/pixmaps/${logo}'\n",
     content => "[org/gnome/login-screen]
 banner-message-enable=true
 banner-message-text='Welcome to the Hackerspace!\nGuests can log in with user 'guest' and password: 'guest'.'\n",
-    require => File['/etc/dconf/db/gdm.d',
+    require => File['/etc/dconf/db/gdm.d'],
     notify  => Exec['dconf update']
   }
 
