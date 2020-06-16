@@ -65,11 +65,11 @@ banner-message-text="Welcome to the Hackerspace! Guests can log in with \nuser: 
 
 
 # Dark theme by default
-  gnome::gsettings { 'DarkTheme':
-    schema => 'org.gnome.desktop.interface',
-    key    => 'gtk-theme',
-    value  => 'Yaru-dark',
-  }
+  # gnome::gsettings { 'DarkTheme':
+  #   schema => 'org.gnome.desktop.interface',
+  #   key    => 'gtk-theme',
+  #   value  => 'Yaru-dark',
+  # }
 
   # # Recovery some <Ctrl><Alt> shortcuts so they can be used in Blender etc.
   # # Alt + Mouse
