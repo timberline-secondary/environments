@@ -7,11 +7,17 @@ class profile::desktop::base {
     ensure  => latest,
   }
 
+  # local writable space
+  file { '/shared':
+    ensure => 'directory',
+    mode   => '0777',
+  }
+
   # remove unwanted packages installed with ubuntu-dresktop
   package {'rhythmbox':
     ensure  => purged,
     require => Package['ubuntu-desktop'],
-    # subscribe => Package['ubuntu-desktop'],  # si this needed for when ubuntu-desktop updates?
+    # subscribe => Package['ubuntu-desktop'],  # is this needed for when ubuntu-desktop updates?
   }
   package {'thunderbird':
     ensure  => purged,
@@ -42,6 +48,8 @@ class profile::desktop::base {
   package { 'numlockx':
     ensure => latest,
   }
+
+
 
 
 }

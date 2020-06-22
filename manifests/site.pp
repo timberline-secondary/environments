@@ -63,6 +63,11 @@ node /tbl-h10-([0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9])\.hackerspace\.tbl/ {
   include role::student_workstation_2004_rtx2070
 }
 
+
+node /tbl-h10-steam/ {
+  include role::test_workstation
+}
+
 # node 'tbl-h10-1-s.hackerspace.tbl' {
 #   include role::test_workstation
 # }
