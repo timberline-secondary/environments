@@ -28,7 +28,7 @@ class profile::utils::browsers {
 
   apt::source { 'google-chrome':
     comment  => 'Chrome official repo... I think',
-    location => 'http://dl.google.com/linux/chrome/deb/',
+    location => '[arch=amd64] http://dl.google.com/linux/chrome/deb/',
     release  => 'stable',
     repos    => 'main',
     key      => {
