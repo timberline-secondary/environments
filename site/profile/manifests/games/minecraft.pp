@@ -4,14 +4,14 @@ class profile::games::minecraft {
 
   archive { '/tmp/minecraft.deb':
     ensure => present,
-    source      => 'https://launcher.mojang.com/download/Minecraft.deb',
+    source => 'https://launcher.mojang.com/download/Minecraft.deb',
   }
 
   package { 'minecraft':
-      provider => gdebi,
-      ensure   => latest,
-      source   => '/tmp/minecraft.deb',
-      subscribe=> Archive['/tmp/minecraft.deb']
+    ensure    => latest,
+    provider  => gdebi,
+    source    => '/tmp/minecraft.deb',
+    subscribe => Archive['/tmp/minecraft.deb']
   }
 
 }
