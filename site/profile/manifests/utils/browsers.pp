@@ -26,7 +26,7 @@ class profile::utils::browsers {
 
   include apt
 
-  apt::source { 'chrome-repo':
+  apt::source { 'google-chrome':
     comment  => 'Chrome official repo... I think',
     location => 'http://dl.google.com/linux/chrome/deb/',
     release  => 'stable',
@@ -40,7 +40,7 @@ class profile::utils::browsers {
 
   package { 'google-chrome-stable':
     ensure  => latest,
-    require => [ Class['apt::update'], Apt::Source['chrome-repo'] ],
+    require => [ Class['apt::update'], Apt::Source['google-chrome'] ],
   }
 
 }

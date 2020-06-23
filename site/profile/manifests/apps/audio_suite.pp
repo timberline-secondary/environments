@@ -37,9 +37,8 @@ class profile::apps::audio_suite {
   #
   #############
 
-# NOT WORKING!  PPA installation is failing?
   apt::ppa { 'ppa:mscore-ubuntu/mscore3-stable':
-    ensure => present,
+    ensure  => present,
     require => Package['apt-transport-https']
   }
   package { 'musescore3':
