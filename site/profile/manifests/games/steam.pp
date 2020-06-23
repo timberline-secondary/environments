@@ -5,18 +5,20 @@ class profile::games::steam {
 
   # https://github.com/ValveSoftware/steam-for-linux/issues/5884#issuecomment-437690163
 
+  include apt
+
   exec { 'i386':
     command => '/usr/bin/dpkg --add-architecture i386',
     unless  => '/bin/grep -q i386 /var/lib/dpkg/arch',
   }
   package { 'libnvidia-gl-440:i386':
     ensure  => latest,
-    require => [Exec['i386'], Class['apt::update']]
+    require => [Class['apt::update'], Exec['i386'], ]
   }
 
   package { 'steam':
     ensure  => latest,
-    require => [Exec['i386'], Class['apt::update']]
+    require => [Class['apt::update'], Exec['i386'], ]
   }
 
   # Remove the update notifier to prevent pop-up on all users.
@@ -29,7 +31,7 @@ class profile::games::steam {
   # symlink the user's steamapps directory to local filesystem so games aren't played over the network
   # place this in the steam launch script at /usr/bin/steam right before the script exec's the launcher
   file_line { 'steamapps':
-    path      => '/usr/bin/steam',
+    path      => '/usr/games/steam',
     match     => '^cd "\$LAUNCHSTEAMDIR"\n',
     line      => 'cd "$LAUNCHSTEAMDIR"
 
