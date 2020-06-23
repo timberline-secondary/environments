@@ -13,10 +13,6 @@ class profile::games::steam {
     ensure  => latest,
     require => [Exec['i386'], Class['apt::update']]
   }
-  package { 'libnvidia-gl-440:i386':
-    ensure  => latest,
-    require => [Exec['i386'], Class['apt::update']]
-  }
 
   package { 'steam':
     ensure  => latest,
