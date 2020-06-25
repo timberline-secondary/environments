@@ -35,18 +35,20 @@ class profile::games::steam {
 
   # symlink the user's steamapps directory to local filesystem so games aren't played over the network
   # place this in the steam launch script at /usr/bin/steam right before the script exec's the launcher
-  file_line { 'steamapps':
-    path      => '/usr/games/steam',
-    after     => '# launch the Valve run script',
-    line      => '
-
+  $custom_command = '
 # CUSTOM VIA PUPPET - link steamapps (game install) dir to local /shared/ directory
 rm -r "/home/$USER/.local/share/Steam/steamapps" # removes steam directory in home drive
 mkdir -p "/shared/$USER/steamapps" # makes user > steamapps in shared directory under user
 ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the shared folder to user local home
 
+'
 
-',
+  file_line { 'steamapps':
+    path      => '/usr/games/steam',
+    match     => 'CUSTOM VIA PUPPET',
+    replace   => false,
+    after     => '# launch the Valve run script',
+    line      => $custom_command,
     subscribe => Package['steam'],
   }
 
