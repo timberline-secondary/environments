@@ -81,7 +81,7 @@ ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the sh
     path      => '/usr/bin/steam',
     match     => 'CUSTOM VIA PUPPET',
     replace   => false,
-    after     => 'cd "$LAUNCHSTEAMDIR"',
+    after     => '^cd "\$LAUNCHSTEAMDIR"$', # regex
     line      => $custom_command,
     subscribe => Package['steam'],
   }
