@@ -64,7 +64,7 @@ node /tbl-h10-([0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9])\.hackerspace\.tbl/ {
 }
 
 
-node /tbl-h10-steam/ {
+node /tbl-h10-test/ {
   include role::test_workstation
 }
 

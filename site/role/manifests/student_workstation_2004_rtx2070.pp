@@ -29,6 +29,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::apps::ms_teams
 
   include profile::games::minecraft
+  include profile::games::steam
 
   include profile::multimedia::players_and_viewers
   include profile::multimedia::utils_and_codecs
