@@ -71,7 +71,7 @@ class profile::games::steam {
   # place this in the steam launch script at /usr/bin/steam right before the script exec's the launcher
   $custom_command = '
 # CUSTOM VIA PUPPET - link steamapps (game install) dir to local /shared/ directory
-rm -r "/home/$USER/.local/share/Steam/steamapps" # removes steam directory in home drive
+rm -rf "/home/$USER/.local/share/Steam/steamapps" # removes steam directory in home drive
 mkdir -p "/shared/$USER/steamapps" # makes user > steamapps in shared directory under user
 ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the shared folder to user local home
 
@@ -84,6 +84,13 @@ ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the sh
     after     => '^cd "\$LAUNCHSTEAMDIR"$', # regex
     line      => $custom_command,
     subscribe => Package['steam'],
+  }
+
+  # fix error in rm line on first install...
+  file_line { 'steamapps-fix1':
+    path  => '/usr/bin/steam',
+    match => '^rm -r "\/home\/\$USER\/\.local\/share\/Steam\/steamapps',
+    line  => 'rm -rf "/home/$USER/.local/share/Steam/steamapps" # removes steam directory in home drive'
   }
 
 }
