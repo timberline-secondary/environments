@@ -7,6 +7,11 @@ class profile::games::steam {
 
   include apt
 
+  ##############################
+  #
+  # Pre-install requirements for steam
+  #
+  #################################
   exec { 'i386':
     command => '/usr/bin/dpkg --add-architecture i386',
     # unless  => '/bin/grep -q i386 /var/lib/dpkg/arch',
@@ -21,10 +26,39 @@ class profile::games::steam {
     require => [Class['apt::update'], Exec['i386'], ]
   }
 
-  package { 'steam':
-    ensure  => latest,
-    require => [Class['apt::update'], Exec['i386'], ]
+
+  ##############################
+  #
+  # Steam deb installation
+  #
+  #################################
+
+  include gdebi
+
+  archive { '/tmp/steam.deb':
+    ensure => present,
+    source => 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb',
   }
+
+  package { 'steam':
+      ensure    => latest,
+      provider  => gdebi,
+      source    => '/tmp/steam.deb',
+      subscribe => Archive['/tmp/discord.deb'],
+      require   => [Class['apt::update'], Exec['i386'], ]
+  }
+
+
+  # package { 'steam':
+  #   ensure  => latest,
+  #   require => [Class['apt::update'], Exec['i386'], ]
+  # }
+
+  ##############################
+  #
+  # Steam post-install stuff
+  #
+  #################################
 
   # Remove the update notifier to prevent pop-up on all users.
   file { 'steam-update-notifier':
@@ -44,10 +78,10 @@ ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the sh
 '
 
   file_line { 'steamapps':
-    path      => '/usr/games/steam',
+    path      => '/usr/bin/steam',
     match     => 'CUSTOM VIA PUPPET',
     replace   => false,
-    after     => '# launch the Valve run script',
+    after     => 'cd "$LAUNCHSTEAMDIR"',
     line      => $custom_command,
     subscribe => Package['steam'],
   }
