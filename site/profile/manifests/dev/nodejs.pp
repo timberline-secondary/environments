@@ -2,7 +2,6 @@
 class profile::dev::nodejs {
 
   class { 'nodejs':
-    version => 'latest',
   }
 
 }
