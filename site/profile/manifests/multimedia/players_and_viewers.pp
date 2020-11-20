@@ -49,13 +49,11 @@ class profile::multimedia::players_and_viewers {
 
   # manually add public key to /etc/apt/trusted.gpg.d/ directory
 
-  apt::source { 'spotify-stable-repo':
+  apt::source { 'spotify-stable-repo2':
     location => 'http://repository.spotify.com',
     release  => 'stable',
     repos    => 'non-free',
     key      => {
-    #   id     => '2EBF997C15BDA244B6EBF5D84773BD5E130D1D45',
-    #   id     => '931FF8E79F0876134EDDBDCCA87FF9DF48BF1C90',
       id     => '8FD3D9A8D3800305A9FFF259D1742AD60D811D58',
       # id     => 'D1742AD60D811D58',
       server => 'hkp://keyserver.ubuntu.com:80',
@@ -63,7 +61,7 @@ class profile::multimedia::players_and_viewers {
   }
   package { 'spotify-client':
     ensure  => latest,
-    require => [ Class['apt::update'], Apt::Source['spotify-stable-repo'] ],
+    require => [ Class['apt::update'], Apt::Source['spotify-stable-repo2'] ],
   }
 
 }
