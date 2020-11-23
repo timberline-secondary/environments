@@ -31,7 +31,7 @@ class profile::multimedia::players_and_viewers {
   }
 
   package { 'kaku':
-    ensure    => latest,
+    ensure    => purged,
     provider  => gdebi,
     source    => '/tmp/Kaku.deb',
     subscribe => Archive['/tmp/Kaku.deb']
@@ -60,7 +60,7 @@ class profile::multimedia::players_and_viewers {
     },
   }
   package { 'spotify-client':
-    ensure  => latest,
+    ensure  => purged,
     require => [ Class['apt::update'], Apt::Source['spotify-stable-repo2'] ],
   }
 
