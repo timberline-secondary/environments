@@ -1,10 +1,10 @@
+##########################
+#
+#   LUTRIS (Open Gaming Platform)
+#   See: https://lutris.net/downloads/
+#
+###########################
 class profile::games::lutris {
-  ##########################
-  #
-  #   LUTRIS (Open Gaming Platform)
-  #   See: https://lutris.net/downloads/
-  #
-  ###########################
 
   include profile::common::wine
 
@@ -26,5 +26,29 @@ class profile::games::lutris {
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Ppa['ppa:lutris-team/lutris'] ],
   }
+
+  ########################
+  #
+  # LEAGUE OF LEGENDS
+  #
+  ########################
+
+  # League of Legends' anticheat requires using a modified version of wine and changing a system setting. 
+  # Otherwise, the game will crash after champion select. 
+  # Wine-lol comes with the Lutris installer, but as far as this script can detect, the setting has not been changed yet.
+  # Note: The setting (abi.vsyscall32=0) may reduce the performance of some 32 bit applications.
+  # sudo sh -c 'echo "abi.vsyscall32 = 0" >> /etc/sysctl.conf && sysctl -p'
+
+  file_line { 'update_sysctl.conf_for_league':
+    path => '/etc/sysctl.conf',
+    line => 'abi.vsyscall32 = 0',
+  }
+
+  exec { 'sysctl -p':
+    subscribe   => File_line['update_sysctl.conf_for_league'],
+    refreshonly => true,
+  }
+
+
 
 }
