@@ -44,7 +44,7 @@ class profile::games::lutris {
     line => 'abi.vsyscall32 = 0',
   }
 
-  exec { 'sysctl -p':
+  exec { '/usr/sbin/sysctl -p':
     subscribe   => File_line['update_sysctl.conf_for_league'],
     refreshonly => true,
   }
