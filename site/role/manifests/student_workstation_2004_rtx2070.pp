@@ -51,7 +51,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::dev::python
   include profile::dev::vs_code
   # include profile::dev::docker
-  include profile::dev::nodejs
+  # include profile::dev::nodejs
   include profile::dev::vim
   # include profile::dev::processing
   # include profile::dev::virtual_machines
