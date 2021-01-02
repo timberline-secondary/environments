@@ -1,7 +1,7 @@
 # configure wacom tablet when user logs in.
 class profile::config::xsetwacom {
 
-  file { '/etc/motd':
+  file { '/etc/profile.d/configure_wacom.sh':
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
