@@ -5,6 +5,7 @@ class profile::config::xsetwacom {
     owner   => 'root',
     group   => 'root',
     mode    => '0755',
+    notify  => Reboot['after_run'],
     content => '#!/bin/bash
 # Map Intuos5 Medium to single monitor and maintain aspect ratio (1200 instead of 1080)
 xsetwacom --set "Wacom Intuos5 touch M Pen stylus" MapToOutput 1920x1200+0+0
