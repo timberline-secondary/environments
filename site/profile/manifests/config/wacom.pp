@@ -1,22 +1,27 @@
 # configure wacom tablet when user logs in.
 class profile::config::wacom {
 
+  # remove some old files from testing... (delete these lines after while)
   file { '/etc/profile.d/configure_wacom.sh':
     ensure => absent
   }
 
-  file { 'wacom_hackerspace':
-    path   => '/usr/local/bin/wacom_hackerspace.sh',
+  file { '/usr/local/bin/wacom-hackerspace.sh':
+    ensure => absent
+  }
+
+  file { 'h10-wacom':
+    path   => '/usr/local/bin/h10-wacom',
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
     # notify  => Reboot['after_run'],
-    source => 'puppet:///modules/profile/config/wacom_hackerspace.sh',
+    source => "puppet:///modules/${module_name}/h10-wacom",
   }
 
 
 systemd::unit_file { 'h10-wacom.service':
-  source => 'puppet:///modules/profile/config/h10-wacom.service',
+  source => "puppet:///modules/${module_name}/h10-wacom.service",
 }
 ~> service {'h10-wacom':
   ensure => 'running',
