@@ -16,7 +16,7 @@ class profile::config::wacom {
     group  => 'root',
     mode   => '0755',
     # notify  => Reboot['after_run'],
-    source => "puppet:///modules/${module_name}/h10-wacom",
+    source => "puppet:///modules/${module_name}/h10-wacom.sh",
   }
 
 
