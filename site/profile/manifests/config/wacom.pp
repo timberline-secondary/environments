@@ -16,15 +16,16 @@ class profile::config::wacom {
     group  => 'root',
     mode   => '0755',
     # notify  => Reboot['after_run'],
-    source => "puppet:///modules/profile/config/h10-wacom.sh",
+    source => 'puppet:///modules/profile/config/h10-wacom.sh',
   }
 
 
-systemd::unit_file { 'h10-wacom.service':
-  source => "puppet:///modules/profile/config/h10-wacom.service",
-}
-~> service {'h10-wacom':
-  ensure => 'running',
-}
+#This doesn't work
+# systemd::unit_file { 'h10-wacom.service':
+#   source => "puppet:///modules/profile/config/h10-wacom.service",
+# }
+# ~> service {'h10-wacom':
+#   ensure => 'running',
+# }
 
 }

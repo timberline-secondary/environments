@@ -22,5 +22,12 @@ class profile::base {
     ensure  => latest,
   }
 
+  file { '/usr/local/bin/h10-motd':
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/profile/config/h10-motd.sh',
+  }
+
 
 }
