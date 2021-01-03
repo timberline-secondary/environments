@@ -6,7 +6,7 @@ class profile::config::wacom {
     ensure => absent
   }
 
-  file { '/usr/local/bin/wacom-hackerspace.sh':
+  file { '/usr/local/bin/wacom_hackerspace.sh':
     ensure => absent
   }
 
