@@ -1,5 +1,5 @@
 # configure wacom tablet when user logs in.
-class profile::config::xsetwacom {
+class profile::config::wacom {
 
   file { '/etc/profile.d/configure_wacom.sh':
     ensure => absent
