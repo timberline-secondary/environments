@@ -26,6 +26,7 @@ mod 'gizmoguy-lightdm',         '0.1.1'
 mod 'stm-debconf',              '3.0.0'
 mod 'puppetlabs-docker',        '3.12.1'
 mod 'puppet-nodejs',            '8.1.0'
+mod 'camptocamp-systemd',       '2.10.0'
 
 # Modules from Git
 # Examples: https://github.com/puppetlabs/r10k/blob/master/doc/puppetfile.mkd#examples

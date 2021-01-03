@@ -16,7 +16,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::config::restart_daily
   include profile::config::printers
   include profile::config::timezone
-  include profile::config::xsetwacom
+  include profile::config::wacom
 
   include profile::apps::blender
   include profile::apps::krita

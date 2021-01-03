@@ -1,0 +1,12 @@
+[Unit]
+#https://unix.stackexchange.com/questions/597990/enabled-systemd-user-service-doesnt-start-at-login
+Description=Configure Wacom tablet if plugged in when a user logs in to the GUI
+After=graphical-session.target
+Requires=graphical-session.target
+
+[Service]
+ExecStart=/usr/local/bin/wacom_hackerspace.sh
+Type=oneshot
+
+[Install]
+WantedBy=graphical-session.target
