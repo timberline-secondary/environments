@@ -10,13 +10,17 @@ class profile::config::wacom {
     ensure => absent
   }
 
+  file { '/usr/local/bin/h10-wacom.sh':
+    ensure => absent
+  }
+
   file { 'h10-wacom':
     path   => '/usr/local/bin/h10-wacom',
     owner  => 'root',
     group  => 'root',
     mode   => '0755',
     # notify  => Reboot['after_run'],
-    source => 'puppet:///modules/profile/config/h10-wacom.sh',
+    source => 'puppet:///modules/profile/config/h10-wacom.py',
   }
 
 
