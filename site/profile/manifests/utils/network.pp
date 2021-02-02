@@ -1,7 +1,7 @@
 #
 class profile::utils::network {
 
-  package { 'nettools':
+  package { 'net-tools':
     ensure  => latest,
   }
 
