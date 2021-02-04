@@ -44,10 +44,13 @@ for possible_device in possible_devices:
 
         # get everything in the string up to the id:
         # https://stackoverflow.com/questions/3850074/regex-until-but-not-including
-        device_name = re.match('(?:(?!id: ).)*', device).group(0).strip()
+        device_name = re.match('(?:(?!id: ).)*', device)
         device_name = device_name.group(0).strip()
         if device_name and possible_device in devices_to_map:
-            result = subprocess.run(['xsetwacom', '--set', device_name, MAP_TO_OUTPUT_PARAMS], text=True, capture_output=True).stdout
+            # print(device_name)
+            command = f"xsetwacom --set '{device_name}' {MAP_TO_OUTPUT_PARAMS}"
+            # print(command)
+            result = subprocess.run([command], text=True, capture_output=True, shell=True).stdout
             if result == '':
                 print(f"{possible_device} has been mapped to the left-most monitor.")
             else:
