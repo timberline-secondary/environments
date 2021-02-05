@@ -6,7 +6,7 @@ class profile::apps::krita {
     ensure  => absent,
   }
 
-  $version = '4.4.1'
+  $version = '4.4.2'
   $filename = "krita-${version}-x86_64.appimage"
   $executable = "/opt/${filename}"
   $url = "https://download.kde.org/stable/krita/${version}/${filename}"
