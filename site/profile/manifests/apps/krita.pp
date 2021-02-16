@@ -2,9 +2,9 @@
 class profile::apps::krita {
 
   # there's a bug in QT that causes the repo version of Krita to not work, so instead install the app image
-  package { 'krita':
-    ensure  => absent,
-  }
+  # package { 'krita':
+  #   ensure  => absent,
+  # }
 
   $version = '4.4.2'
   $filename = "krita-${version}-x86_64.appimage"
