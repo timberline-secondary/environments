@@ -17,6 +17,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::config::printers
   include profile::config::timezone
   include profile::config::wacom
+  include profile::config::dns
 
   include profile::apps::blender
   include profile::apps::krita
