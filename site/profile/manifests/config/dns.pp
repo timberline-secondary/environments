@@ -13,7 +13,6 @@ server ${$dns_server_ip}
 update delete ${fqdn} A
 update add ${fqdn} 86400 A ${ip}
 send
-
 "
   }
 
