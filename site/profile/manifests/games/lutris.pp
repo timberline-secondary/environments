@@ -8,6 +8,8 @@ class profile::games::lutris {
 
   include profile::common::wine
 
+
+
   apt::ppa { 'ppa:lutris-team/lutris':
     ensure  => present,
     require => Package['apt-transport-https']
@@ -49,6 +51,10 @@ class profile::games::lutris {
     refreshonly => true,
   }
 
+  # Needed for League of Legends installer
+  package { 'dialog':
+    ensure  => latest,
+  }
 
 
 }
