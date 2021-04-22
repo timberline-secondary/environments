@@ -28,7 +28,7 @@ send
   # workstation on the network for a bit longer at least, but puppet is still required to update the 
   # /etc/nsupdate file to ensure it has the wokrstation's current IP, in case it hase changed
   cron { 'nsupdate':
-    command => '/usr/sbin/nsupdate /etc/nsupdate',
+    command => '/usr/bin/nsupdate /etc/nsupdate',
     user    => 'root',
     minute  => 0,  # once per hour on minute 0
     require => File['/etc/nsupdate']
