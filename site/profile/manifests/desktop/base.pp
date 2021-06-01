@@ -32,14 +32,14 @@ class profile::desktop::base {
 
 
   # Graphics drivers (installed in preseed, this keeps them up to date)
-  package { 'nvidia-driver-440':
+  package { 'nvidia-driver-460':
     ensure  => latest,
     require => Package['ubuntu-desktop'],
     notify  => Reboot['after_run'],
   }
   package { 'nvidia-cuda-toolkit':
     ensure  => latest,
-    require => Package['nvidia-driver-440'],
+    require => Package['nvidia-driver-460'],
     notify  => Reboot['after_run'],
   }
 
