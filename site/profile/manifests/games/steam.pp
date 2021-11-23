@@ -21,7 +21,7 @@ class profile::games::steam {
     require => [Class['apt::update'], Exec['i386'], ]
   }
 
-  package { ['libc6:amd64, libgl1-mesa-dri:amd64, libgl1:amd64, steam-libs-amd64:amd64']:
+  package { ['libc6:amd64', 'libgl1-mesa-dri:amd64', 'libgl1:amd64', 'steam-libs-amd64:amd64']:
     ensure  => latest,
     # require => [Class['apt::update'], Package['steam'], ]
   }
