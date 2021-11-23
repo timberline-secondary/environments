@@ -7,6 +7,16 @@ class profile::config::dns {
   $fqdn = $facts['networking']['fqdn']
   $ip = $facts['networking']['ip']
 
+  # Contents of the file /etc/nsupdate should be something like:
+  #
+  #server 192.168.66.40
+  #update delete tbl-h10-0.hackerspace.tbl A
+  #update add tbl-h10-0.hackerspace.tbl 86400 A 192.168.43.141
+  #send
+
+  # Needs to run during install too, to make reimaging easier (puppet certificates)
+  # See late-command /var/www/html/preseeds/20.04/user-data on lannister
+
   file { '/etc/nsupdate':
     ensure  => 'present',
     content => "
