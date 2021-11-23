@@ -16,14 +16,14 @@ class profile::games::steam {
     command => '/usr/bin/dpkg --add-architecture i386',
     # unless  => '/bin/grep -q i386 /var/lib/dpkg/arch',
   }
-  package { 'libnvidia-gl-440:i386':
+  package { ['steam-libs-i386:i386']:
     ensure  => latest,
     require => [Class['apt::update'], Exec['i386'], ]
   }
 
-  package { 'libgl1-mesa-glx:i386':
+  package { ['libc6:amd64, libgl1-mesa-dri:amd64, libgl1:amd64, steam-libs-amd64:amd64']:
     ensure  => latest,
-    require => [Class['apt::update'], Exec['i386'], ]
+    # require => [Class['apt::update'], Package['steam'], ]
   }
 
 
