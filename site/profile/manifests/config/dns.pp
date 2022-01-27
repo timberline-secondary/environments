@@ -40,9 +40,9 @@ class profile::config::dns {
   # workstation on the network for a bit longer at least, but puppet is still required to update the 
   # /etc/nsupdate file to ensure it has the wokrstation's current IP, in case it hase changed
   cron { 'nsupdate':
-    command => "${command} | /usr/bin/nsupdate",
+    command => "/usr/bin/nsupdate",
     user    => 'root',
-    #minute  => '*',  # every min
+    minute  => '*/5',  # every 5 min
     # require => File['/etc/nsupdate']
   }
 
