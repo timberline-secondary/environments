@@ -29,7 +29,7 @@ class profile::config::dns {
 
   $command = "echo \"server${dns_server_ip}\n \
   update delete $(/usr/bin/hostname).hackerspace.tbl A\n \
-  update add $(/usr/bin/hostname).hackerspace.tbl 86400 A $(/usr/bin/ip address show up)\" | grep -Pwo '192\.168\.43\.[0-9]{1,3}')\n \
+  update add $(/usr/bin/hostname).hackerspace.tbl 86400 A)\" | grep -Pwo '(?<=inet )192\.168\.43\.[0-9]{1,3}'\n \
   send\n"
 
   exec { 'nsupdate':
