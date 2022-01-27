@@ -42,7 +42,7 @@ class profile::config::dns {
   cron { 'nsupdate':
     command => "${command} | /usr/bin/nsupdate",
     user    => 'root',
-    minute  => '*/5',  # every 5 mins
+    minute  => '*',  # every min
     # require => File['/etc/nsupdate']
   }
 
