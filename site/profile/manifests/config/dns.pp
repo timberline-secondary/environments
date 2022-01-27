@@ -27,10 +27,7 @@ class profile::config::dns {
 # "
 #   }
 
-  $command = "echo \"server${dns_server_ip}\n \
-  update delete $(/usr/bin/hostname).hackerspace.tbl A\n \
-  update add $(/usr/bin/hostname).hackerspace.tbl 86400 A)\" | grep -Pwo '(?<=inet )192\.168\.43\.[0-9]{1,3}'\n \
-  send\n"
+  $command = "echo \"server ${dns_server_ip}\nupdate delete $(/usr/bin/hostname).hackerspace.tbl A\nupdate add $(/usr/bin/hostname).hackerspace.tbl 86400 A $(ip address show up | grep -Pwo '(?<=inet )192\.168\.43\.[0-9]{1,3}')\nsend\""
 
   exec { 'nsupdate':
     # path     => ['/bin', '/usr/bin'],  # all paths fully qualified so not needed
