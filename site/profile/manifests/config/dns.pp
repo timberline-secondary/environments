@@ -27,16 +27,16 @@ class profile::config::dns {
 # "
 #   }
 
-  $command = "echo \"server ${dns_server_ip}\nupdate delete $(/usr/bin/hostname).hackerspace.tbl A\nupdate add $(/usr/bin/hostname).hackerspace.tbl 86400 A $(ip address show up | grep -Pwo '(?<=inet )192\.168\.43\.[0-9]{1,3}')\nsend\""
+  # $command = "echo \"server ${dns_server_ip}\\nupdate delete $(/usr/bin/hostname).hackerspace.tbl A\\nupdate add $(/usr/bin/hostname).hackerspace.tbl 86400 A $(ip address show up | grep -Pwo '(?<=inet )192\.168\.43\.[0-9]{1,3}')\\nsend\" > /etc/nsupdate && /usr/bin/nsupdate /etc/nsupdate"
 
-  exec { 'nsupdate':
-    # path     => ['/bin', '/usr/bin'],  # all paths fully qualified so not needed
-    command  => "${command} | /usr/bin/nsupdate",
-    provider => 'shell',
-    # require  => File['/etc/nsupdate'],
-  }
+  # exec { 'nsupdate':
+  #   # path     => ['/bin', '/usr/bin'],  # all paths fully qualified so not needed
+  #   command  => "${command} | /usr/bin/nsupdate",
+  #   provider => 'shell',
+  #   # require  => File['/etc/nsupdate'],
+  # }
 
-  # The cronw ill keep running even if puppet runs are failing, this will keep the 
+  # The cron will keep running even if puppet runs are failing, this will keep the 
   # workstation on the network for a bit longer at least, but puppet is still required to update the 
   # /etc/nsupdate file to ensure it has the wokrstation's current IP, in case it hase changed
   cron { 'nsupdate':
