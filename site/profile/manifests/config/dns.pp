@@ -40,7 +40,7 @@ class profile::config::dns {
   # workstation on the network for a bit longer at least, but puppet is still required to update the 
   # /etc/nsupdate file to ensure it has the wokrstation's current IP, in case it hase changed
   cron { 'nsupdate':
-    command => "echo \"server ${dns_server_ip}\\nupdate delete $(/usr/bin/hostname).hackerspace.tbl\" > /etc/nsupdate && /usr/bin/nsupdate /etc/nsupdate",
+    command => "echo \"server ${dns_server_ip}\\nupdate delete $(/usr/bin/hostname).hackerspace.tbl A\\nupdate add $(/usr/bin/hostname).hackerspace.tbl 86400 A $(ip address show up | grep -Pwo '(?<=inet )192\.168\.43\.[0-9]{1,3}')\\nsend\" > /etc/nsupdate && /usr/bin/nsupdate /etc/nsupdate",
     user    => 'root',
     minute  => '*/5',  # every 5 min
     # require => File['/etc/nsupdate']
