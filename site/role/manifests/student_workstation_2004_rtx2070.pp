@@ -58,6 +58,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::dev::vim
   # include profile::dev::processing
   # include profile::dev::virtual_machines
+  include profile::dev::arduino
 
 }
 
