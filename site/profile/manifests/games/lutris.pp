@@ -55,6 +55,9 @@ class profile::games::lutris {
   package { 'dialog':
     ensure  => latest,
   }
+  package { 'libfreetype6:i386':
+    ensure  => latest,
+  }
 
 
 }
