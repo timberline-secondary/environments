@@ -51,7 +51,7 @@ class profile::games::lutris {
     refreshonly => true,
   }
 
-  # Needed for League of Legends installer
+  ## Needed for League of Legends installer
   package { 'dialog':
     ensure  => latest,
   }
@@ -59,5 +59,20 @@ class profile::games::lutris {
     ensure  => latest,
   }
 
+  apt::ppa { 'ppa:ppa:damentz/liquorix':
+    ensure  => present,
+  }
+  package { 'linux-image-liquorix-amd64':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Ppa['ppa:ppa:damentz/liquorix'] ],
+    notify  => Reboot['after_run'],
+  }
+  package { 'linux-headers-liquorix-amd64':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Ppa['ppa:ppa:damentz/liquorix'] ],
+    notify  => Reboot['after_run'],
+  }
+
+  ## END LOL DEPENDANCIES ##
 
 }
