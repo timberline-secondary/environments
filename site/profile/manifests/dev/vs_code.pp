@@ -11,7 +11,7 @@ class profile::dev::vs_code {
     cache_dir   => '/var/cache/wget',
   }
   ~> package { 'Microsoft-product-packages':
-    ensure   => latest,
+    ensure   => present,
     provider => gdebi,
     source   => '/tmp/packages-microsoft-prod.deb',
   }
