@@ -8,7 +8,7 @@ class profile::games::minecraft {
   }
 
   package { 'minecraft':
-    ensure    => installed,
+    ensure    => latest,
     provider  => gdebi,
     source    => '/tmp/minecraft.deb',
     subscribe => Archive['/tmp/minecraft.deb']
