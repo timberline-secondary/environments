@@ -22,6 +22,10 @@ class profile::base {
     ensure  => latest,
   }
 
+  package { 'cowsay':
+    ensure => latest,
+  }
+
   file { '/usr/local/bin/h10-motd':
     owner  => 'root',
     group  => 'root',
