@@ -8,6 +8,7 @@ class profile::config::grub {
   $kernel_headers = "linux-headers-${kernel_id}"
 
   file_line { '/etc/default/grub':
+    path   => '/etc/default/grub',
     line   => "GRUB_DEFAULT=\"${grub_menu_kernel}\"",
     match  => '^GRUB_DEFAULT',
     notify => Exec['update_grub', 'pin_kernel'],
