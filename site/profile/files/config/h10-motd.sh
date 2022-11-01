@@ -1,6 +1,8 @@
 #!/bin/bash
-RED='\033[1;31m'
-NC='\033[0m'
+declare -a MOTDS
+mapfile -t MOTDS < /usr/local/bin/h10-motd.txt
+
 echo "Thanks for checking the Hackerspace's Message Of The Day!"
-echo "Here is today's message:"
-echo -e "> ${RED}Tetris is the GOAT.${NC}"
+
+day=$( date +%d )
+cowsay -f /usr/local/bin/h10-motd.cow "${MOTDS[ day - 1 ]}"
