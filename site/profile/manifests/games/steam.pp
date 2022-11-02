@@ -13,6 +13,7 @@ class profile::games::steam {
   #
   ###############################
   exec { 'i386':
+    path    => '/usr/bin:/usr/sbin:/bin',
     command => '/usr/bin/dpkg --add-architecture i386',
     onlyif  => 'test ! `cat /var/lib/dpkg/arch | grep i386`'
   }
