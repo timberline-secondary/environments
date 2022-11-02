@@ -66,12 +66,12 @@ class profile::games::lutris {
   package { 'linux-image-liquorix-amd64':
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Ppa['ppa:damentz/liquorix'] ],
-    notify  => Reboot['after_run'],
+    # notify  => Reboot['after_run'],
   }
   package { 'linux-headers-liquorix-amd64':
     ensure  => latest,
     require => [ Class['apt::update'], Apt::Ppa['ppa:damentz/liquorix'] ],
-    notify  => Reboot['after_run'],
+    # notify  => Reboot['after_run'],
   }
 
   ## END LOL DEPENDANCIES ##

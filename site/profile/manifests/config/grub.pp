@@ -10,6 +10,8 @@ class profile::config::grub {
 
   package {$kernel_image:
     ensure  => latest,
+    # if it's a liquorix kernel:
+    require => Package['linux-image-liquorix-amd64', 'linux-headers-liquorix-amd64' ]
   }
 
   file_line { '/etc/default/grub':
