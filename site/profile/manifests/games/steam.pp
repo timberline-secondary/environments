@@ -7,24 +7,41 @@ class profile::games::steam {
 
   include apt
 
+  ############################
+  #
+  # Simplified STEAM install now, just need to add i386
+  #
+  ###############################
+  exec { 'i386':
+    command => '/usr/bin/dpkg --add-architecture i386',
+    onlyif  => 'test ! `cat /var/lib/dpkg/arch | grep i386`'
+  }
+
+  package { 'steam' :
+    ensure   => latest,
+    requires => [ Exec['i386'], Class['apt::update'], ]
+  }
+
+
   ##############################
   #
   # Pre-install requirements for steam
   #
   #################################
-  exec { 'i386':
-    command => '/usr/bin/dpkg --add-architecture i386',
-    # unless  => '/bin/grep -q i386 /var/lib/dpkg/arch',
-  }
-  package { ['steam-libs-i386:i386', 'libc6:i386', 'libegl1:i386', 'libgbm1:i386', 'libgl1-mesa-dri:i386', 'libgl1:i386', 'libnvidia-gl-470:i386']:
-    ensure  => latest,
-    require => [Class['apt::update'], Exec['i386'], ]
-  }
+  # exec { 'i386':
+  #   command => '/usr/bin/dpkg --add-architecture i386',
+  #   # unless  => '/bin/grep -q i386 /var/lib/dpkg/arch',
+  # }
 
-  package { ['libc6:amd64', 'libgl1-mesa-dri:amd64', 'libgl1:amd64', 'libgbm1:amd64', 'steam-libs-amd64:amd64']:
-    ensure  => latest,
-    # require => [Class['apt::update'], Package['steam'], ]
-  }
+  # package { ['steam-libs-i386:i386', 'libc6:i386', 'libegl1:i386', 'libgbm1:i386', 'libgl1-mesa-dri:i386', 'libgl1:i386', 'libnvidia-gl-470:i386']:
+  #   ensure  => latest,
+  #   require => [Class['apt::update'], Exec['i386'], ]
+  # }
+
+  # package { ['libc6:amd64', 'libgl1-mesa-dri:amd64', 'libgl1:amd64', 'libgbm1:amd64', 'steam-libs-amd64:amd64']:
+  #   ensure  => latest,
+  #   # require => [Class['apt::update'], Package['steam'], ]
+  # }
 
 
   ##############################
@@ -33,20 +50,20 @@ class profile::games::steam {
   #
   #################################
 
-  include gdebi
+  # include gdebi
 
-  archive { '/tmp/steam.deb':
-    ensure => present,
-    source => 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb',
-  }
+  # archive { '/tmp/steam.deb':
+  #   ensure => present,
+  #   source => 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb',
+  # }
 
-  package { 'steam':
-      ensure    => latest,
-      provider  => gdebi,
-      source    => '/tmp/steam.deb',
-      subscribe => Archive['/tmp/discord.deb'],
-      require   => [Class['apt::update'], Exec['i386'], ]
-  }
+  # package { 'steam':
+  #     ensure    => latest,
+  #     provider  => gdebi,
+  #     source    => '/tmp/steam.deb',
+  #     subscribe => Archive['/tmp/discord.deb'],
+  #     require   => [Class['apt::update'], Exec['i386'], ]
+  # }
 
 
   # package { 'steam':
