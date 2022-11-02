@@ -8,7 +8,7 @@ class profile::dev::vs_code {
   wget::fetch { 'packages-microsoft-prod.deb':
     source      => 'https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb',
     destination => '/tmp/',
-    cache_dir   => '/var/cache/wget',
+    # cache_dir   => '/var/cache/wget',
   }
   ~> package { 'Microsoft-product-packages':
     ensure   => present,
