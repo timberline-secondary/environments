@@ -18,8 +18,8 @@ class profile::games::steam {
   }
 
   package { 'steam' :
-    ensure   => latest,
-    requires => [ Exec['i386'], Class['apt::update'], ]
+    ensure  => latest,
+    require => [ Exec['i386'], Class['apt::update'], ]
   }
 
 
