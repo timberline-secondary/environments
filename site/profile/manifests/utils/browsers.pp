@@ -10,9 +10,11 @@ class profile::utils::browsers {
     ensure => latest,
   }
 
-  package { 'chromium-browser':
-      ensure => latest,
-  }
+  # Chromium DOESNT WORK due do being installed as a SNAP which is brokenw ith autofs
+  # https://bugs.launchpad.net/ubuntu/+source/snapd/+bug/1884299
+  # package { 'chromium-browser':
+  #     ensure => latest,
+  # }
 
   #############
   #
@@ -20,27 +22,18 @@ class profile::utils::browsers {
   #
   #############
 
-  # https://tecadmin.net/install-google-chrome-in-ubuntu/
-  # https://ask.puppet.com/question/32773/keeping-the-latest-stable-chrome-installed-ubuntu/
-  # https://www.google.com/linuxrepositories/
+  include gdebi
 
-  include apt
-
-  apt::source { 'google-chrome':
-    comment  => 'Chrome official repo... I think',
-    location => '[arch=amd64] http://dl.google.com/linux/chrome/deb/',
-    release  => 'stable',
-    repos    => 'main',
-    key      => {
-        id     => '4CCA1EAF950CEE4AB83976DCA040830F7FAC5991',
-        source => 'https://dl-ssl.google.com/linux/linux_signing_key.pub',
-        # 'server' => 'hkp://keyserver.ubuntu.com:80', #  default anyway
-    },
+  archive { '/tmp/chrome.deb':
+    ensure => present,
+    source => 'https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb',
   }
 
-  package { 'google-chrome-stable':
-    ensure  => latest,
-    require => [ Class['apt::update'], Apt::Source['google-chrome'] ],
+  package { 'chrome':
+    ensure    => latest,
+    provider  => gdebi,
+    source    => '/tmp/chrome.deb',
+    subscribe => Archive['/tmp/chrome.deb']
   }
 
 }
