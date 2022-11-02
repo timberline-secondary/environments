@@ -60,19 +60,19 @@ class profile::games::lutris {
   }
 
   # CAUSING huge problems...
-  # apt::ppa { 'ppa:damentz/liquorix':
-  #   ensure  => present,
-  # }
-  # package { 'linux-image-liquorix-amd64':
-  #   ensure  => latest,
-  #   require => [ Class['apt::update'], Apt::Ppa['ppa:damentz/liquorix'] ],
-  #   notify  => Reboot['after_run'],
-  # }
-  # package { 'linux-headers-liquorix-amd64':
-  #   ensure  => latest,
-  #   require => [ Class['apt::update'], Apt::Ppa['ppa:damentz/liquorix'] ],
-  #   notify  => Reboot['after_run'],
-  # }
+  apt::ppa { 'ppa:damentz/liquorix':
+    ensure  => present,
+  }
+  package { 'linux-image-liquorix-amd64':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Ppa['ppa:damentz/liquorix'] ],
+    notify  => Reboot['after_run'],
+  }
+  package { 'linux-headers-liquorix-amd64':
+    ensure  => latest,
+    require => [ Class['apt::update'], Apt::Ppa['ppa:damentz/liquorix'] ],
+    notify  => Reboot['after_run'],
+  }
 
   ## END LOL DEPENDANCIES ##
 
