@@ -87,10 +87,10 @@ ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the sh
   }
 
   # fix error in rm line on first install...
-  file_line { 'steamapps-fix1':
-    path  => '/usr/bin/steam',
-    match => '^rm -r "\/home\/\$USER\/\.local\/share\/Steam\/steamapps',
-    line  => 'rm -rf "/home/$USER/.local/share/Steam/steamapps" # removes steam directory in home drive'
-  }
+  # file_line { 'steamapps-fix1':
+  #   path  => '/usr/bin/steam',
+  #   match => '^rm -r "\/home\/\$USER\/\.local\/share\/Steam\/steamapps',
+  #   line  => 'rm -rf "/home/$USER/.local/share/Steam/steamapps" # removes steam directory in home drive'
+  # }
 
 }
