@@ -22,6 +22,24 @@ class profile::base {
     ensure  => latest,
   }
 
+  package { 'cowsay':
+    ensure => latest,
+  }
+
+  file { '/usr/local/bin/h10-motd.txt':
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/profile/config/h10-motd.txt',
+  }
+
+  file { '/usr/local/bin/h10-motd.cow':
+    owner  => 'root',
+    group  => 'root',
+    mode   => '0755',
+    source => 'puppet:///modules/profile/config/h10-motd.cow',
+  }
+
   file { '/usr/local/bin/h10-motd':
     owner  => 'root',
     group  => 'root',
