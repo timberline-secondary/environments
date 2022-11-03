@@ -55,9 +55,12 @@ class profile::games::lutris {
   package { 'dialog':
     ensure  => latest,
   }
-  package { 'libfreetype6:i386':
-    ensure  => latest,
-  }
+  ## MOVED to steam instal because i386 architecture is installed there.
+  # should move that to a common manifest....
+  # package { 'libfreetype6:i386':
+  #   ensure  => latest,
+  #   require => [Exec['i386']]
+  # }
 
   # CAUSING huge problems...
   apt::ppa { 'ppa:damentz/liquorix':

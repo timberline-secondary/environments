@@ -18,6 +18,11 @@ class profile::games::steam {
     onlyif  => 'test ! `cat /var/lib/dpkg/arch | grep i386`'
   }
 
+  package { 'libfreetype6:i386':
+    ensure  => latest,
+    require => [Exec['i386'], Class['apt::update'], ]
+  }
+
   package { 'steam' :
     ensure  => latest,
     require => [ Exec['i386'], Class['apt::update'], ]
