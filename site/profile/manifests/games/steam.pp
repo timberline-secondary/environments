@@ -65,7 +65,7 @@ ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the sh
 
 
 ## OLD steam install thing, this will fail in puppet for new installs
-  file_line { 'steamapps-new':
+  file_line { 'steamapps-OLD':
     path      => '/usr/bin/steam',
     match     => 'CUSTOM VIA PUPPET',
     replace   => false,
