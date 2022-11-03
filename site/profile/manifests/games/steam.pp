@@ -18,6 +18,7 @@ class profile::games::steam {
     onlyif  => 'test ! `cat /var/lib/dpkg/arch | grep i386`'
   }
 
+  # needed for league of legends install on Lutris.... the i386 should be its own common manifest.
   package { 'libfreetype6:i386':
     ensure  => latest,
     require => [Exec['i386'], Class['apt::update'], ]
