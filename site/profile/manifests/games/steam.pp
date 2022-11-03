@@ -32,54 +32,6 @@ class profile::games::steam {
 
   ##############################
   #
-  # Pre-install requirements for steam
-  #
-  #################################
-  # exec { 'i386':
-  #   command => '/usr/bin/dpkg --add-architecture i386',
-  #   # unless  => '/bin/grep -q i386 /var/lib/dpkg/arch',
-  # }
-
-  # package { ['steam-libs-i386:i386', 'libc6:i386', 'libegl1:i386', 'libgbm1:i386', 'libgl1-mesa-dri:i386', 'libgl1:i386', 'libnvidia-gl-470:i386']:
-  #   ensure  => latest,
-  #   require => [Class['apt::update'], Exec['i386'], ]
-  # }
-
-  # package { ['libc6:amd64', 'libgl1-mesa-dri:amd64', 'libgl1:amd64', 'libgbm1:amd64', 'steam-libs-amd64:amd64']:
-  #   ensure  => latest,
-  #   # require => [Class['apt::update'], Package['steam'], ]
-  # }
-
-
-  ##############################
-  #
-  # Steam deb installation
-  #
-  #################################
-
-  # include gdebi
-
-  # archive { '/tmp/steam.deb':
-  #   ensure => present,
-  #   source => 'https://steamcdn-a.akamaihd.net/client/installer/steam.deb',
-  # }
-
-  # package { 'steam':
-  #     ensure    => latest,
-  #     provider  => gdebi,
-  #     source    => '/tmp/steam.deb',
-  #     subscribe => Archive['/tmp/discord.deb'],
-  #     require   => [Class['apt::update'], Exec['i386'], ]
-  # }
-
-
-  # package { 'steam':
-  #   ensure  => latest,
-  #   require => [Class['apt::update'], Exec['i386'], ]
-  # }
-
-  ##############################
-  #
   # Steam post-install stuff
   #
   #################################
@@ -101,7 +53,19 @@ ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the sh
 
 '
 
+## NEW steam install, 
   file_line { 'steamapps':
+    path      => '/usr/games/steam',
+    match     => 'CUSTOM VIA PUPPET',
+    replace   => false,
+    after     => '^export DBUS_FATAL_WARNINGS=0$', # regex line, right before launching steam
+    line      => $custom_command,
+    subscribe => Package['steam'],
+  }
+
+
+## OLD steam install thing, this will fail in puppet for new installs
+  file_line { 'steamapps-new':
     path      => '/usr/bin/steam',
     match     => 'CUSTOM VIA PUPPET',
     replace   => false,
@@ -110,11 +74,5 @@ ln -sf "/shared/$USER/steamapps" "/home/$USER/.local/share/Steam" # links the sh
     subscribe => Package['steam'],
   }
 
-  # fix error in rm line on first install...
-  # file_line { 'steamapps-fix1':
-  #   path  => '/usr/bin/steam',
-  #   match => '^rm -r "\/home\/\$USER\/\.local\/share\/Steam\/steamapps',
-  #   line  => 'rm -rf "/home/$USER/.local/share/Steam/steamapps" # removes steam directory in home drive'
-  # }
 
 }
