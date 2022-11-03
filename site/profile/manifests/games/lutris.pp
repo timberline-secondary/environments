@@ -7,13 +7,27 @@
 class profile::games::lutris {
 
   include profile::common::wine
+  include gdebi
 
+  $lutris_version = '0.5.11'
 
-
-  apt::ppa { 'ppa:lutris-team/lutris':
-    ensure  => present,
-    require => Package['apt-transport-https']
+  archive { '/tmp/lutris.deb':
+    ensure => present,
+    source => "https://github.com/lutris/lutris/releases/download/v${$lutris_version}/lutris_${$lutris_version}_all.deb",
   }
+
+  package { 'lutris':
+    ensure    => latest,
+    provider  => gdebi,
+    source    => '/tmp/lutris.deb',
+    subscribe => Archive['/tmp/lutris.deb']
+  }
+
+
+  # apt::ppa { 'ppa:lutris-team/lutris':
+  #   ensure  => present,
+  #   require => Package['apt-transport-https']
+  # }
   # apt::source { 'lutris-ppa':
   #   location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/',
   #   repos    => '',
@@ -24,10 +38,10 @@ class profile::games::lutris {
   #     'source' => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/Release.key',
   #   },
   # }
-  package { 'lutris':
-    ensure  => latest,
-    require => [ Class['apt::update'], Apt::Ppa['ppa:lutris-team/lutris'] ],
-  }
+  # package { 'lutris':
+  #   ensure  => latest,
+  #   require => [ Class['apt::update'], Apt::Ppa['ppa:lutris-team/lutris'] ],
+  # }
 
   ########################
   #
