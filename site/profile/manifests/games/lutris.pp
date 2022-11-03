@@ -24,10 +24,10 @@ class profile::games::lutris {
   }
 
 
-  # apt::ppa { 'ppa:lutris-team/lutris':
-  #   ensure  => present,
-  #   require => Package['apt-transport-https']
-  # }
+  apt::ppa { 'ppa:lutris-team/lutris':
+    ensure  => absent,
+    require => Package['apt-transport-https']
+  }
   # apt::source { 'lutris-ppa':
   #   location => 'http://download.opensuse.org/repositories/home:/strycore/xUbuntu_16.04/',
   #   repos    => '',
