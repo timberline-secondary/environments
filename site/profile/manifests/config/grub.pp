@@ -2,8 +2,8 @@
 class profile::config::grub {
 
   # Kernel Update to 6.0 is causing boot problems, need to pin kernel
-  # $kernel_id = '5.4.0-131-generic'
-  $kernel_id = '5.19.0-17.2-liquorix-amd64'
+  $kernel_id = '5.4.0-131-generic'
+  # $kernel_id = '5.19.0-17.2-liquorix-amd64'
   $grub_menu_kernel = "Advanced options for Ubuntu>Ubuntu, with Linux ${kernel_id}"
   $kernel_image = "linux-image-${kernel_id}"
   $kernel_headers = "linux-headers-${kernel_id}"
@@ -11,7 +11,7 @@ class profile::config::grub {
   package {$kernel_image:
     ensure  => latest,
     # if it's a liquorix kernel:
-    require => Package['linux-image-liquorix-amd64', 'linux-headers-liquorix-amd64' ]
+    # require => Package['linux-image-liquorix-amd64', 'linux-headers-liquorix-amd64' ]
   }
 
   file_line { '/etc/default/grub':
