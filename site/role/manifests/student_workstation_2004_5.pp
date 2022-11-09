@@ -18,7 +18,7 @@ class role::student_workstation_2004_5 {
   include profile::config::timezone
   include profile::config::wacom
   include profile::config::dns
-  include profile::config::nvidia_drivers_270
+  include profile::config::nvidia_drivers_470
 
   include profile::apps::blender
   include profile::apps::krita

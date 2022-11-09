@@ -30,20 +30,6 @@ class profile::desktop::base {
     # subscribe => Package['ubuntu-desktop'],
   }
 
-
-  # Graphics drivers (installed in preseed, this keeps them up to date)
-  package { 'nvidia-driver-460':
-    ensure  => latest,
-    require => Package['ubuntu-desktop'],
-    notify  => Reboot['after_run'],
-  }
-  package { 'nvidia-cuda-toolkit':
-    ensure  => latest,
-    require => Package['nvidia-driver-460'],
-    notify  => Reboot['after_run'],
-  }
-
-
   # https://help.ubuntu.com/community/NumLock
   package { 'numlockx':
     ensure => latest,

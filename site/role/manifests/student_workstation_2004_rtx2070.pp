@@ -18,7 +18,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::config::timezone
   include profile::config::wacom
   include profile::config::dns
-  include profile::config::nvidia_drivers_270
+  include profile::config::nvidia_drivers_470
   include profile::config::grub
 
   include profile::apps::blender
