@@ -58,16 +58,15 @@ node 'puppet' {
 #   include role::student_workstation_1604_rtx2070
 # }
 
-# New 20.04 installs: tbl-h10-#  (no -s at the end)
-# excludes tbl-h10-1
+
 node /tbl-h10-([0-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9])\.hackerspace\.tbl/ {
-  include role::student_workstation_2004_rtx2070
+  include role::student_workstation_2004_5
 }
 
 # test machines 16 17 19
-node /tbl-h10-1([679])\.hackerspace\.tbl/ {
-  include role::student_workstation_2004_5
-}
+# node /tbl-h10-1([679])\.hackerspace\.tbl/ {
+#   include role::student_workstation_2004_5
+# }
 
 
 node /tbl-h10-test/ {
