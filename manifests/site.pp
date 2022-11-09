@@ -65,7 +65,7 @@ node /tbl-h10-(0|[2-9]|1[0-9]|2[0-9]|3[0-9]|4[0-9])\.hackerspace\.tbl/ {
 }
 
 # test machine
-node /tbl-h10-1.hackerspace\.tbl/ {
+node /tbl-h10-1\.hackerspace\.tbl/ {
   include role::student_workstation_2004_5
 }
 
