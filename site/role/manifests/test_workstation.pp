@@ -1,5 +1,5 @@
 # 
-class role::test_workstation {
+class role::student_workstation_2004_rtx2070 {
   # Each node should have only one role.
   # The role should include all profiles required to make it work.
 
