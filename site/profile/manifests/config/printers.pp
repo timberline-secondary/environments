@@ -3,7 +3,8 @@ class profile::config::printers {
 
   class { '::cups':
     # remove all queues from the node which do not match a cups_queue resource in the current catalog
-    purge_unmanaged_queues => true,
+    # Actually, this just seems to cause errors, and we've reimaged the lab so no stray printers are left anyway.
+    # purge_unmanaged_queues => true,
   }
 
   ###
