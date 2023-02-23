@@ -33,7 +33,7 @@ class role::student_workstation_2004_rtx2070 {
   include profile::apps::ms_teams
 
   include profile::games::minecraft
-  include profile::games::steam
+  # include profile::games::steam
   include profile::games::lutris
   include profile::games::tux_games
 
